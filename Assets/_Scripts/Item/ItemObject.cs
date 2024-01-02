@@ -18,7 +18,7 @@ public class ItemObject : MonoBehaviour
     {
         if(collision.gameObject.CompareTag("Player"))
         {
-            //Inventory.Instance.AddItem(item);
+            Inventory.Instance.AddItem(item);
             Destroy(gameObject);
         }
     }
