@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class SoundManager : MonoBehaviour
@@ -14,20 +12,23 @@ public class SoundManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            audioSource = GetComponent<AudioSource>();
-            DontDestroyOnLoad(this);
         }
-        else
+        else if (instance != this)
         {
-            if (instance != this)
-            {
-                Destroy(this);
-            }
+            Destroy(this);
         }
+
+        audioSource = GetComponent<AudioSource>();
+        DontDestroyOnLoad(gameObject);
     }
 
     // Start is called before the first frame update
     private void Start()
+    {
+        PlayBGM();
+    }
+
+    private void PlayBGM()
     {
         audioSource.clip = bgm;
         audioSource.volume = 0.5f;
@@ -37,6 +38,6 @@ public class SoundManager : MonoBehaviour
     // Update is called once per frame
     //void Update()
     //{
-        
+
     //}
 }
