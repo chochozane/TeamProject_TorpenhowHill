@@ -2,7 +2,9 @@ using UnityEngine;
 
 public class RangedEnemy1 : MonoBehaviour
 {
+    public GameObject projectilePrefab;
     public Transform player;
+    public Transform projectileSpawnPoint;
     public float detectionRange = 30f; // 플레이어를 인식하는 범위
     public float attackRange = 15f; // 공격 범위
     public float moveSpeed = 3f;
@@ -50,17 +52,20 @@ public class RangedEnemy1 : MonoBehaviour
                 // 플레이어가 공격 범위 내에 있을 때 공격
                 if (distanceToPlayer <= attackRange && canAttack)
                 {
-                    Attack();
+                    ShootProjectile();
                     StartCoroutine(AttackCooldown());
                 }
             }
         }
+
+
     }
 
-    private void Attack()
+    void ShootProjectile()
     {
-        // 원거리 공격 로직 구현
-        Debug.Log("원거리 공격");
+        //투사체를 발사하는 로직을 구현합니다.
+        GameObject projectile = Instantiate(projectilePrefab, projectileSpawnPoint.position, Quaternion.identity);
+        //projectile.GetComponent<Rigidbody2D>().velocity = (playerTransform.position - projectileSpawnPoint.position).normalized * projectileSpeed;
     }
 
     private System.Collections.IEnumerator AttackCooldown()
