@@ -1,6 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Rendering.PostProcessing;
+using TMPro;
 
 public class Brightness : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class Brightness : MonoBehaviour
 
     [SerializeField] private PostProcessProfile brightnessProfile;
     [SerializeField] private PostProcessLayer layer;
+    [SerializeField] private TMP_Text brightnessPercentageText;
 
     private AutoExposure exposure;
 
@@ -29,5 +31,6 @@ public class Brightness : MonoBehaviour
         {
             exposure.keyValue.value = .05f;
         }
+        brightnessPercentageText.text = ((value * 100).ToString("F0") + "%");
     }
 }
