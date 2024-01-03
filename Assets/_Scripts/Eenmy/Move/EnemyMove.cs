@@ -1,12 +1,21 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyAI : MonoBehaviour
+public class Move : MonoBehaviour
 {
-    public Transform player;
     public float moveSpeed = 3f;
     public float detectionRange = 30f; // 플레이어를 인식하는 범위
+    private Transform player;
 
-    private void Update()
+    void Start()
+    {
+        // 필요에 따라 player를 초기화하는 코드를 추가할 수 있습니다.
+        // 예를 들어, 플레이어의 Transform을 얻어오거나 다른 방식으로 할당할 수 있습니다.
+        player = GameObject.FindGameObjectWithTag("Player").transform;
+    }
+
+    protected virtual void Update()
     {
         if (player != null)
         {
