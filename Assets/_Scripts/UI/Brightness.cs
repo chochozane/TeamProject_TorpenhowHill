@@ -29,7 +29,7 @@ public class Brightness : MonoBehaviour
         }
         else
         {
-            exposure.keyValue.value = .05f;
+            exposure.keyValue.value = .02f;
         }
         brightnessPercentageText.text = ((value * 100).ToString("F0") + "%");
     }
