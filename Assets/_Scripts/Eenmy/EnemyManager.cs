@@ -5,14 +5,13 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
-    public Transform playerTransform;
-    public GameObject meleeEnemyPrefab;
-    public GameObject rangedEnemyPrefab;
+    public Enemy enemyPrefab;
 
     void Start()
-    {
+    {   
+
         // 적을 생성하는 메서드를 호출합니다.
-        SpawnEnemies();
+        SpawnEnemy();
     }
 
     void Update()
@@ -22,16 +21,12 @@ public class EnemyManager : MonoBehaviour
 
     void SpawnEnemies()
     {
-        // 근접 적 생성
-        GameObject meleeEnemy = Instantiate(meleeEnemyPrefab, transform.position, Quaternion.identity);
-        meleeEnemy.GetComponent<Move>().moveSpeed = 3f;
-        meleeEnemy.GetComponent<EnemyStats>().health = 100;
-        meleeEnemy.GetComponent<EnemyStats>().attackDamage = 20;
-
-        // 원거리 적 생성
-        GameObject rangedEnemy = Instantiate(rangedEnemyPrefab, transform.position, Quaternion.identity);
-        rangedEnemy.GetComponent<Move>().moveSpeed = 5f;
-        rangedEnemy.GetComponent<EnemyStats>().health = 80;
-        rangedEnemy.GetComponent<EnemyStats>().attackDamage = 15;
+        Enemy newEnemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity);
+        newEnemy.XP = 50;
+        newEnemy.Hp = 100;
+        newEnemy.AttackCooldown = 2.0f;
+        newEnemy.MoveSpeed = 1.5f;
+        newEnemy.AttackRange = 3.0f;
+        newEnemy.DetectionRange = 30.0f;
     }
 }

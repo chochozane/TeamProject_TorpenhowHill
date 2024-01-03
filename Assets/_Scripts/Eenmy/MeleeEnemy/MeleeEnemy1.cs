@@ -88,12 +88,6 @@ public class MeleeEnemy1 : MonoBehaviour
     {
         // 여기에 적 캐릭터 사망 처리 코드 추가
 
-        // 플레이어에게 경험치 전달
-        //PlayerController playerController = player.GetComponent<PlayerController>();
-        //if (playerController != null)
-        //{
-        //    playerController.GainXP(XP);
-        //}
 
         Destroy(gameObject); // 적 캐릭터 파괴 또는 비활성화
     }

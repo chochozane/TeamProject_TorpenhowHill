@@ -15,19 +15,19 @@ public class RangedEnemy : MonoBehaviour
     void Update()
     {
         //플레이어와 일정 범위에 들어왔을 때 투사체를 발사하는 로직을 구현합니다.
-       float distanceToPlayer = Vector2.Distance(transform.position, playerTransform.position);
+       //float distanceToPlayer = Vector2.Distance(transform.position, playerTransform.position);
 
-        if (distanceToPlayer < shootingRange && Time.time - lastAttackTime > attackDelay)
-        {
-            ShootProjectile();
-            lastAttackTime = Time.time;
-        }
+        //if (distanceToPlayer < shootingRange && Time.time - lastAttackTime > attackDelay)
+        //{
+        //    ShootProjectile();
+        //    lastAttackTime = Time.time;
+        //}
     }
 
     void ShootProjectile()
     {
         //투사체를 발사하는 로직을 구현합니다.
-          GameObject projectile = Instantiate(projectilePrefab, projectileSpawnPoint.position, Quaternion.identity);
-        projectile.GetComponent<Rigidbody2D>().velocity = (playerTransform.position - projectileSpawnPoint.position).normalized * projectileSpeed;
+          //GameObject projectile = Instantiate(projectilePrefab, projectileSpawnPoint.position, Quaternion.identity);
+        //projectile.GetComponent<Rigidbody2D>().velocity = (playerTransform.position - projectileSpawnPoint.position).normalized * projectileSpeed;
     }
 }

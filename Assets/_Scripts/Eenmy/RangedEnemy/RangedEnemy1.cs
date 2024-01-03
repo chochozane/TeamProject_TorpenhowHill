@@ -15,7 +15,7 @@ public class RangedEnemy1 : MonoBehaviour
     private bool canAttack = true;
 
     public int Health = 50;
-    public int XP = 25;
+    public int XP = 20;
 
     private void Start()
     {
