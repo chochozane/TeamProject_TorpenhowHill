@@ -2184,25 +2184,9 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 5355904375513791878, guid: a469eceb6eef79249a523a02ae0a2d15, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5355904375513791878, guid: a469eceb6eef79249a523a02ae0a2d15, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 4
-      objectReference: {fileID: 0}
     - target: {fileID: 5373132531050273219, guid: a469eceb6eef79249a523a02ae0a2d15, type: 3}
       propertyPath: m_RootOrder
       value: 18
-      objectReference: {fileID: 0}
-    - target: {fileID: 5373132531050273219, guid: a469eceb6eef79249a523a02ae0a2d15, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5373132531050273219, guid: a469eceb6eef79249a523a02ae0a2d15, type: 3}
-      propertyPath: m_LocalScale.y
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5373132531050273219, guid: a469eceb6eef79249a523a02ae0a2d15, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2251,6 +2235,10 @@ PrefabInstance:
     - target: {fileID: 8125225101335554319, guid: a469eceb6eef79249a523a02ae0a2d15, type: 3}
       propertyPath: m_Name
       value: Bee
+      objectReference: {fileID: 0}
+    - target: {fileID: 8338286263860950156, guid: a469eceb6eef79249a523a02ae0a2d15, type: 3}
+      propertyPath: m_TagString
+      value: Enemy
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
