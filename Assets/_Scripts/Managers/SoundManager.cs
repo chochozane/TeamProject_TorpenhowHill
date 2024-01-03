@@ -34,10 +34,4 @@ public class SoundManager : MonoBehaviour
         audioSource.volume = 0.5f;
         audioSource.Play();
     }
-
-    // Update is called once per frame
-    //void Update()
-    //{
-
-    //}
 }

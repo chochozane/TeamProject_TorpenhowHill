@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.Rendering.PostProcessing;
@@ -18,7 +16,7 @@ public class Brightness : MonoBehaviour
     private void Start()
     {
         brightnessProfile.TryGetSettings(out exposure);
-        AdjustBrightness(brightnessSlider.value); // 게임 플레이 전에 설정되어 있는 slider 의 value 값에 맞춰서 밝기가 조절되어 플레이 될 것이다.
+        AdjustBrightness(brightnessSlider.value); // 게임 플레이 전에 설정되어 있는 slider 의 value 값에 맞춰서 게임 플레이 시 밝기가 조절되어 있을 것이다.
     }
 
     public void AdjustBrightness(float value)
