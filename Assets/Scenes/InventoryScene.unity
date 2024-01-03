@@ -1709,6 +1709,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d14346a9b835ba9499d586cd1f944fda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiSlots:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   inventoryWindow: {fileID: 1895753655}
   dropPosition: {fileID: 433957343}
   selectedItemName: {fileID: 1406217914}
@@ -2203,8 +2230,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Inventory
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
-  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 64dd8aebb1db8854c81cfa4864fbd6a7, type: 2}
+  m_sharedMaterial: {fileID: 4955362813138115273, guid: 64dd8aebb1db8854c81cfa4864fbd6a7, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

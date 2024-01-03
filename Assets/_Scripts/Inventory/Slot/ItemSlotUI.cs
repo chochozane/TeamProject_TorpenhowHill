@@ -28,6 +28,15 @@ public class ItemSlotUI : MonoBehaviour
         countText = GetComponentInChildren<TextMeshProUGUI>();
     }
 
+    public void Set(ItemSlot slot)
+    {
+        curSlot = slot;
+        icon.gameObject.SetActive(true);
+        icon.sprite = slot.item.icon;
+        countText.text = slot.count > 1 ? slot.count.ToString() : string.Empty;
+
+    }
+
     public void Clear()
     {
         curSlot = null;

@@ -14,6 +14,7 @@ public class Inventory : MonoBehaviour
 {
     public static Inventory Instance;
 
+    public ItemSlotUI[] uiSlots;
     public ItemSlot[] slots;
 
     public GameObject inventoryWindow;
@@ -57,6 +58,11 @@ public class Inventory : MonoBehaviour
         //UI 코드로 연결 해보자~~
     }
 
+    public void OnInventoryButton()
+    {
+        Toggle();
+    }
+
     public void Toggle()
     {
         //inventory Open?
@@ -70,6 +76,20 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    private void UpdateInventoryUI()
+    {
+        for (int i = 0; i < slots.Length; i++)
+        {
+            if (slots[i] != null)
+            {
+                uiSlots[1].Set(slots[i]);
+            }
+            else
+            {
+                uiSlots[i].Clear();
+            }
+        }
+    }
 
     public void AddItem(ItemData item)
     {
@@ -77,13 +97,26 @@ public class Inventory : MonoBehaviour
         //아이템 추가
         if(item.canStack)
         {
-            ItemSlot slotToStackTo = GetItem(item);
+            ItemSlot slotToStackTo = GetItemStack(item);
             if(slotToStackTo != null)
             {
                 slotToStackTo.count++;
+                UpdateInventoryUI();
                 return;
             }
         }
+
+        ItemSlot emptySlot = GetEmptySlot();
+
+        if (emptySlot != null)
+        {
+            emptySlot.item = item;
+            emptySlot.count = 1;
+            UpdateInventoryUI();
+            return;
+        }
+
+
     }
 
     internal void SelectedItem(int index)
@@ -100,9 +133,12 @@ public class Inventory : MonoBehaviour
         selectedItemDescription.text = selectedItem.item.description;
         //selectedItemStatNames.text = string.Empty;
         //selectedItemStatValues.text = string.Empty;
+
+        useButton.SetActive(selectedItem.item.type == ItemType.Consumable);
+        dropButton.SetActive(true);
     }
 
-    ItemSlot GetItem(ItemData item)
+    ItemSlot GetItemStack(ItemData item)
     {
         for (int i = 0; i < slots.Length; i++)
         {
@@ -112,5 +148,55 @@ public class Inventory : MonoBehaviour
             }
         }
         return null;
+    }
+    ItemSlot GetEmptySlot()
+    {
+        for (int i = 0;i < slots.Length;i++)
+        {
+            if (slots[1].item == null)
+            {
+                return slots[i];
+            }
+        }
+        return null;
+    }
+
+
+
+    private void ClearSeletecItem()
+    {
+        selectedItem = null;
+        selectedItemName = null;
+        selectedItemDescription = null;
+
+        useButton.SetActive(false);
+        dropButton.SetActive(false);
+    }
+
+    public void UseButton()
+    {
+        //Item의 효과에 따라 플레이어의 체력을 회복 시켜주자.
+        if(selectedItem.item.type == ItemType.Consumable)
+        {
+            for(int i = 0; i < selectedItem.item.consumables.Length; i++)
+            {
+                switch (selectedItem.item.consumables[i].type)
+                {
+                    //플레이어와 연결...
+                    case ConsumableType.Health:
+                        //PlayerStatus.hp = Mathf.Min(PlayerStatus.hp + selectedItem.item.consumables[i].value, PlayerStatus.maxHp);
+                        break;
+                    case ConsumableType.Hunger:
+                        break;
+                    case ConsumableType.Thirsty:
+                        break;
+                }
+            }
+        }
+    }
+
+    public void DropButton()
+    {
+        //Item의 DropItem을 Vector3(player.transform.position + 1, 0, 0)을 해보자
     }
 }
