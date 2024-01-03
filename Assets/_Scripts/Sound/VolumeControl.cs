@@ -14,7 +14,8 @@ public class VolumeControl : MonoBehaviour
 
     private void Start()
     {
-        soundSlider.value = 0.5f;
+        //soundSlider.value = 0.5f;
+        soundSlider.value = 1f;
     }
 
     public void SetLevel(float sliderValue)
