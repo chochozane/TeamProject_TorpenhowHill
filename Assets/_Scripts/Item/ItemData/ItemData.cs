@@ -27,7 +27,7 @@ public class ItemDataConsumable
 public class ItemData : ScriptableObject
 {
     [Header("Info")]
-    public string Name;
+    public string displayName;
     public string description;
     public ItemType type;
     public Sprite icon;

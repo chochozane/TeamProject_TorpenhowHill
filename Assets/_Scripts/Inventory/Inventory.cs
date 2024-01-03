@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 
 public class ItemSlot
@@ -45,6 +46,24 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        InitInstanceUI();
+        inventoryWindow.SetActive(false);
+        slots = new ItemSlot[uiSlots.Length];
+
+        for (int i = 0; i < slots.Length; i++)
+        {
+            slots[i] = new ItemSlot();
+            uiSlots[i].index = i;
+            uiSlots[i].Clear();
+        }
+    }
+    private void Update()
+    {
+        OnInventoryButton();
+    }
+
     private void InitInstanceUI()
     {
         //item icon
@@ -60,7 +79,10 @@ public class Inventory : MonoBehaviour
 
     public void OnInventoryButton()
     {
-        Toggle();
+        if (Input.GetKeyDown(KeyCode.E))
+        {
+            Toggle();
+        }
     }
 
     public void Toggle()
@@ -80,9 +102,9 @@ public class Inventory : MonoBehaviour
     {
         for (int i = 0; i < slots.Length; i++)
         {
-            if (slots[i] != null)
+            if (slots[i].item != null)
             {
-                uiSlots[1].Set(slots[i]);
+                uiSlots[i].Set(slots[i]);
             }
             else
             {
@@ -93,12 +115,10 @@ public class Inventory : MonoBehaviour
 
     public void AddItem(ItemData item)
     {
-        Debug.Log("EatItem");
-        //아이템 추가
-        if(item.canStack)
+        if (item.canStack)
         {
             ItemSlot slotToStackTo = GetItemStack(item);
-            if(slotToStackTo != null)
+            if (slotToStackTo != null)
             {
                 slotToStackTo.count++;
                 UpdateInventoryUI();
@@ -116,26 +136,28 @@ public class Inventory : MonoBehaviour
             return;
         }
 
-
+        ThrowItem(item);
     }
 
-    internal void SelectedItem(int index)
+    private void ThrowItem(ItemData item)
+    {
+        Instantiate(item.dropPrefab, dropPosition.position, Quaternion.identity);
+    }
+
+    public void SelectedItem(int index)
     {
         if (slots[index].item == null)
-        {
             return;
-        }
 
         selectedItem = slots[index];
         selectedItemIndex = index;
 
-        selectedItemName.text = selectedItem.item.name;
+        selectedItemName.text = selectedItem.item.displayName;
         selectedItemDescription.text = selectedItem.item.description;
-        //selectedItemStatNames.text = string.Empty;
-        //selectedItemStatValues.text = string.Empty;
 
         useButton.SetActive(selectedItem.item.type == ItemType.Consumable);
         dropButton.SetActive(true);
+
     }
 
     ItemSlot GetItemStack(ItemData item)
@@ -143,24 +165,22 @@ public class Inventory : MonoBehaviour
         for (int i = 0; i < slots.Length; i++)
         {
             if (slots[i].item == item && slots[i].count < item.maxStackAmount)
-            {
                 return slots[i];
-            }
         }
+
         return null;
     }
     ItemSlot GetEmptySlot()
     {
-        for (int i = 0;i < slots.Length;i++)
+        for (int i = 0; i < slots.Length; i++)
         {
-            if (slots[1].item == null)
+            if (slots[i].item == null)
             {
                 return slots[i];
             }
         }
         return null;
     }
-
 
 
     private void ClearSeletecItem()
@@ -195,8 +215,99 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    private void RemoveSelectedItem()
+    {
+        selectedItem.count--;
+
+        if (selectedItem.count <= 0)
+        {
+            selectedItem = null;
+            ClearSeletecItem();
+        }
+
+        UpdateInventoryUI();
+    }    
+
     public void DropButton()
     {
         //Item의 DropItem을 Vector3(player.transform.position + 1, 0, 0)을 해보자
+        ThrowItem(selectedItem.item);
+        RemoveSelectedItem();
+    }
+
+    /////////////////////////////////////////////////
+    
+    public bool IsOpen()
+    {
+        return inventoryWindow.activeInHierarchy;
+    }
+
+    public void OnDropButton()
+    {
+        ThrowItem(selectedItem.item);
+        RemoveSelectedItem();
+    }
+
+
+    public bool UHaveItem(ItemData item, int num)
+    {
+        bool have;
+        ItemSlot slotToStackTo = GetItemStack(item);
+        if (slotToStackTo != null)
+        {
+            if (slotToStackTo.count >= num)
+            {
+                have = true;
+                return have;
+            }
+            else
+            {
+                Debug.Log("아이템이 모자랍니다");
+                have = false;
+            }
+        }
+        else
+        {
+            Debug.Log("아이템이 없습니다.");
+            have = false;
+        }
+        return have;
+    }
+    public int CheckItemCount(ItemData item)
+    {
+        int Count = 0;
+        ItemSlot slotToStackTo = GetItemStack(item);
+        if (slotToStackTo != null)
+        {
+            Count = slotToStackTo.count;
+        }
+        return Count;
+    }
+
+    public void RemoveItem(ItemData item, int num)
+    {
+        ItemSlot slotToStackTo = GetItemStack(item);
+        if (slotToStackTo != null)
+        {
+            if (slotToStackTo.count >= num)
+            {
+                slotToStackTo.count -= num;
+                UpdateInventoryUI();
+                return;
+            }
+            else
+            {
+                Debug.Log("아이템이 모자랍니다");
+            }
+        }
+        else
+        {
+            Debug.Log("아이템이 없습니다.");
+        }
+    }
+
+    public bool HasItems(ItemData item, int quantity)
+    {
+        return false;
     }
 }

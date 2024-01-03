@@ -15,8 +15,8 @@ MonoBehaviour:
   Name: "\uB3CC"
   description: "\uB3CC \uC785\uB2C8\uB2E4."
   type: 0
-  icon: {fileID: 0}
-  dropPrefab: {fileID: 0}
+  icon: {fileID: 21300000, guid: b579a157263b8ae4d8dfeebb072e44f2, type: 3}
+  dropPrefab: {fileID: 2175224874652028564, guid: 51efa9c04e308b74f9be4dcf9862c823, type: 3}
   canStack: 1
   maxStackAmount: 99
   consumables: []

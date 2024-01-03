@@ -9,6 +9,7 @@ public class ItemSlotUI : MonoBehaviour
     public Button button;
     public Image icon;
     public TextMeshProUGUI countText;
+
     private ItemSlot curSlot;
     private Outline outLine;
 
@@ -24,8 +25,10 @@ public class ItemSlotUI : MonoBehaviour
         button = GetComponent<Button>();
 
         outLine = GetComponent<Outline>();
+
+        //¾È‰Î..
         //icon = GetComponentInChildren<Image>();
-        countText = GetComponentInChildren<TextMeshProUGUI>();
+        //countText = GetComponentInChildren<TextMeshProUGUI>();
     }
 
     public void Set(ItemSlot slot)

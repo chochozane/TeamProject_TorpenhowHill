@@ -16,7 +16,7 @@ MonoBehaviour:
   description: "\uB098\uBB34 \uC785\uB2C8\uB2E4."
   type: 0
   icon: {fileID: 21300000, guid: 0e1ccb64303778e4081913a6d9cca677, type: 3}
-  dropPrefab: {fileID: 0}
+  dropPrefab: {fileID: 5373643484384565723, guid: 5eeb409641bab4f468dc7865d724c631, type: 3}
   canStack: 1
   maxStackAmount: 99
   consumables: []
