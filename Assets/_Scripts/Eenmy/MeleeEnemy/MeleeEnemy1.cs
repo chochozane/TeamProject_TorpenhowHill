@@ -1,19 +1,21 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class RangedEnemy1 : MonoBehaviour
+public class MeleeEnemy1 : MonoBehaviour
 {
     public Transform player;
     public float detectionRange = 30f; // 플레이어를 인식하는 범위
-    public float attackRange = 15f; // 공격 범위
-    public float moveSpeed = 3f;
+    public float attackRange = 3f; // 공격 범위
+    public float moveSpeed = 1.5f;
     public float attackCooldown = 2f; // 공격 쿨다운
 
 
     private SpriteRenderer characterRenderer;
     private bool canAttack = true;
 
-    public int Health = 50;
-    public int XP = 25;
+    public int Health = 100;
+    public int XP = 50;
 
     private void Start()
     {
@@ -59,8 +61,8 @@ public class RangedEnemy1 : MonoBehaviour
 
     private void Attack()
     {
-        // 원거리 공격 로직 구현
-        Debug.Log("원거리 공격");
+        // 근접 공격 로직 구현
+        Debug.Log("근접공격 Enemy Attacking!");
     }
 
     private System.Collections.IEnumerator AttackCooldown()

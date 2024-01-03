@@ -1137,7 +1137,7 @@ GameObject:
   - component: {fileID: 1027816729}
   m_Layer: 7
   m_Name: Player
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1542,20 +1542,6 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 4537559090194347716, guid: d9775abaf09473340a8d08473bc9f079, type: 3}
   m_PrefabInstance: {fileID: 8666071806136384633}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &1657488581
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1657488577}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 79b7dc45da162f94691e8e78f2d61748, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 3
-  detectionRange: 30
 --- !u!1 &1720033098
 GameObject:
   m_ObjectHideFlags: 0
@@ -2240,6 +2226,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Enemy
       objectReference: {fileID: 0}
+    - target: {fileID: 8814054691891079042, guid: a469eceb6eef79249a523a02ae0a2d15, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2253,6 +2243,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3465706953307442669, guid: d9775abaf09473340a8d08473bc9f079, type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 226433110}
     - target: {fileID: 4537559090194347716, guid: d9775abaf09473340a8d08473bc9f079, type: 3}
       propertyPath: m_Name
       value: AngryPig
@@ -2304,8 +2298,5 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents:
-    - targetCorrespondingSourceObject: {fileID: 4537559090194347716, guid: d9775abaf09473340a8d08473bc9f079, type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 1657488581}
+    m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d9775abaf09473340a8d08473bc9f079, type: 3}
