@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aa0227dd902f6746be86cb8e402ebbe, type: 3}
   m_Name: Rock
   m_EditorClassIdentifier: 
-  Name: "\uB3CC"
+  displayName: "\uB3CC"
   description: "\uB3CC \uC785\uB2C8\uB2E4."
   type: 0
   icon: {fileID: 21300000, guid: b579a157263b8ae4d8dfeebb072e44f2, type: 3}

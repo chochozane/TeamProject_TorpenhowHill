@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aa0227dd902f6746be86cb8e402ebbe, type: 3}
   m_Name: Meat
   m_EditorClassIdentifier: 
-  Name: "\uACE0\uAE30"
+  displayName: "\uACE0\uAE30"
   description: "\uB9DB \uC88B\uC740 \uACE0\uAE30"
   type: 2
   icon: {fileID: 21300000, guid: 14e62563269c11443b9c936be93b95f4, type: 3}

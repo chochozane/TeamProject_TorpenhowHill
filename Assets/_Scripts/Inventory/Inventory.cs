@@ -24,14 +24,11 @@ public class Inventory : MonoBehaviour
     [Header("Selected Item")]
     private ItemSlot selectedItem;
     private int selectedItemIndex;
-
+    public bool activateInventory = false; //test
     public TextMeshProUGUI selectedItemName;
     public TextMeshProUGUI selectedItemDescription;
-    //public TextMeshProUGUI selectedItemStatNames;
-    //public TextMeshProUGUI selectedItemStatValues;
 
     public GameObject useButton;
-    //public GameObject eatButton;
     public GameObject dropButton;
 
     private void Awake()
@@ -75,6 +72,17 @@ public class Inventory : MonoBehaviour
         //useButton
         //dropButton
         //UI 코드로 연결 해보자~~
+
+        //Transform DecractionTransform = transform.Find("InventoryWindow/Inventory/Inventory_BackGround/Bottom/Decraction_Group");
+
+        //selectedItemName = DecractionTransform.Find("Item_Name").GetComponent<TextMeshProUGUI>();
+        //selectedItemDescription = DecractionTransform.Find("Item_Name").GetComponent<TextMeshProUGUI>();
+
+        //useButton = DecractionTransform.Find("Button_Group/UseButton").gameObject;
+        //dropButton = DecractionTransform.Find("Button_Group/DropButton").gameObject;
+
+        //useButton.GetComponent<Button>().onClick.AddListener(UseButton);
+        //dropButton.GetComponent<Button>().onClick.AddListener(DropButton);
     }
 
     public void OnInventoryButton()
@@ -82,12 +90,12 @@ public class Inventory : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             Toggle();
+            ActivateInventory();
         }
     }
 
     public void Toggle()
     {
-        //inventory Open?
         if (inventoryWindow.activeInHierarchy)
         {
             inventoryWindow.SetActive(false);
@@ -95,6 +103,21 @@ public class Inventory : MonoBehaviour
         else
         {
             inventoryWindow.SetActive(true);
+        }
+    }
+
+    //Inventory 활성화 판단하는 메서드
+    public bool ActivateInventory()
+    {
+        if (inventoryWindow.activeInHierarchy)
+        {
+            activateInventory = true; //test
+            return true;
+        }
+        else
+        {
+            activateInventory = false; //test
+            return false;
         }
     }
 
@@ -141,7 +164,7 @@ public class Inventory : MonoBehaviour
 
     private void ThrowItem(ItemData item)
     {
-        Instantiate(item.dropPrefab, dropPosition.position, Quaternion.identity);
+        Instantiate(item.dropPrefab, dropPosition.position + Vector3.down * 2, Quaternion.identity);
     }
 
     public void SelectedItem(int index)
@@ -186,8 +209,9 @@ public class Inventory : MonoBehaviour
     private void ClearSeletecItem()
     {
         selectedItem = null;
-        selectedItemName = null;
-        selectedItemDescription = null;
+        selectedItemName.text = string.Empty;
+        selectedItemDescription.text = string.Empty;
+
 
         useButton.SetActive(false);
         dropButton.SetActive(false);
@@ -200,6 +224,7 @@ public class Inventory : MonoBehaviour
         {
             for(int i = 0; i < selectedItem.item.consumables.Length; i++)
             {
+                Debug.Log("Use Item");
                 switch (selectedItem.item.consumables[i].type)
                 {
                     //플레이어와 연결...
@@ -230,9 +255,10 @@ public class Inventory : MonoBehaviour
 
     public void DropButton()
     {
-        //Item의 DropItem을 Vector3(player.transform.position + 1, 0, 0)을 해보자
+        Debug.Log("Drop Item");
         ThrowItem(selectedItem.item);
         RemoveSelectedItem();
+        UpdateInventoryUI();
     }
 
     /////////////////////////////////////////////////
