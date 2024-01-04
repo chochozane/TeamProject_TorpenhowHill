@@ -21,7 +21,7 @@ public class Brightness : MonoBehaviour
         AdjustBrightness(brightnessSlider.value); // 게임 플레이 전에 설정되어 있는 slider 의 value 값에 맞춰서 게임 플레이 시 밝기가 조절되어 있을 것이다.
     }
 
-    public void AdjustBrightness(float value)
+    public void AdjustBrightness(float value) // slider 부여
     {
         if (value != 0)
         {
