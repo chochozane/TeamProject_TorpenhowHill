@@ -55,6 +55,7 @@ public class Inventory : MonoBehaviour
             uiSlots[i].index = i;
             uiSlots[i].Clear();
         }
+        ClearSeletecItem();
     }
     private void Update()
     {
@@ -238,6 +239,7 @@ public class Inventory : MonoBehaviour
                 }
             }
         }
+        RemoveSelectedItem();
     }
 
     private void RemoveSelectedItem()
@@ -246,7 +248,7 @@ public class Inventory : MonoBehaviour
 
         if (selectedItem.count <= 0)
         {
-            selectedItem = null;
+            selectedItem.item = null;
             ClearSeletecItem();
         }
 
@@ -266,12 +268,6 @@ public class Inventory : MonoBehaviour
     public bool IsOpen()
     {
         return inventoryWindow.activeInHierarchy;
-    }
-
-    public void OnDropButton()
-    {
-        ThrowItem(selectedItem.item);
-        RemoveSelectedItem();
     }
 
 
