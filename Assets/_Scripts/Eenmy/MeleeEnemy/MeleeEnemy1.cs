@@ -1,25 +1,19 @@
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class MeleeEnemy1 : MonoBehaviour
+public class MeleeEnemy1 : Monster
 {
-    public Transform player;
-    public float detectionRange = 30f; // 플레이어를 인식하는 범위
-    public float attackRange = 3f; // 공격 범위
-    public float moveSpeed = 1.5f;
-    public float attackCooldown = 2f; // 공격 쿨다운
 
 
     private SpriteRenderer characterRenderer;
     private bool canAttack = true;
 
-    public int Health = 100;
-    public int XP = 50;
+
 
     private void Start()
     {
-        characterRenderer = GetComponent<SpriteRenderer>();
+        characterRenderer = GetComponent < SpriteRenderer>();
+        SetMonsterStats(); // Monster 스크립트에서 상속받은 메서드 호출
     }
 
     private void Update()
@@ -65,7 +59,7 @@ public class MeleeEnemy1 : MonoBehaviour
         Debug.Log("근접공격 Enemy Attacking!");
     }
 
-    private System.Collections.IEnumerator AttackCooldown()
+    private IEnumerator AttackCooldown()
     {
         // 공격 쿨다운을 설정
         canAttack = false;
@@ -73,12 +67,11 @@ public class MeleeEnemy1 : MonoBehaviour
         canAttack = true;
     }
 
-    public void TakeDamage(float damage)
+    public override void TakeDamage(float damage)
     {
+        maxHP -= (int)damage;
 
-        Health -= (int)damage;
-
-        if (Health <= 0)
+        if (maxHP <= 0)
         {
             Die();
         }
@@ -86,8 +79,7 @@ public class MeleeEnemy1 : MonoBehaviour
 
     private void Die()
     {
-        // 여기에 적 캐릭터 사망 처리 코드 추가
-
+        PlayerStatus.Instance.GainExperience(Xp);
 
         Destroy(gameObject); // 적 캐릭터 파괴 또는 비활성화
     }
