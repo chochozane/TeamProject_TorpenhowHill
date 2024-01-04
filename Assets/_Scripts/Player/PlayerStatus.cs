@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class PlayerStatus : MonoBehaviour
 {
-    // 캐릭터의 경험치와 레벨
-    public static PlayerStatus Instance;
 
+    public static PlayerStatus Instance;
+    // 캐릭터의 경험치와 레벨
     public int Level { get; private set; } = 1;
     private int maxExperience = 1000; // 레벨업에 필요한 경험치
     private float statsMultiplier = 1.8f; // 레벨업 시 스탯 증가 비율

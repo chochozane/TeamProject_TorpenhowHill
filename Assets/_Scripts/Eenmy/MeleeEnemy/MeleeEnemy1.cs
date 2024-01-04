@@ -7,13 +7,14 @@ public class MeleeEnemy1 : Monster
 
     private SpriteRenderer characterRenderer;
     private bool canAttack = true;
-
+    private int currentHP;
 
 
     private void Start()
     {
-        characterRenderer = GetComponent < SpriteRenderer>();
+        characterRenderer = GetComponent<SpriteRenderer>();
         SetMonsterStats(); // Monster 스크립트에서 상속받은 메서드 호출
+        currentHP = maxHP;  // 최대 체력으로 현재 체력을 초기화합니다.
     }
 
     private void Update()
@@ -67,11 +68,11 @@ public class MeleeEnemy1 : Monster
         canAttack = true;
     }
 
-    public override void TakeDamage(float damage)
+    public override void TakeDamage(int damage)
     {
-        maxHP -= (int)damage;
+        currentHP -= (int)damage;
 
-        if (maxHP <= 0)
+        if (currentHP <= 0)
         {
             Die();
         }
