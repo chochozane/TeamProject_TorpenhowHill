@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class UIManager : MonoBehaviour
@@ -12,7 +10,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private GameObject settingCanvas;
 
     //public bool isPaused { get; private set; } // 읽기전용, 
-    public static bool isGamePaused { get; private set; } // 다른 스크립트에서 쉽게 접근이 가능하도록
+    public static bool isGamePaused { get; private set; } // 다른 스크립트에서 쉽게 접근이 가능하도록 메모리에 할당 - static, 읽기전용
 
     // 싱글톤
     public static UIManager instance;
@@ -32,11 +30,13 @@ public class UIManager : MonoBehaviour
 
     public void PauseTime()
     {
+        isGamePaused = true;
         Time.timeScale = 0.0f;
     }
 
     public void ResumeTime()
     {
+        isGamePaused = false;
         Time.timeScale = 1.0f;
     }
 
@@ -49,6 +49,7 @@ public class UIManager : MonoBehaviour
     
     public void OnPressedCloseBtn()
     {
+        
         ResumeTime();
         inGameCanvas.SetActive(true);
         settingCanvas.SetActive(false);
