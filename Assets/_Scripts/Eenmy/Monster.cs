@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,8 +16,8 @@ public class Monster : MonoBehaviour
     public Transform player;
 
     public int detectionRange = 15; // 플레이어를 인식하는 범위
-    public float attackRange = 3f; // 공격 범위
-    public float attackCooldown = 2f; // 공격 쿨다운
+    public int attackRange = 3; // 공격 범위
+    public int attackCooldown = 2; // 공격 쿨다운
     
 
     void Start()
@@ -61,16 +62,24 @@ public class Monster : MonoBehaviour
         if (currentHP <= 0)
         {
             Die();
+         
         }
     }
 
-    protected virtual void Die()
+
+
+    public void Die()
     {
-        PlayerStatus.Instance.GainExperience(Xp);
+        int damageDealt = EnemyDamage(10);
         Destroy(gameObject);
     }
 
-    //void DealDamage()
+    public int EnemyDamage(int damage)
+    {
+        return damage;
+    }
+
+    //void Damage()
     //{
     //    PlayerStatus player = FindObjectOfType<PlayerStatus>();
     //    if (player != null)

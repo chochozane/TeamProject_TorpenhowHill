@@ -1,4 +1,5 @@
 using System.Collections;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class MeleeEnemy1 : Monster
@@ -13,6 +14,7 @@ public class MeleeEnemy1 : Monster
     private void Start()
     {
         characterRenderer = GetComponent<SpriteRenderer>();
+
         SetMonsterStats(); // Monster 스크립트에서 상속받은 메서드 호출
         currentHP = maxHP;  // 최대 체력으로 현재 체력을 초기화합니다.
     }
@@ -22,14 +24,15 @@ public class MeleeEnemy1 : Monster
         if (player != null)
         {
             // 플레이어와 적 사이의 거리 계산
-            float distanceToPlayer = Vector2.Distance(transform.position, player.position);
+            int distanceToPlayer = (int)Vector2.Distance(transform.position, player.position);
 
             // 플레이어를 인식 범위 내에 있을 때만 행동
             if (distanceToPlayer <= detectionRange)
-            {
+            {   
+
                 // 적 캐릭터를 플레이어 방향으로 회전
                 Vector2 lookDir = player.position - transform.position;
-                float angle = Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90f;
+                int angle = (int)(Mathf.Atan2(lookDir.y, lookDir.x) * Mathf.Rad2Deg - 90);
 
                 // 적 캐릭터를 플레이어 방향으로 이동
                 transform.position = Vector2.MoveTowards(transform.position, player.position, moveSpeed * Time.deltaTime);
@@ -70,18 +73,33 @@ public class MeleeEnemy1 : Monster
 
     public override void TakeDamage(int damage)
     {
-        currentHP -= (int)damage;
+        currentHP -= damage;
 
-        if (currentHP <= 0)
+        if (currentHP <= 0f)
         {
+            
             Die();
         }
     }
 
     private void Die()
     {
-        PlayerStatus.Instance.GainExperience(Xp);
+        
 
         Destroy(gameObject); // 적 캐릭터 파괴 또는 비활성화
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if( collision.gameObject.CompareTag("Player"))
+        {
+            collision.gameObject.GetComponent<PlayerStatus>().GainExperience(Xp);
+            //collision.gameObject.GetComponent<PlayerStatus>().Damage; 변수에 넣어놓기
+            TakeDamage((int)collision.gameObject.GetComponent<PlayerStatus>().Damage);
+        }
+
+    }
+    
+
+
 }
