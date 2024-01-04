@@ -27,11 +27,8 @@ public class Inventory : MonoBehaviour
     public bool activateInventory = false; //test
     public TextMeshProUGUI selectedItemName;
     public TextMeshProUGUI selectedItemDescription;
-    //public TextMeshProUGUI selectedItemStatNames;
-    //public TextMeshProUGUI selectedItemStatValues;
 
     public GameObject useButton;
-    //public GameObject eatButton;
     public GameObject dropButton;
 
     private void Awake()
@@ -75,6 +72,17 @@ public class Inventory : MonoBehaviour
         //useButton
         //dropButton
         //UI 코드로 연결 해보자~~
+
+        //Transform DecractionTransform = transform.Find("InventoryWindow/Inventory/Inventory_BackGround/Bottom/Decraction_Group");
+
+        //selectedItemName = DecractionTransform.Find("Item_Name").GetComponent<TextMeshProUGUI>();
+        //selectedItemDescription = DecractionTransform.Find("Item_Name").GetComponent<TextMeshProUGUI>();
+
+        //useButton = DecractionTransform.Find("Button_Group/UseButton").gameObject;
+        //dropButton = DecractionTransform.Find("Button_Group/DropButton").gameObject;
+
+        //useButton.GetComponent<Button>().onClick.AddListener(UseButton);
+        //dropButton.GetComponent<Button>().onClick.AddListener(DropButton);
     }
 
     public void OnInventoryButton()
@@ -88,7 +96,6 @@ public class Inventory : MonoBehaviour
 
     public void Toggle()
     {
-        //inventory Open?
         if (inventoryWindow.activeInHierarchy)
         {
             inventoryWindow.SetActive(false);
@@ -99,6 +106,7 @@ public class Inventory : MonoBehaviour
         }
     }
 
+    //Inventory 활성화 판단하는 메서드
     public bool ActivateInventory()
     {
         if (inventoryWindow.activeInHierarchy)
@@ -247,7 +255,6 @@ public class Inventory : MonoBehaviour
 
     public void DropButton()
     {
-        //Item의 DropItem을 Vector3(player.transform.position + 1, 0, 0)을 해보자
         Debug.Log("Drop Item");
         ThrowItem(selectedItem.item);
         RemoveSelectedItem();
