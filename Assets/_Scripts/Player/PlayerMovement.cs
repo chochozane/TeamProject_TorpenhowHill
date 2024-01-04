@@ -18,6 +18,8 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         animator = GetComponentInChildren<Animator>();
+        //inventory 땡겨!
+        inventory = GetComponent<Inventory>();
     }
     private void Update()
     {
@@ -31,7 +33,11 @@ public class PlayerMovement : MonoBehaviour
                 animator.SetBool("Run", true);
             }
         }
-        if (inventory.inventoryWindow == false) 
+        /// <summary>
+        /// activeInHierarchy : SetAvtive를 bool 값으로 변환 해줌...
+        /// if (!inventory.inventoryWindow.activeInHierarchy) or if (!inventory.ActivateInventory())
+        /// </summary>
+        if (!inventory.inventoryWindow.activeInHierarchy) 
         {
             FlipSprite(); // 스프라이트 뒤집기
             MoveToTarget(); // 타겟 위치로 이동        
