@@ -70,6 +70,7 @@ public class PlayerMovement : MonoBehaviour
         {
             //전투 공격 데미지 구현은 Weapon에 직접~
             animator.SetTrigger("Attack"); // 공격 애니메이션 실행
+
         }
     }
 
@@ -98,7 +99,6 @@ public class PlayerMovement : MonoBehaviour
             {
                 Debug.Log("상호작용");
             }
-
         }
     }
 
