@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -73,14 +74,19 @@ public class Inventory : MonoBehaviour
         //useButton
         //dropButton
         //UI 코드로 연결 해보자~~
+        //for (int i = 0; i < slots.Length;i++)
+        //{
+        //    //.... 이건 손으로 하자..
+        //    //uiSlots = Resources.Load<ItemSlotUI>("Decraction/Slots/Slot");
+        //}
 
-        //Transform DecractionTransform = transform.Find("InventoryWindow/Inventory/Inventory_BackGround/Bottom/Decraction_Group");
+        //inventoryWindow = Resources.Load<GameObject>("Prefabs/InventoryWindow");
 
-        //selectedItemName = DecractionTransform.Find("Item_Name").GetComponent<TextMeshProUGUI>();
-        //selectedItemDescription = DecractionTransform.Find("Item_Name").GetComponent<TextMeshProUGUI>();
+        //selectedItemName = Resources.Load<TextMeshProUGUI>("Decraction/Text/Item_Name");
+        //selectedItemDescription = Resources.Load<TextMeshProUGUI>("Decraction/Text/Item_Decraction");
 
-        //useButton = DecractionTransform.Find("Button_Group/UseButton").gameObject;
-        //dropButton = DecractionTransform.Find("Button_Group/DropButton").gameObject;
+        //useButton = Resources.Load<GameObject>("Decraction/Button/UseButton");
+        //dropButton = Resources.Load<GameObject>("Decraction/Button/DropButton");
 
         //useButton.GetComponent<Button>().onClick.AddListener(UseButton);
         //dropButton.GetComponent<Button>().onClick.AddListener(DropButton);
@@ -230,7 +236,8 @@ public class Inventory : MonoBehaviour
                 {
                     //플레이어와 연결...
                     case ConsumableType.Health:
-                        //PlayerStatus.hp = Mathf.Min(PlayerStatus.hp + selectedItem.item.consumables[i].value, PlayerStatus.maxHp);
+                        Debug.Log("Player Hp++");
+                        //PlayerStatus.ModifyHp(selectedItem.item.consumables[i].value);
                         break;
                     case ConsumableType.Hunger:
                         break;
