@@ -42,6 +42,7 @@ public class ItemSlotUI : MonoBehaviour
 
     public void Clear()
     {
+        Debug.Log("Clear");
         curSlot = null;
         icon.gameObject.SetActive(false);
         countText.text = string.Empty;
