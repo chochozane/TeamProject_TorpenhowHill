@@ -71,4 +71,6 @@ public class UIManager : MonoBehaviour
     {
         Application.Quit();
     }
+
+    // todo Player info UI 연결작업
 }
