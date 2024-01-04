@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetMouseButton(0))
         {
+            
             CalTargetPos();
             if (!isRunning)
             {
@@ -29,6 +30,13 @@ public class PlayerMovement : MonoBehaviour
                 animator.SetBool("Run", true);
             }
         }
+        //if (inventory.inventoryWindow == false) 싱글톤화 시켜서 다시 넣자
+        //{
+        //    FlipSprite(); // 스프라이트 뒤집기
+        //    MoveToTarget(); // 타겟 위치로 이동        
+        //    AttackButton();
+        //    InteractWithNPC();
+        //}
         FlipSprite(); // 스프라이트 뒤집기
         MoveToTarget(); // 타겟 위치로 이동        
         AttackButton();
