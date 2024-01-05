@@ -8,7 +8,6 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private GameObject player;
     [SerializeField] private GameObject enemyAngryPig;
-    [SerializeField] private GameObject enemyBee;
 
     private void Awake()
     {
@@ -17,12 +16,10 @@ public class GameManager : MonoBehaviour
             Instance = this;
         }
     }
-
     private void Start()
     {
         PlayerInstance();
         EnemyAngryPigInstance();
-        EnemyBeeInstance();
     }
     #region 인스턴스
 
@@ -34,13 +31,6 @@ public class GameManager : MonoBehaviour
     {
         Instantiate(enemyAngryPig);
     }
-    private void EnemyBeeInstance()
-    {
-        Instantiate(enemyBee);
-    }
-
-
-
     #endregion
 
 
