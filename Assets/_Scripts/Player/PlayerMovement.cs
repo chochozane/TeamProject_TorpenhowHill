@@ -7,13 +7,14 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] float speed = 10f; // 플레이어 이동 속도
     [SerializeField] private float attackRange = 2f; // 공격 범위
     [SerializeField] private float attackSpeed = 1f; // 초당 공격 횟수
-
-    private Animator animator;
     Vector3 mousePos, transPos, targetPos;
+    private Animator animator;
+    private PlayerStatus playerStatus;
     private Inventory inventory;
     private bool NPCTalkOn = false;
     private bool isRunning = false;
     private bool isCollidingWithNPC = false;
+    private bool canMove = true;
 
     private void Start()
     {
@@ -23,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
     }
     private void Update()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && canMove)
         {
             
             CalTargetPos();
@@ -40,8 +41,16 @@ public class PlayerMovement : MonoBehaviour
         //    AttackButton();
         //    InteractWithNPC();
         //}
-        FlipSprite(); // 스프라이트 뒤집기
-        MoveToTarget(); // 타겟 위치로 이동        
+        if (canMove) // Check if player can move
+        {
+            FlipSprite(); // 스프라이트 뒤집기
+            MoveToTarget(); // 타겟 위치로 이동        
+        }
+        if (!canMove && !animator.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
+        {
+            EnableMovement();
+        }
+
         AttackButton();
         InteractWithNPC();
     }
@@ -77,15 +86,24 @@ public class PlayerMovement : MonoBehaviour
 
     private void AttackButton()
     {
-        if (Input.GetKeyDown(KeyCode.A)) // A 키가 이 프레임에 눌렸는지 확인
+        if (Input.GetKeyDown(KeyCode.A))
         {
-            //전투 공격 데미지 구현은 Weapon에 직접~
-            animator.SetTrigger("Attack"); // 공격 애니메이션 실행
-
+            canMove = false;
+            animator.SetTrigger("Attack");
+            StartCoroutine(EnableMovementAfterDelay(playerStatus.AttackSpeed));
         }
     }
 
-    
+    private IEnumerator EnableMovementAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        EnableMovement();
+    }
+    public void EnableMovement()
+    {
+        canMove = true;
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("NPC"))
