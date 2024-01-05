@@ -10,9 +10,9 @@ public class MeleeEnemy1 : Monster
     Animator anim;
 
 
-    private void Start()
+    protected override void Start()
     {
-        
+        base.Start();
         characterRenderer = GetComponent < SpriteRenderer>();
         SetMonsterStats();
         currentHP = maxHP;
@@ -99,15 +99,14 @@ public class MeleeEnemy1 : Monster
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player"))
+        if (collision.gameObject.CompareTag("Player")&& player != null)
         {
-            if (player != null) 
-            {
+            
                 collision.gameObject.GetComponent<PlayerStatus>().GainExperience(Xp);
 
-                TakeDamage((int)collision.gameObject.GetComponent<PlayerStatus>().Damage);
-                //Debug.Log((int)collision.gameObject.GetComponent<PlayerStatus>().Damage);
-            }
+            //TakeDamage((int)collision.gameObject.GetComponent<PlayerWeapon>().WeaponDamage);
+
+
         }
     }
 

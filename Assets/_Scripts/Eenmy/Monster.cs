@@ -22,10 +22,19 @@ public class Monster : MonoBehaviour
     public int attackCooldown = 2; // 공격 쿨다운
 
 
-     void Start()
-    {
-        SetMonsterStats();
+    protected virtual void Start()
+    {   
         
+        SetMonsterStats();
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+
+        if (players.Length > 0)
+        {
+            // 여러 플레이어 중 첫 번째 오브젝트를 사용
+             player = players[0].transform;
+
+            // 여기에 플레이어 설정 코드 추가
+        }
     }
 
     protected virtual void SetMonsterStats()
