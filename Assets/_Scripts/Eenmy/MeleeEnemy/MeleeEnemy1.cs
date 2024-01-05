@@ -67,6 +67,7 @@ public class MeleeEnemy1 : Monster
     public int Attack()
     {
         return damageAmount;
+
     }
 
     private IEnumerator AttackCooldown()
