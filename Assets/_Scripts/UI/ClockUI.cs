@@ -15,6 +15,16 @@ public class ClockUI : MonoBehaviour
 
     private void Update()
     {
+        //if (UIManager.instance.isPaused)
+        //{
+        //    UIManager.instance.PauseTime();
+        //}
+        if (UIManager.isGamePaused)
+        {
+            UIManager.instance.PauseTime();
+        }
+
+
         day += Time.deltaTime / RealSecondsPerIngameDay;
 
         float dayNormalized = day % 1f;

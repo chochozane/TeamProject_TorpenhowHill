@@ -12,14 +12,15 @@ public class SoundManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
+            DontDestroyOnLoad(instance);
         }
         else if (instance != this)
         {
-            Destroy(this);
+            Destroy(gameObject);
         }
 
         audioSource = GetComponent<AudioSource>();
-        DontDestroyOnLoad(gameObject);
+        
     }
 
     // Start is called before the first frame update

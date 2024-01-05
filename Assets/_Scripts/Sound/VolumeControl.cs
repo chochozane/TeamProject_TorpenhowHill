@@ -18,11 +18,10 @@ public class VolumeControl : MonoBehaviour
 
     private void Start()
     {
-        //soundSlider.value = 0.5f;
         soundSlider.value = 1f;
     }
 
-    public void SetLevel(float sliderValue)
+    public void SetLevel(float sliderValue) // slider 부여
     {
         // instead of just directly setting the sliderValue, we need to convert it into logarithmic value !
         // Mathf.Log10() 을 통해 convert 진행하자
