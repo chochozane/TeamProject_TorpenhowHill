@@ -5,6 +5,13 @@ public class EnemyAI : MonoBehaviour
     public Transform player;
     public float moveSpeed = 3f;
     public float detectionRange = 30f; // 플레이어를 인식하는 범위
+    public int speed;
+    public int health;
+    public int maxHealth;
+
+
+
+
 
     private void Update()
     {

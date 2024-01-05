@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8991976367888769622}
   - component: {fileID: 2269064399369739399}
   - component: {fileID: 831223162777970895}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pig
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 5132792508989220843}
   - component: {fileID: 2123096786873891254}
   - component: {fileID: 3465706953307442669}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: AngryPig
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -139,7 +139,7 @@ Transform:
   m_Children:
   - {fileID: 8991976367888769622}
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!61 &5132792508989220843
 BoxCollider2D:
@@ -198,7 +198,7 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 1
+  m_Mass: 2
   m_LinearDrag: 0
   m_AngularDrag: 0.05
   m_GravityScale: 0
@@ -225,10 +225,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a2408290448c5f14e9c6f3a1a1a90051, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 0}
-  detectionRange: 30
-  attackRange: 3
+  level: 1
+  maxHP: 0
+  Xp: 0
   moveSpeed: 1.5
+  damageAmount: 0
+  player: {fileID: 0}
+  detectionRange: 20
+  attackRange: 3
   attackCooldown: 2
-  Health: 100
-  XP: 50
