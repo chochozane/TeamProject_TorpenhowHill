@@ -25,7 +25,15 @@ public class Monster : MonoBehaviour
      void Start()
     {
         SetMonsterStats();
-        
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
+
+        if (players.Length > 0)
+        {
+            // 여러 플레이어 중 첫 번째 오브젝트를 사용
+            GameObject player = players[0];
+
+            // 여기에 플레이어 설정 코드 추가
+        }
     }
 
     protected virtual void SetMonsterStats()
