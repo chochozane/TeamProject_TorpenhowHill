@@ -139,7 +139,7 @@ Transform:
   m_Children:
   - {fileID: 789143651256433625}
   m_Father: {fileID: 0}
-  m_RootOrder: 23
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!58 &8397630344585042464
 CircleCollider2D:
@@ -220,7 +220,7 @@ MonoBehaviour:
   Xp: 0
   moveSpeed: 0
   damageAmount: 0
-  player: {fileID: 0}
+  player: {fileID: 7521052996029061369, guid: 36b89bc2d51626e45bb12ecd1fa9969c, type: 3}
   detectionRange: 15
   attackRange: 3
   attackCooldown: 2

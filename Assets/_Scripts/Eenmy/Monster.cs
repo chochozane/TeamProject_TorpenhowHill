@@ -23,7 +23,8 @@ public class Monster : MonoBehaviour
 
 
      void Start()
-    {
+    {   
+        
         SetMonsterStats();
         GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
 

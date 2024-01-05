@@ -220,7 +220,7 @@ MonoBehaviour:
   Xp: 0
   moveSpeed: 0
   damageAmount: 0
-  player: {fileID: 0}
+  player: {fileID: 7521052996029061369, guid: 36b89bc2d51626e45bb12ecd1fa9969c, type: 3}
   detectionRange: 15
   attackRange: 3
   attackCooldown: 2

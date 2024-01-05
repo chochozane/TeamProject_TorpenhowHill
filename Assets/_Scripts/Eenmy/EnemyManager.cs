@@ -4,36 +4,32 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour
 {
-    public static EnemyManager Instance;
-
-    private void Awake()
-    {
-        Instance = this;
-    }
-    public GameObject playerPrefab;
+    public GameObject playerPrefab;      // 플레이어 프리팹을 Inspector에서 설정
+    public GameObject monsterPrefab;     // 몬스터 프리팹을 Inspector에서 설정
+    public int numberOfMonsters = 5;     // 생성할 몬스터 수
 
     void Start()
     {
-        // 플레이어를 찾기 (여기에서는 태그를 사용)
-        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        StartCoroutine(SpawnMonsters());
+        SpawnPlayer();
+    }
 
-        // 플레이어가 없으면 새로 생성
-        if (player == null)
+    IEnumerator SpawnMonsters()
+    {
+        for (int i = 0; i < numberOfMonsters; i++)
         {
-            SpawnPlayer();
-        }
-        else
-        {
-            // 이미 씬에 플레이어가 있다면 여기에서 추가 설정 가능
-            // 예: 초기 위치, 초기 상태 등
+            // 몬스터를 현재 스폰 지점에 생성
+            Instantiate(monsterPrefab, transform.position, Quaternion.identity);
+
+            // 생성 간격을 조절하려면 WaitForSeconds의 시간을 조절
+            yield return new WaitForSeconds(1.0f);
         }
     }
 
     void SpawnPlayer()
     {
         // 플레이어를 생성하고 초기 설정을 진행
-        GameObject newPlayer = Instantiate(playerPrefab, Vector3.zero, Quaternion.identity);
-
+        Instantiate(playerPrefab, Vector3.zero, Quaternion.identity);
         // 여기에 플레이어의 초기 설정 코드 추가
     }
 }
