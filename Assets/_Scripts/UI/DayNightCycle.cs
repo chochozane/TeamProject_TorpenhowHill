@@ -10,7 +10,7 @@ public class DayNightCycle : MonoBehaviour
 {
     private Volume postprocessingVolume;
 
-    private float tick = 1500f; // Increasing the tick, increases second rate -- 5000 너무빨라
+    private float tick = 3000f; // Increasing the tick, increases second rate -- 5000 너무빨라 , 테스트로 1500 이 적당.
     private float seconds;
     private int mins;
     private int hours;
@@ -19,6 +19,9 @@ public class DayNightCycle : MonoBehaviour
     //private bool isActiveLights; // checks if lights are on
     //private GameObject[] lights; // all the lights we want on when its dark
     //private SpriteRenderer[] stars; // star sprites
+
+    // clock
+    [SerializeField] private Transform clockHandTransform;
 
     // Start is called before the first frame update
     void Start()
@@ -29,12 +32,18 @@ public class DayNightCycle : MonoBehaviour
     //private void Update()
     //{
     //    CalculateTime();
+    //    DisplayClock();
     //}
 
     private void FixedUpdate() // Update 함수는 frame dependant 이기에, FixedUpdate 사용
     {
+        if (UIManager.isGamePaused)
+        {
+            UIManager.instance.PauseTime();
+        }
+
         CalculateTime();
-        //DisplayClock();
+        DisplayClock();
     }
 
     private void CalculateTime() // used to calculate sec, min, hours
@@ -113,6 +122,18 @@ public class DayNightCycle : MonoBehaviour
 
     private void DisplayClock()
     {
-        throw new NotImplementedException();
+        //day += Time.deltaTime / RealSecondsPerIngameDay;
+
+        //float dayNormalized = day % 1f;
+        //float rotationDegreesPerDay = 360f;
+
+        clockHandTransform.eulerAngles = new Vector3(0, 0, -hours * 15f); // 시계방향으로 하려면 z축 회전이 - 로 돌아야한다. 360 나누기 24 는 15.
     }
+
+    //public void DisplayTime() // Shows time and day in ui
+    //{
+
+    //    timeDisplay.text = string.Format("{0:00}:{1:00}", hours, mins); // The formatting ensures that there will always be 0's in empty spaces
+    //    dayDisplay.text = "Day: " + days; // display day counter
+    //}
 }
