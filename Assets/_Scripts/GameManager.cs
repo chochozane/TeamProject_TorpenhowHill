@@ -6,7 +6,6 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance; //ΩÃ±€≈Ê
 
-    [SerializeField] private GameObject player;
     [SerializeField] private GameObject enemyAngryPig;
 
     private void Awake()
@@ -18,15 +17,10 @@ public class GameManager : MonoBehaviour
     }
     private void Start()
     {
-        PlayerInstance();
         EnemyAngryPigInstance();
     }
     #region ¿ŒΩ∫≈œΩ∫
 
-    private void PlayerInstance()
-    {
-        Instantiate(player);
-    }
     private void EnemyAngryPigInstance()
     {
         Instantiate(enemyAngryPig);
