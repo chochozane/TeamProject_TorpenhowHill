@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] float speed = 10f; // ÇÃ·¹ÀÌ¾î ÀÌµ¿ ¼Óµµ
-    [SerializeField] private float attackRange = 2f; // °ø°İ ¹üÀ§
-    [SerializeField] private float attackSpeed = 1f; // ÃÊ´ç °ø°İ È½¼ö
+    [SerializeField] float speed = 10f; // í”Œë ˆì´ì–´ ì´ë™ ì†ë„
+    [SerializeField] private float attackRange = 2f; // ê³µê²© ë²”ìœ„
+    [SerializeField] private float attackSpeed = 1f; // ì´ˆë‹¹ ê³µê²© íšŸìˆ˜
 
     private Animator animator;
     Vector3 mousePos, transPos, targetPos;
@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         animator = GetComponentInChildren<Animator>();
-        //inventory ¶¯°Ü!
+        //inventory ë•¡ê²¨!
         inventory = GetComponent<Inventory>();
     }
     private void Update()
@@ -35,22 +35,22 @@ public class PlayerMovement : MonoBehaviour
         }
         //if (!inventory.inventoryWindow.activeInHierarchy) 
         //{
-        //    FlipSprite(); // ½ºÇÁ¶óÀÌÆ® µÚÁı±â
-        //    MoveToTarget(); // Å¸°Ù À§Ä¡·Î ÀÌµ¿        
+        //    FlipSprite(); // ìŠ¤í”„ë¼ì´íŠ¸ ë’¤ì§‘ê¸°
+        //    MoveToTarget(); // íƒ€ê²Ÿ ìœ„ì¹˜ë¡œ ì´ë™        
         //    AttackButton();
         //    InteractWithNPC();
         //}
-        FlipSprite(); // ½ºÇÁ¶óÀÌÆ® µÚÁı±â
-        MoveToTarget(); // Å¸°Ù À§Ä¡·Î ÀÌµ¿        
+        FlipSprite(); // ìŠ¤í”„ë¼ì´íŠ¸ ë’¤ì§‘ê¸°
+        MoveToTarget(); // íƒ€ê²Ÿ ìœ„ì¹˜ë¡œ ì´ë™        
         AttackButton();
         InteractWithNPC();
     }
 
     private void CalTargetPos()
     {
-        mousePos = Input.mousePosition; // ¸¶¿ì½º À§Ä¡ °¡Á®¿À±â
-        transPos = Camera.main.ScreenToWorldPoint(mousePos); // ¸¶¿ì½º À§Ä¡¸¦ ¿ùµå Æ÷ÀÎÆ®·Î º¯È¯
-        targetPos = new Vector3(transPos.x, transPos.y, 0); // z ÁÂÇ¥´Â 0À¸·Î ¼³Á¤
+        mousePos = Input.mousePosition; // ë§ˆìš°ìŠ¤ ìœ„ì¹˜ ê°€ì ¸ì˜¤ê¸°
+        transPos = Camera.main.ScreenToWorldPoint(mousePos); // ë§ˆìš°ìŠ¤ ìœ„ì¹˜ë¥¼ ì›”ë“œ í¬ì¸íŠ¸ë¡œ ë³€í™˜
+        targetPos = new Vector3(transPos.x, transPos.y, 0); // z ì¢Œí‘œëŠ” 0ìœ¼ë¡œ ì„¤ì •
     }
     private void MoveToTarget()
     {
@@ -67,20 +67,20 @@ public class PlayerMovement : MonoBehaviour
 
     private void FlipSprite()
     {
-        // ¼öÆò ÀÌµ¿ÀÌ Áß¿äÇÑÁö È®ÀÎ
+        // ìˆ˜í‰ ì´ë™ì´ ì¤‘ìš”í•œì§€ í™•ì¸
         if (Mathf.Abs(targetPos.x - transform.position.x) > 0.01f)
         {
-            // xÃàÀ» Áß½ÉÀ¸·Î ½ºÇÁ¶óÀÌÆ® µÚÁı±â
+            // xì¶•ì„ ì¤‘ì‹¬ìœ¼ë¡œ ìŠ¤í”„ë¼ì´íŠ¸ ë’¤ì§‘ê¸°
             transform.localScale = new Vector3(-Mathf.Sign(targetPos.x - transform.position.x), 1f, 1f);
         }
     }
 
     private void AttackButton()
     {
-        if (Input.GetKeyDown(KeyCode.A)) // A Å°°¡ ÀÌ ÇÁ·¹ÀÓ¿¡ ´­·È´ÂÁö È®ÀÎ
+        if (Input.GetKeyDown(KeyCode.A)) // A í‚¤ê°€ ì´ í”„ë ˆì„ì— ëˆŒë ¸ëŠ”ì§€ í™•ì¸
         {
-            //ÀüÅõ °ø°İ µ¥¹ÌÁö ±¸ÇöÀº Weapon¿¡ Á÷Á¢~
-            animator.SetTrigger("Attack"); // °ø°İ ¾Ö´Ï¸ŞÀÌ¼Ç ½ÇÇà
+            //ì „íˆ¬ ê³µê²© ë°ë¯¸ì§€ êµ¬í˜„ì€ Weaponì— ì§ì ‘~
+            animator.SetTrigger("Attack"); // ê³µê²© ì• ë‹ˆë©”ì´ì…˜ ì‹¤í–‰
 
         }
     }
@@ -108,7 +108,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.F))
             {
-                Debug.Log("»óÈ£ÀÛ¿ë");
+                Debug.Log("ìƒí˜¸ì‘ìš©");
             }
         }
     }
