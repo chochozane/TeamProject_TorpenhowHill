@@ -18,11 +18,12 @@ public class Monster : MonoBehaviour
     public int detectionRange = 15; // 플레이어를 인식하는 범위
     public int attackRange = 3; // 공격 범위
     public int attackCooldown = 2; // 공격 쿨다운
-    
+
 
     void Start()
     {
         SetMonsterStats();
+
     }
 
     protected virtual void SetMonsterStats()
@@ -55,16 +56,20 @@ public class Monster : MonoBehaviour
     }
 
 
-    public virtual void TakeDamage(int damage)
-    {
-        currentHP -= (int)damage;
+    //public virtual void TakeDamage(int damage)
+    //{
+    //    currentHP -= (int)damage;
 
-        if (currentHP <= 0)
-        {
-            Die();
-         
-        }
-    }
+    //    if (currentHP <= 0)
+    //    {
+    //        Die();
+
+    //    }
+    //    else
+    //    {
+    //        anim.SetTrigger("Hit");
+    //    }
+    //}
 
 
 
@@ -79,12 +84,4 @@ public class Monster : MonoBehaviour
         return damage;
     }
 
-    //void Damage()
-    //{
-    //    PlayerStatus player = FindObjectOfType<PlayerStatus>();
-    //    if (player != null)
-    //    {
-    //        player.TakeDamage(damageAmount);
-    //    }
-    //}
 }

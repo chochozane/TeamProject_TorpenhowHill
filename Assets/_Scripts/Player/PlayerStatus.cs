@@ -51,6 +51,8 @@ public class PlayerStatus : MonoBehaviour
     }
 
     // HP 수정 메소드 예시
+
+
     public void ModifyHp(int amount)
     {
         Hp += amount;

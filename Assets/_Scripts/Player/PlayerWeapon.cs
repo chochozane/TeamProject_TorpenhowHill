@@ -32,7 +32,8 @@ public class PlayerWeapon : MonoBehaviour
     }
 
     private void ApplyDamage(int damage)
-    {
+    {   
+
         // 여기에 데미지 적용 로직 구현
         Debug.Log($"{damage} 데미지 적용");
     }
