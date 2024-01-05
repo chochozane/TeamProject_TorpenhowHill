@@ -5,10 +5,9 @@ using UnityEngine;
 public class MeleeEnemy1 : Monster
 {
 
-
     private SpriteRenderer characterRenderer;
     private bool canAttack = true;
-
+    Animator anim;
 
 
     private void Start()
@@ -17,7 +16,7 @@ public class MeleeEnemy1 : Monster
         characterRenderer = GetComponent < SpriteRenderer>();
         SetMonsterStats();
         currentHP = maxHP;
-
+        anim = GetComponentInChildren<Animator>();
 
     }
 
@@ -62,12 +61,13 @@ public class MeleeEnemy1 : Monster
         }
         else
         {
-
+            anim.SetTrigger("Hit");
         }
     }
-    private void Attack()
+    public int Attack()
     {
-        Debug.Log("근접공격 Enemy Attacking!");
+        return damageAmount;
+
     }
 
     private IEnumerator AttackCooldown()
@@ -83,6 +83,8 @@ public class MeleeEnemy1 : Monster
     {
         // 적 캐릭터 파괴 또는 비활성화
         Destroy(gameObject);
+        // 아이템 드랍 로직 추가
+        //DropItem();
 
         // 다음과 같이 플레이어에게 경험치를 주는 작업을 할 수 있습니다.
         if (player != null)
@@ -99,12 +101,26 @@ public class MeleeEnemy1 : Monster
     {
         if (collision.gameObject.CompareTag("Player"))
         {
-            collision.gameObject.GetComponent<PlayerStatus>().GainExperience(Xp);
-            //collision.gameObject.GetComponent<PlayerStatus>().Damage;
-            TakeDamage((int)collision.gameObject.GetComponent<PlayerStatus>().Damage);
+            if (player != null) 
+            {
+                collision.gameObject.GetComponent<PlayerStatus>().GainExperience(Xp);
 
+                TakeDamage((int)collision.gameObject.GetComponent<PlayerStatus>().Damage);
+                //Debug.Log((int)collision.gameObject.GetComponent<PlayerStatus>().Damage);
+            }
         }
     }
 
+ 
 
+    //    private void DropItem()
+    //{
+    //    // 아이템을 드랍할 로직 추가
+    //    // 여기에서는 간단하게 아이템 프리팹을 생성하여 떨어뜨리는 것으로 가정
+    //    if (itemPrefab != null)
+    //    {
+    //        GameObject droppedItem = Instantiate(itemPrefab, transform.position, Quaternion.identity);
+    //        // 아이템에 대한 추가 설정이 필요하다면 여기에서 설정
+    //    }
+    //}
 }

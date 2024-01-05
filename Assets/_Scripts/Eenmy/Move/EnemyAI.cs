@@ -11,10 +11,7 @@ public class EnemyAI : MonoBehaviour
 
 
 
-    private void Awake()
-    {
 
-    }
 
     private void Update()
     {
