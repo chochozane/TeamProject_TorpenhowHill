@@ -33,16 +33,28 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    private void Update()
+    {
+        if (isGamePaused)
+        {
+            Time.timeScale = 0.0f;
+        }
+        else
+        {
+            Time.timeScale = 1.0f;
+        }
+    }
+
     public void PauseTime()
     {
         isGamePaused = true;
-        Time.timeScale = 0.0f;
+        //Time.timeScale = 0.0f;
     }
 
     public void ResumeTime()
     {
         isGamePaused = false;
-        Time.timeScale = 1.0f;
+        //Time.timeScale = 1.0f;
     }
 
     public void OnPressedSettingBtn()
