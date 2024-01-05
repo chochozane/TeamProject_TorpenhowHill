@@ -3233,8 +3233,8 @@ GameObject:
   - component: {fileID: 7521052996029061369}
   - component: {fileID: 5557740916485719759}
   - component: {fileID: 5844288071006617226}
+  - component: {fileID: -8695166849238049725}
   - component: {fileID: 1087914761657205499}
-  - component: {fileID: 6324975767039783512}
   m_Layer: 0
   m_Name: BURLY-MAN_1_swordsman
   m_TagString: Player
@@ -3320,6 +3320,18 @@ CapsuleCollider2D:
   m_Offset: {x: -0.0663271, y: 0.3413334}
   m_Size: {x: 0.8979626, y: 1.221495}
   m_Direction: 0
+--- !u!114 &-8695166849238049725
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7271240919210585110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8e0e7108c73c40c45808b914dd3469df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &1087914761657205499
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3335,18 +3347,6 @@ MonoBehaviour:
   speed: 10
   attackRange: 2
   attackSpeed: 1
---- !u!114 &6324975767039783512
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7271240919210585110}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8e0e7108c73c40c45808b914dd3469df, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &7448009078459263604
 GameObject:
   m_ObjectHideFlags: 0
