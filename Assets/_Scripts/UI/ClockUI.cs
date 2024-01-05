@@ -30,6 +30,6 @@ public class ClockUI : MonoBehaviour
         float dayNormalized = day % 1f;
         float rotationDegreesPerDay = 360f;
 
-        clockHandTransform.eulerAngles = new Vector3(0, 0, -dayNormalized * rotationDegreesPerDay); // 시계방향으로 하려면 z축 회전이 - 로 돌아야한다. 1초에 90도씩 회전.
+        clockHandTransform.eulerAngles = new Vector3(0, 0, -dayNormalized * rotationDegreesPerDay); // 시계방향으로 하려면 z축 회전이 - 로 돌아야한다.
     }
 }
