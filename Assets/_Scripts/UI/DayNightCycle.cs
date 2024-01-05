@@ -16,8 +16,8 @@ public class DayNightCycle : MonoBehaviour
     private int hours;
     private int days = 1;
 
-    //private bool isActiveLights; // checks if lights are on
-    //private GameObject[] lights; // all the lights we want on when its dark
+    private bool isActiveLights; // checks if lights are on
+    [SerializeField] private GameObject[] lights; // all the lights we want on when its dark
     //private SpriteRenderer[] stars; // star sprites
 
     // clock
@@ -89,34 +89,34 @@ public class DayNightCycle : MonoBehaviour
         {
             postprocessingVolume.weight = (float)mins / 60; // since dusk is 1 hr, we just divide the mins by 60 which will slowly increase from 0 to 1
 
-            //if (isActiveLights == false) // if lights havent been turned on
-            //{
-            //    if (mins > 45) // wait until pretty dark
-            //    {
-            //        for (int i = 0; i < lights.Length; i++)
-            //        {
-            //            lights[i].SetActive(true); // turn the lights on
-            //        }
-            //        isActiveLights = true;
-            //    }
-            //}
+            if (isActiveLights == false) // if lights havent been turned on
+            {
+                if (mins > 45) // wait until pretty dark
+                {
+                    for (int i = 0; i < lights.Length; i++)
+                    {
+                        lights[i].SetActive(true); // turn the lights on
+                    }
+                    isActiveLights = true;
+                }
+            }
         }
 
         if (hours >= 23 && hours < 24) // Dawn at 4am - until 5am
         {
             postprocessingVolume.weight = 1 - (float)mins / 60; // 1 to 0 가 되기 위해 1 을 마이너스 한다.
 
-            //if (isActiveLights == true)
-            //{
-            //    if (mins > 45) // wait until pretty bright
-            //    {
-            //        for (int i = 0; i < lights.Length; i++)
-            //        {
-            //            lights[i].SetActive(false);
-            //        }
-            //        isActiveLights = false;
-            //    }
-            //}
+            if (isActiveLights == true)
+            {
+                if (mins > 45) // wait until pretty bright
+                {
+                    for (int i = 0; i < lights.Length; i++)
+                    {
+                        lights[i].SetActive(false);
+                    }
+                    isActiveLights = false;
+                }
+            }
         }
     }
 
