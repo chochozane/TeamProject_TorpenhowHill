@@ -51,5 +51,6 @@ public class ItemSlotUI : MonoBehaviour
     public void OnButtonClick()
     {
         Inventory.Instance.SelectedItem(index);
+        //GameManager.Instance.Inventory.SelectedItem(index);
     }
 }

@@ -74,7 +74,7 @@ public class Inventory : MonoBehaviour
         //}
 
         //inventoryWindow = Resources.Load<GameObject>("Prefabs/InventoryWindow");
-
+        //Debug.Log("InventoryWindow/Inventory/Inventory_BackGround/Bottom/Decraction_Group");
         //selectedItemName = Resources.Load<TextMeshProUGUI>("Decraction/Text/Item_Name");
         //selectedItemDescription = Resources.Load<TextMeshProUGUI>("Decraction/Text/Item_Decraction");
 
