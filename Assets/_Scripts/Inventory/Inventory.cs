@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting.Antlr3.Runtime.Misc;
 using UnityEditor.SceneManagement;
 using UnityEngine;
 using UnityEngine.UI;
@@ -65,29 +66,22 @@ public class Inventory : MonoBehaviour
 
     private void InitInstanceUI()
     {
-        //item icon
-        //item count
 
-        //selectedItemName
-        //selectedItemDescription
-
-        //useButton
-        //dropButton
-        //UI 코드로 연결 해보자~~
-        //for (int i = 0; i < slots.Length;i++)
+        //for (int i = 0; i < slots.Length; i++)
         //{
-        //    //.... 이건 손으로 하자..
-        //    //uiSlots = Resources.Load<ItemSlotUI>("Decraction/Slots/Slot");
+        //    Debug.Log(uiSlots[i]);
+        //    uiSlots[i] = Resources.Load<ItemSlotUI>("Slots/Slot");
         //}
 
         //inventoryWindow = Resources.Load<GameObject>("Prefabs/InventoryWindow");
-
+        //Debug.Log("InventoryWindow/Inventory/Inventory_BackGround/Bottom/Decraction_Group");
         //selectedItemName = Resources.Load<TextMeshProUGUI>("Decraction/Text/Item_Name");
         //selectedItemDescription = Resources.Load<TextMeshProUGUI>("Decraction/Text/Item_Decraction");
 
         //useButton = Resources.Load<GameObject>("Decraction/Button/UseButton");
         //dropButton = Resources.Load<GameObject>("Decraction/Button/DropButton");
 
+        //안됨 ㅠ
         //useButton.GetComponent<Button>().onClick.AddListener(UseButton);
         //dropButton.GetComponent<Button>().onClick.AddListener(DropButton);
     }

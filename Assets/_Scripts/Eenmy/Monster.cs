@@ -5,11 +5,13 @@ using UnityEngine;
 
 public class Monster : MonoBehaviour
 {
-    public int level  = 1;
+    public int level;
     public int maxHP;
     public int Xp;
     public float moveSpeed;
     public int damageAmount;
+
+    
 
     protected int currentHP;
 
@@ -20,10 +22,19 @@ public class Monster : MonoBehaviour
     public int attackCooldown = 2; // 공격 쿨다운
 
 
-    void Start()
-    {
+    protected virtual void Start()
+    {   
+        
         SetMonsterStats();
+        GameObject[] players = GameObject.FindGameObjectsWithTag("Player");
 
+        if (players.Length > 0)
+        {
+            // 여러 플레이어 중 첫 번째 오브젝트를 사용
+             player = players[0].transform;
+
+            // 여기에 플레이어 설정 코드 추가
+        }
     }
 
     protected virtual void SetMonsterStats()
@@ -56,32 +67,16 @@ public class Monster : MonoBehaviour
     }
 
 
-    //public virtual void TakeDamage(int damage)
-    //{
-    //    currentHP -= (int)damage;
 
-    //    if (currentHP <= 0)
-    //    {
-    //        Die();
-
-    //    }
-    //    else
-    //    {
-    //        anim.SetTrigger("Hit");
-    //    }
-    //}
 
 
 
     public void Die()
     {
-        int damageDealt = EnemyDamage(10);
+        
         Destroy(gameObject);
     }
 
-    public int EnemyDamage(int damage)
-    {
-        return damage;
-    }
+
 
 }

@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class ItemObject : MonoBehaviour
@@ -18,9 +19,9 @@ public class ItemObject : MonoBehaviour
     {
         if(collision.CompareTag("Player"))
         {
-            Inventory.Instance.AddItem(item);
+            //Inventory.Instance.AddItem(item);
+            collision.gameObject.GetComponent<Inventory>().AddItem(item);
             Destroy(gameObject);
         }
     }
-
 }

@@ -4,26 +4,27 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    [SerializeField] float speed = 10f; // ÇÃ·¹ÀÌ¾î ÀÌµ¿ ¼Óµµ
-    [SerializeField] private float attackRange = 2f; // °ø°İ ¹üÀ§
-    [SerializeField] private float attackSpeed = 1f; // ÃÊ´ç °ø°İ È½¼ö
-
-    private Animator animator;
+    [SerializeField] float speed = 10f; // í”Œë ˆì´ì–´ ì´ë™ ì†ë„
+    [SerializeField] private float attackRange = 2f; // ê³µê²© ë²”ìœ„
+    [SerializeField] private float attackSpeed = 1f; // ì´ˆë‹¹ ê³µê²© íšŸìˆ˜
     Vector3 mousePos, transPos, targetPos;
+    private Animator animator;
+    private PlayerStatus playerStatus;
     private Inventory inventory;
     private bool NPCTalkOn = false;
     private bool isRunning = false;
     private bool isCollidingWithNPC = false;
+    private bool canMove = true;
 
     private void Start()
     {
         animator = GetComponentInChildren<Animator>();
-        //inventory ¶¯°Ü!
+        //inventory ë•¡ê²¨!
         inventory = GetComponent<Inventory>();
     }
     private void Update()
     {
-        if (Input.GetMouseButton(0))
+        if (Input.GetMouseButton(0) && canMove)
         {
             
             CalTargetPos();
@@ -33,24 +34,32 @@ public class PlayerMovement : MonoBehaviour
                 animator.SetBool("Run", true);
             }
         }
-        /// <summary>
-        /// activeInHierarchy : SetAvtive¸¦ bool °ªÀ¸·Î º¯È¯ ÇØÁÜ...
-        /// if (!inventory.inventoryWindow.activeInHierarchy) or if (!inventory.ActivateInventory())
-        /// </summary>
-        if (!inventory.inventoryWindow.activeInHierarchy) 
+        //if (!inventory.inventoryWindow.activeInHierarchy) 
+        //{
+        //    FlipSprite(); // ìŠ¤í”„ë¼ì´íŠ¸ ë’¤ì§‘ê¸°
+        //    MoveToTarget(); // íƒ€ê²Ÿ ìœ„ì¹˜ë¡œ ì´ë™        
+        //    AttackButton();
+        //    InteractWithNPC();
+        //}
+        if (canMove) // Check if player can move
         {
-            FlipSprite(); // ½ºÇÁ¶óÀÌÆ® µÚÁı±â
-            MoveToTarget(); // Å¸°Ù À§Ä¡·Î ÀÌµ¿        
-            AttackButton();
-            InteractWithNPC();
+            FlipSprite(); // ìŠ¤í”„ë¼ì´íŠ¸ ë’¤ì§‘ê¸°
+            MoveToTarget(); // íƒ€ê²Ÿ ìœ„ì¹˜ë¡œ ì´ë™        
         }
+        if (!canMove && !animator.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
+        {
+            EnableMovement();
+        }
+
+        AttackButton();
+        InteractWithNPC();
     }
 
     private void CalTargetPos()
     {
-        mousePos = Input.mousePosition; // ¸¶¿ì½º À§Ä¡ °¡Á®¿À±â
-        transPos = Camera.main.ScreenToWorldPoint(mousePos); // ¸¶¿ì½º À§Ä¡¸¦ ¿ùµå Æ÷ÀÎÆ®·Î º¯È¯
-        targetPos = new Vector3(transPos.x, transPos.y, 0); // z ÁÂÇ¥´Â 0À¸·Î ¼³Á¤
+        mousePos = Input.mousePosition; // ë§ˆìš°ìŠ¤ ìœ„ì¹˜ ê°€ì ¸ì˜¤ê¸°
+        transPos = Camera.main.ScreenToWorldPoint(mousePos); // ë§ˆìš°ìŠ¤ ìœ„ì¹˜ë¥¼ ì›”ë“œ í¬ì¸íŠ¸ë¡œ ë³€í™˜
+        targetPos = new Vector3(transPos.x, transPos.y, 0); // z ì¢Œí‘œëŠ” 0ìœ¼ë¡œ ì„¤ì •
     }
     private void MoveToTarget()
     {
@@ -67,25 +76,34 @@ public class PlayerMovement : MonoBehaviour
 
     private void FlipSprite()
     {
-        // ¼öÆò ÀÌµ¿ÀÌ Áß¿äÇÑÁö È®ÀÎ
+        // ìˆ˜í‰ ì´ë™ì´ ì¤‘ìš”í•œì§€ í™•ì¸
         if (Mathf.Abs(targetPos.x - transform.position.x) > 0.01f)
         {
-            // xÃàÀ» Áß½ÉÀ¸·Î ½ºÇÁ¶óÀÌÆ® µÚÁı±â
+            // xì¶•ì„ ì¤‘ì‹¬ìœ¼ë¡œ ìŠ¤í”„ë¼ì´íŠ¸ ë’¤ì§‘ê¸°
             transform.localScale = new Vector3(-Mathf.Sign(targetPos.x - transform.position.x), 1f, 1f);
         }
     }
 
     private void AttackButton()
     {
-        if (Input.GetKeyDown(KeyCode.A)) // A Å°°¡ ÀÌ ÇÁ·¹ÀÓ¿¡ ´­·È´ÂÁö È®ÀÎ
+        if (Input.GetKeyDown(KeyCode.A))
         {
-            //ÀüÅõ °ø°İ µ¥¹ÌÁö ±¸ÇöÀº Weapon¿¡ Á÷Á¢~
-            animator.SetTrigger("Attack"); // °ø°İ ¾Ö´Ï¸ŞÀÌ¼Ç ½ÇÇà
-
+            canMove = false;
+            animator.SetTrigger("Attack");
+            StartCoroutine(EnableMovementAfterDelay(playerStatus.AttackSpeed));
         }
     }
 
-    
+    private IEnumerator EnableMovementAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        EnableMovement();
+    }
+    public void EnableMovement()
+    {
+        canMove = true;
+    }
+
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("NPC"))
@@ -108,7 +126,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.F))
             {
-                Debug.Log("»óÈ£ÀÛ¿ë");
+                Debug.Log("ìƒí˜¸ì‘ìš©");
             }
         }
     }

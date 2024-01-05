@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.Progress;
 
 public class ItemSlotUI : MonoBehaviour
 {
@@ -50,5 +51,6 @@ public class ItemSlotUI : MonoBehaviour
     public void OnButtonClick()
     {
         Inventory.Instance.SelectedItem(index);
+        //GameManager.Instance.Inventory.SelectedItem(index);
     }
 }
