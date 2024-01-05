@@ -37,13 +37,13 @@ public class PlayerMovement : MonoBehaviour
         /// activeInHierarchy : SetAvtive를 bool 값으로 변환 해줌...
         /// if (!inventory.inventoryWindow.activeInHierarchy) or if (!inventory.ActivateInventory())
         /// </summary>
-        if (!inventory.inventoryWindow.activeInHierarchy) 
-        {
+        //if (!inventory.inventoryWindow.activeInHierarchy) 
+        //{
             FlipSprite(); // 스프라이트 뒤집기
             MoveToTarget(); // 타겟 위치로 이동        
             AttackButton();
             InteractWithNPC();
-        }
+        //}
     }
 
     private void CalTargetPos()
