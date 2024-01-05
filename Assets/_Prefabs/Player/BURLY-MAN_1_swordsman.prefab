@@ -3234,7 +3234,7 @@ GameObject:
   - component: {fileID: 5557740916485719759}
   - component: {fileID: 5844288071006617226}
   - component: {fileID: 1087914761657205499}
-  - component: {fileID: 5760466645679628902}
+  - component: {fileID: 6324975767039783512}
   m_Layer: 0
   m_Name: BURLY-MAN_1_swordsman
   m_TagString: Player
@@ -3256,7 +3256,7 @@ Transform:
   m_Children:
   - {fileID: 4279435245998597268}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 33
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &5557740916485719759
 Rigidbody2D:
@@ -3335,7 +3335,7 @@ MonoBehaviour:
   speed: 10
   attackRange: 2
   attackSpeed: 1
---- !u!114 &5760466645679628902
+--- !u!114 &6324975767039783512
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3344,44 +3344,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 7271240919210585110}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d14346a9b835ba9499d586cd1f944fda, type: 3}
+  m_Script: {fileID: 11500000, guid: 8e0e7108c73c40c45808b914dd3469df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  uiSlots:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  inventoryWindow: {fileID: 0}
-  dropPosition: {fileID: 7521052996029061369}
-  activateInventory: 0
-  selectedItemName: {fileID: 0}
-  selectedItemDescription: {fileID: 0}
-  useButton: {fileID: 0}
-  dropButton: {fileID: 0}
 --- !u!1 &7448009078459263604
 GameObject:
   m_ObjectHideFlags: 0
