@@ -10,9 +10,9 @@ public class MeleeEnemy1 : Monster
     Animator anim;
 
 
-    private void Start()
+    protected override void Start()
     {
-        
+        base.Start();
         characterRenderer = GetComponent < SpriteRenderer>();
         SetMonsterStats();
         currentHP = maxHP;

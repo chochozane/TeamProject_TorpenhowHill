@@ -139,7 +139,7 @@ Transform:
   m_Children:
   - {fileID: 7507757039276561535}
   m_Father: {fileID: 0}
-  m_RootOrder: 30
+  m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &7331671156152241967
 Rigidbody2D:
