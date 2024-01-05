@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerStatus : MonoBehaviour
 {
+
+    public static PlayerStatus Instance;
     // 캐릭터의 경험치와 레벨
     public int Level { get; private set; } = 1;
     private int maxExperience = 1000; // 레벨업에 필요한 경험치
@@ -49,6 +51,8 @@ public class PlayerStatus : MonoBehaviour
     }
 
     // HP 수정 메소드 예시
+
+
     public void ModifyHp(int amount)
     {
         Hp += amount;
@@ -75,4 +79,6 @@ public class PlayerStatus : MonoBehaviour
         AddDamage = Mathf.RoundToInt(BaseDamage * statsMultiplier);
         UpdateTotalStats(); // 총 능력치 업데이트
     }
+
+
 }
