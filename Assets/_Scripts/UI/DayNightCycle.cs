@@ -3,39 +3,31 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.VisualScripting;
 using UnityEngine;
-
-using UnityEngine.Rendering; // used to access the volume component
+using UnityEngine.Rendering; // Volume 컴포넌트 접근을 위해 필요
 
 public class DayNightCycle : MonoBehaviour
 {
     private Volume postprocessingVolume;
 
-    private float tick = 3000f; // Increasing the tick, increases second rate -- 5000 너무빨라 , 테스트로 1500 이 적당.
+    private float tick = 3000f; // tick 값을 올리면 second 의 rate 도 증가한다. -- 5000 너무빨라 , 테스트로 1500 이 적당.
     private float seconds;
     private int mins;
     private int hours;
     private int days = 1;
 
-    private bool isActiveLights; // checks if lights are on
-    [SerializeField] private GameObject[] lights; // all the lights we want on when its dark
-    //private SpriteRenderer[] stars; // star sprites
+    private bool isActiveLights; // 불(light)이 켜져있는지
+    [SerializeField] private GameObject[] lights; // 사용할 lights 들 (껐다켜줬다 할 친구들)
 
-    // clock
+    // CLOCK
     [SerializeField] private Transform clockHandTransform;
 
-    // Start is called before the first frame update
     void Start()
     {
         postprocessingVolume = GetComponent<Volume>();
     }
 
-    //private void Update()
-    //{
-    //    CalculateTime();
-    //    DisplayClock();
-    //}
 
-    private void FixedUpdate() // Update 함수는 frame dependant 이기에, FixedUpdate 사용
+    private void FixedUpdate() // Update 함수는 frame dependant 이기에, FixedUpdate 활용
     {
         if (UIManager.isGamePaused)
         {
@@ -46,10 +38,9 @@ public class DayNightCycle : MonoBehaviour
         DisplayClock();
     }
 
-    private void CalculateTime() // used to calculate sec, min, hours
+    private void CalculateTime() // 시간계산 함수
     {
-        seconds += Time.fixedDeltaTime * tick; // multiply time between fixed update by tick
-        //seconds += Time.deltaTime * tick; // for update()
+        seconds += Time.fixedDeltaTime * tick; // 초(sec)에서 tick 값 곱하기 이루어짐. -- tick 값이 높아지면 second 도 비례하겠죠
 
         if (seconds >= 60f) // 60초 = 1분
         {
@@ -72,7 +63,7 @@ public class DayNightCycle : MonoBehaviour
         ControlPPValue(); // 시간계산 후 Postprocessing Value 변경
     }
 
-    private void ControlPPValue() // used to adjust the post processing slider
+    private void ControlPPValue() // Postprocessing Value 값 조절
     {
         /*
          * 시간개념 : 0시 ~ 24시
@@ -85,34 +76,34 @@ public class DayNightCycle : MonoBehaviour
 
         // weight 은 0 에서 시작.
 
-        if (hours >= 20 && hours < 21) // dusk at 9pm - until 10pm
+        if (hours >= 20 && hours < 21) // 20시 ~ 21시 - 어두워진다
         {
-            postprocessingVolume.weight = (float)mins / 60; // since dusk is 1 hr, we just divide the mins by 60 which will slowly increase from 0 to 1
+            postprocessingVolume.weight = (float)mins / 60; // 어두워지는 시간이 1시간이기에, mins 을 60 으로 나눠 (Volume weight) value 값이 0 에서 1 로 천천히 바뀌게끔 설정.
 
-            if (isActiveLights == false) // if lights havent been turned on
+            if (isActiveLights == false) // 불(light) 이 안 켜졌다면
             {
                 if (mins > 45) // wait until pretty dark
                 {
                     for (int i = 0; i < lights.Length; i++)
                     {
-                        lights[i].SetActive(true); // turn the lights on
+                        lights[i].SetActive(true); // 불을 키자 !
                     }
                     isActiveLights = true;
                 }
             }
         }
 
-        if (hours >= 23 && hours < 24) // Dawn at 4am - until 5am
+        if (hours >= 23 && hours < 24) // 23시 ~ 24시 - 밝아진다
         {
             postprocessingVolume.weight = 1 - (float)mins / 60; // 1 to 0 가 되기 위해 1 을 마이너스 한다.
 
-            if (isActiveLights == true)
+            if (isActiveLights == true) // 불(light) 이 켜져있다면
             {
                 if (mins > 45) // wait until pretty bright
                 {
                     for (int i = 0; i < lights.Length; i++)
                     {
-                        lights[i].SetActive(false);
+                        lights[i].SetActive(false); // 불 꺼 !!!
                     }
                     isActiveLights = false;
                 }
@@ -122,12 +113,7 @@ public class DayNightCycle : MonoBehaviour
 
     private void DisplayClock()
     {
-        //day += Time.deltaTime / RealSecondsPerIngameDay;
-
-        //float dayNormalized = day % 1f;
-        //float rotationDegreesPerDay = 360f;
-
-        clockHandTransform.eulerAngles = new Vector3(0, 0, -hours * 15f); // 시계방향으로 하려면 z축 회전이 - 로 돌아야한다. 360 나누기 24 는 15.
+        clockHandTransform.eulerAngles = new Vector3(0, 0, -hours * 15f); // 시계방향으로 하려면 z축 회전이 - 로 돌아야한다. ( 360(한바퀴각도) 나누기 24(시간) 는 15. )
     }
 
     //public void DisplayTime() // Shows time and day in ui
