@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerWeapon : MonoBehaviour
 {
     private PlayerStatus playerStatus;
-    private float weaponDamage;
+    public float weaponDamage;
 
     private void Start()
     {
