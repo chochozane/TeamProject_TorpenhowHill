@@ -448,6 +448,18 @@ PrefabInstance:
       propertyPath: selectedItemDescription
       value: 
       objectReference: {fileID: 1194671566}
+    - target: {fileID: 4279435245998597268, guid: 36b89bc2d51626e45bb12ecd1fa9969c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 4279435245998597268, guid: 36b89bc2d51626e45bb12ecd1fa9969c, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5411350754950563924, guid: 36b89bc2d51626e45bb12ecd1fa9969c, type: 3}
+      propertyPath: m_TagString
+      value: PlayerWeapon
+      objectReference: {fileID: 0}
     - target: {fileID: 5445923939024747806, guid: 36b89bc2d51626e45bb12ecd1fa9969c, type: 3}
       propertyPath: m_Name
       value: Light 2D_Player
@@ -463,6 +475,14 @@ PrefabInstance:
     - target: {fileID: 7521052996029061369, guid: 36b89bc2d51626e45bb12ecd1fa9969c, type: 3}
       propertyPath: m_RootOrder
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7521052996029061369, guid: 36b89bc2d51626e45bb12ecd1fa9969c, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7521052996029061369, guid: 36b89bc2d51626e45bb12ecd1fa9969c, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7521052996029061369, guid: 36b89bc2d51626e45bb12ecd1fa9969c, type: 3}
       propertyPath: m_LocalPosition.x
@@ -708,6 +728,28 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 1010946879}
+--- !u!114 &557167213 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 863735024818911357, guid: 55fc46243e1dce84d9deebf058c94a90, type: 3}
+  m_PrefabInstance: {fileID: 1184254751}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &719806134 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3200096767787206579, guid: 55fc46243e1dce84d9deebf058c94a90, type: 3}
+  m_PrefabInstance: {fileID: 1184254751}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67db9e8f0e2ae9c40bc1e2b64352a6b4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &774078204
 GameObject:
   m_ObjectHideFlags: 0
@@ -1195,6 +1237,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1933286201}
     m_Modifications:
+    - target: {fileID: 863735024818911357, guid: 55fc46243e1dce84d9deebf058c94a90, type: 3}
+      propertyPath: m_Value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 863735024818911357, guid: 55fc46243e1dce84d9deebf058c94a90, type: 3}
+      propertyPath: m_Colors.m_ColorMultiplier
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 900188756704424824, guid: 55fc46243e1dce84d9deebf058c94a90, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -2480,8 +2530,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inGameCanvas: {fileID: 776543882}
   settingCanvas: {fileID: 1392578488}
-  hpSlider: {fileID: 0}
-  xpSlider: {fileID: 0}
+  hpSlider: {fileID: 557167213}
+  xpSlider: {fileID: 719806134}
 --- !u!4 &1289072782
 Transform:
   m_ObjectHideFlags: 0
