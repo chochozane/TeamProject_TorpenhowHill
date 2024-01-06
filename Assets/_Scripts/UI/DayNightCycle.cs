@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering; // Volume 컴포넌트 접근을 위해 필요
@@ -9,7 +10,7 @@ public class DayNightCycle : MonoBehaviour
 {
     private Volume postprocessingVolume;
 
-    private float tick = 3000f; // tick 값을 올리면 second 의 rate 도 증가한다. -- 5000 너무빨라 , 테스트로 1500 이 적당.
+    private float tick = 7000f; // tick 값을 올리면 second 의 rate 도 증가한다. -- 5000 너무빨라 , 테스트로 1500 이 적당.
     private float seconds;
     private int mins;
     private int hours;
@@ -20,6 +21,7 @@ public class DayNightCycle : MonoBehaviour
 
     // CLOCK
     [SerializeField] private Transform clockHandTransform;
+    [SerializeField] private TMP_Text dayText;
 
     void Start()
     {
@@ -36,6 +38,7 @@ public class DayNightCycle : MonoBehaviour
 
         CalculateTime();
         DisplayClock();
+        DisplayDay();
     }
 
     private void CalculateTime() // 시간계산 함수
@@ -116,10 +119,10 @@ public class DayNightCycle : MonoBehaviour
         clockHandTransform.eulerAngles = new Vector3(0, 0, -hours * 15f); // 시계방향으로 하려면 z축 회전이 - 로 돌아야한다. ( 360(한바퀴각도) 나누기 24(시간) 는 15. )
     }
 
-    //public void DisplayTime() // Shows time and day in ui
-    //{
+    public void DisplayDay()
+    {
 
-    //    timeDisplay.text = string.Format("{0:00}:{1:00}", hours, mins); // The formatting ensures that there will always be 0's in empty spaces
-    //    dayDisplay.text = "Day: " + days; // display day counter
-    //}
+        //timeDisplay.text = string.Format("{0:00}:{1:00}", hours, mins); // The formatting ensures that there will always be 0's in empty spaces
+        dayText.text = $"Day {days}";
+    }
 }
