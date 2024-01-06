@@ -1,25 +1,21 @@
 using System.Collections;
-using Unity.VisualScripting;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class MeleeEnemy1 : Monster
+public class MeleeEnemy3 : Monster
 {
-
     protected override void SetMonsterStats()
     {
         base.SetMonsterStats();
         enemyStats = new EnemyStats
         {
-            level = 1,
-            maxHP = 300,
-            currentHP = 300,
-            Xp = 100,
+            level = 3,
+            maxHP = 900,
+            currentHP = 900,
+            Xp = 250000,
             moveSpeed = 1.5f,
-            damageAmount = 50
+            damageAmount = 3200
 
         };
     }
-
-
-
 }

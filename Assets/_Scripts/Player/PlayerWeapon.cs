@@ -9,11 +9,8 @@ public class PlayerWeapon : MonoBehaviour
 
     private void Start()
     {
-        playerStatus = GetComponent<PlayerStatus>();
 
-        if (playerStatus != null)
-        {
             weaponDamage = playerStatus.Damage;
-        }
+       
     }
 }

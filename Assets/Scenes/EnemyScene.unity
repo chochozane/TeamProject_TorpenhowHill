@@ -1116,6 +1116,7 @@ MonoBehaviour:
   lights:
   - {fileID: 1157960136}
   clockHandTransform: {fileID: 934445341}
+  dayText: {fileID: 0}
 --- !u!114 &971328663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1762,10 +1763,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 1653571328}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f818b3313de46c24fb58296e12b6dfed, type: 3}
+  m_Script: {fileID: 11500000, guid: 8509cd8553469e546a5e237177eb89c6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  monsterPrefab: {fileID: 4537559090194347716, guid: d9775abaf09473340a8d08473bc9f079, type: 3}
+  monsterPrefab1: {fileID: 4537559090194347716, guid: d9775abaf09473340a8d08473bc9f079, type: 3}
+  monsterPrefab2: {fileID: 8637832252768944807, guid: 36b815b5139d4e148b8be324a416a484, type: 3}
+  monsterPrefab3: {fileID: 6100808212712535808, guid: fc5329e04bac62a4aab59f0a03e15c78, type: 3}
   numberOfMonsters: 5
 --- !u!1 &1833097596
 GameObject:
