@@ -1,35 +1,35 @@
 using UnityEngine;
-
-public class ClockUI : MonoBehaviour
+using UnityEngine.EventSystems;
+public class ClockUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    private const float RealSecondsPerIngameDay = 60f; // 게임 속에서 60초가 하루 라고 가정.
-    
-    private Transform clockHandTransform;
+    [SerializeField] private GameObject dayText;
 
-    private float day;
-
-    private void Awake()
+    public void OnPointerEnter(PointerEventData eventData)
     {
-        clockHandTransform = transform.Find("ClockHand");
+        // 마우스가 UI 요소 위에 진입했을 때 호출되는 함수
+        dayText.SetActive(true);
     }
-
-    private void Update()
+    public void OnPointerExit(PointerEventData eventData)
     {
-        //if (UIManager.instance.isPaused)
-        //{
-        //    UIManager.instance.PauseTime();
-        //}
-        if (UIManager.isGamePaused)
-        {
-            UIManager.instance.PauseTime();
-        }
-
-
-        day += Time.deltaTime / RealSecondsPerIngameDay;
-
-        float dayNormalized = day % 1f;
-        float rotationDegreesPerDay = 360f;
-
-        clockHandTransform.eulerAngles = new Vector3(0, 0, -dayNormalized * rotationDegreesPerDay); // 시계방향으로 하려면 z축 회전이 - 로 돌아야한다.
+        // 마우스가 UI 요소에서 나갔을 때 호출되는 함수
+        dayText.SetActive(false);
     }
 }
+
+//public class ClockUI : MonoBehaviour
+//{
+//    [SerializeField] private GameObject dayText;
+
+
+
+//    private void OnMouseEnter()
+//    {
+//        dayText.SetActive(true);
+//    }
+
+//    private void OnMouseExit()
+//    {
+//        dayText.SetActive(false);
+
+//    }
+//}
