@@ -35,7 +35,7 @@ public class PlayerStatus : MonoBehaviour
     {
         Collider = GetComponent<CapsuleCollider2D>();
     }
-    void Start()
+    private void Start()
     {
         // 기본 능력치 초기화
         InitializeBaseStats();
@@ -43,18 +43,19 @@ public class PlayerStatus : MonoBehaviour
         UpdateTotalStats();
     }
 
-    void InitializeBaseStats()
+    private void InitializeBaseStats()
     {
         BaseMaxHp = 1000; // 예시 값
         BaseHp = 1000; // 예시 값
         BaseDamage = 100; // 예시 값
         BaseAttackSpeed = 1; // 예시 값
     }
-    void UpdateTotalStats()
+    private void UpdateTotalStats()
     {
         MaxHp = BaseMaxHp + AddMaxHp; 
         Hp = BaseHp + AddHp; 
         Damage = BaseDamage + AddDamage;
+        AttackSpeed = BaseAttackSpeed;
     }
 
     // HP 수정 메소드 예시

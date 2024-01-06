@@ -224,3 +224,4 @@ MonoBehaviour:
   detectionRange: 15
   attackRange: 3
   attackCooldown: 2
+  itemPrefab: {fileID: 8756091738866029442, guid: 5e86487e0429c084aa9ed201cd0861a1, type: 3}
