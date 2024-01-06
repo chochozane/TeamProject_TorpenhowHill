@@ -53,7 +53,7 @@ public class MeleeEnemy1 : Monster
     public virtual void TakeDamage(int damage)
     {
         currentHP -= (int)damage;
-
+        Debug.Log("적이 아파요");
         if (currentHP <= 0)
         {
             Die();
@@ -105,7 +105,8 @@ public class MeleeEnemy1 : Monster
         }
         if (collision.gameObject.CompareTag("PlayerWeapon"))
         {
-            //TakeDamage((int)collision.gameObject.GetComponent<PlayerWeapon>().weaponDamage);
+            TakeDamage((int)collision.gameObject.GetComponent<PlayerWeapon>().weaponDamage);
+            Debug.Log((int)collision.gameObject.GetComponent<PlayerWeapon>().weaponDamage);
         }
     }
 
