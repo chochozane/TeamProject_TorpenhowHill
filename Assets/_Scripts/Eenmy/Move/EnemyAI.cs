@@ -2,6 +2,12 @@ using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
 {
+        
+    protected struct enemyStats
+    {
+
+    }
+
     public Transform player;
     public float moveSpeed = 3f;
     public float detectionRange = 30f; // 플레이어를 인식하는 범위
