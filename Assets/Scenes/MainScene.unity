@@ -788,6 +788,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 551cce741ab98ff4f83d5c759b0e1399, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiManager: {fileID: 0}
+  soundManager: {fileID: 0}
   enemyAngryPig: {fileID: 4537559090194347716, guid: d9775abaf09473340a8d08473bc9f079, type: 3}
 --- !u!4 &895045120
 Transform:
@@ -3360,6 +3362,7 @@ MonoBehaviour:
   lights:
   - {fileID: 0}
   clockHandTransform: {fileID: 489783493}
+  dayText: {fileID: 0}
 --- !u!114 &2078963903
 MonoBehaviour:
   m_ObjectHideFlags: 0
