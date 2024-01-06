@@ -31,7 +31,8 @@ public class DayNightCycle : MonoBehaviour
     {
         if (UIManager.isGamePaused)
         {
-            UIManager.instance.PauseTime();
+            //UIManager.instance.PauseTime();
+            GameManager.Instance.uiManager.PauseTime();
         }
 
         CalculateTime();

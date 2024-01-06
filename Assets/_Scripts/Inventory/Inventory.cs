@@ -100,12 +100,12 @@ public class Inventory : MonoBehaviour
         if (inventoryWindow.activeInHierarchy)
         {
             inventoryWindow.SetActive(false);
-            UIManager.instance.ResumeTime();
+            GameManager.Instance.uiManager.ResumeTime();
         }
         else
         {
             inventoryWindow.SetActive(true);
-            UIManager.instance.PauseTime();
+            GameManager.Instance.uiManager.PauseTime();
         }
     }
 

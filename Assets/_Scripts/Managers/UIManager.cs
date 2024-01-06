@@ -18,19 +18,19 @@ public class UIManager : MonoBehaviour
     public static bool isGamePaused { get; private set; } // 다른 스크립트에서 쉽게 접근이 가능하도록 메모리에 할당 - static, 읽기전용
 
     // 싱글톤
-    public static UIManager instance;
+    //public static UIManager instance;
 
     private void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(instance);
-        }
-        else if (instance != this)
-        {
-            Destroy(gameObject);
-        }
+        //if (instance == null)
+        //{
+        //    instance = this;
+        //    DontDestroyOnLoad(instance);
+        //}
+        //else if (instance != this)
+        //{
+        //    Destroy(gameObject);
+        //}
     }
 
     private void Update()

@@ -1,12 +1,24 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+
+    /// <summary>
+    /// GameManager.Instance.uiManager.∏ﬁº≠µÂ
+    /// GameManager.Instance.soundManager.∏ﬁº≠µÂ
+    /// </summary>
     public static GameManager Instance; //ΩÃ±€≈Ê
 
+    [Header("#Manager")]
+    public UIManager uiManager;
+    public SoundManager soundManager;
+
+    [Space(10f)]
     [SerializeField] private GameObject enemyAngryPig;
+
 
     private void Awake()
     {
@@ -14,6 +26,12 @@ public class GameManager : MonoBehaviour
         {
             Instance = this;
         }
+        else
+        {
+            Destroy(gameObject);
+        }
+        uiManager = GetComponentInChildren<UIManager>();
+        soundManager = GetComponentInChildren<SoundManager>();
     }
     private void Start()
     {
@@ -26,9 +44,6 @@ public class GameManager : MonoBehaviour
         Instantiate(enemyAngryPig);
     }
     #endregion
-
-
-
 
 
 
