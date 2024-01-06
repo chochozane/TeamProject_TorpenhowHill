@@ -8,12 +8,24 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] private GameObject enemyAngryPig;
 
+    [Header("#Manager")]
+    public UIManager uiManager;
+    public SoundManager soundManager;
+
     private void Awake()
     {
         if (Instance == null)
         {
             Instance = this;
         }
+        else
+        {
+            Destroy(gameObject);
+        }
+        DontDestroyOnLoad(gameObject);
+
+        uiManager = GetComponentInChildren<UIManager>();
+        soundManager = GetComponentInChildren<SoundManager>();
     }
     private void Start()
     {
