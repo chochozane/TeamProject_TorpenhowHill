@@ -6,29 +6,12 @@ public class ClockUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        // ���콺�� UI ��� ���� �������� �� ȣ��Ǵ� �Լ�
+        // 마우스가 UI 요소 위에 진입했을 때 호출되는 함수
         dayText.SetActive(true);
     }
     public void OnPointerExit(PointerEventData eventData)
     {
-        //if (UIManager.instance.isPaused)
-        //{
-        //    UIManager.instance.PauseTime();
-        //}
-        if (UIManager.isGamePaused)
-        {
-            //UIManager.instance.PauseTime();
-            GameManager.Instance.uiManager.PauseTime();
-        }
-
-
-        day += Time.deltaTime / RealSecondsPerIngameDay;
-
-        float dayNormalized = day % 1f;
-        float rotationDegreesPerDay = 360f;
-
-        clockHandTransform.eulerAngles = new Vector3(0, 0, -dayNormalized * rotationDegreesPerDay); // �ð�������� �Ϸ��� z�� ȸ���� - �� ���ƾ��Ѵ�.
-        // ���콺�� UI ��ҿ��� ������ �� ȣ��Ǵ� �Լ�
+        // 마우스가 UI 요소에서 나갔을 때 호출되는 함수
         dayText.SetActive(false);
     }
 }
