@@ -9,7 +9,7 @@ public class PlayerData
     public int hp;
     public int xp;
     public GameObject[] inventoryItems;
-    public int itemCount;
+    //public int itemCount;
     //NPC
     //Quest
 }
