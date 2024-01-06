@@ -100,10 +100,12 @@ public class Inventory : MonoBehaviour
         if (inventoryWindow.activeInHierarchy)
         {
             inventoryWindow.SetActive(false);
+            UIManager.instance.ResumeTime();
         }
         else
         {
             inventoryWindow.SetActive(true);
+            UIManager.instance.PauseTime();
         }
     }
 
@@ -136,6 +138,13 @@ public class Inventory : MonoBehaviour
             }
         }
     }
+
+    public void SaveInventory()
+    {
+        //DataManager.Instance.nowPlayer.
+
+    }
+
 
     public void AddItem(ItemData item)
     {
