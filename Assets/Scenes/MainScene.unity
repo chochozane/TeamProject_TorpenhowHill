@@ -659,7 +659,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3af635db33020a48b9a5ab84eadbe34, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  textObject: {fileID: 1982892580}
+  dayText: {fileID: 1982892580}
 --- !u!1 &501495393
 GameObject:
   m_ObjectHideFlags: 0
