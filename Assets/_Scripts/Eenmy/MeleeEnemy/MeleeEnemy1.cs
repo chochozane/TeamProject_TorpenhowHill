@@ -81,9 +81,7 @@ public class MeleeEnemy1 : Monster
 
     private void Die()
     {
-        // 적 캐릭터 파괴 또는 비활성화
-        Destroy(gameObject);
-        // 아이템 드랍 로직 추가
+ 
 
         DropItem();
         // 다음과 같이 플레이어에게 경험치를 주는 작업을 할 수 있습니다.
@@ -95,14 +93,13 @@ public class MeleeEnemy1 : Monster
                 playerStatus.GainExperience(Xp);
             }
         }
+
+        Destroy(gameObject);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag("Player") && player != null)
-        {
-            collision.gameObject.GetComponent<PlayerStatus>().GainExperience(Xp);
-        }
+
         if (collision.gameObject.CompareTag("PlayerWeapon"))
         {
             TakeDamage((int)collision.gameObject.GetComponent<PlayerWeapon>().weaponDamage);
