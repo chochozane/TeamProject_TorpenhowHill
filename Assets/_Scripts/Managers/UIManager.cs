@@ -6,13 +6,15 @@ public class UIManager : MonoBehaviour
     // GameManager 역할 연습해보자
 
     // [SerializeField] private 다른 매니저들;
-
+    [SerializeField] private PlayerStatus playerStats;
     // Canvas
     [SerializeField] private GameObject inGameCanvas;
     [SerializeField] private GameObject settingCanvas;
     // Sliders
     [SerializeField] private Slider hpSlider;
     [SerializeField] private Slider xpSlider;
+
+    private float maxHp;
 
     //public bool isPaused { get; private set; } // 읽기전용, 
     public static bool isGamePaused { get; private set; } // 다른 스크립트에서 쉽게 접근이 가능하도록 메모리에 할당 - static, 읽기전용
@@ -33,6 +35,13 @@ public class UIManager : MonoBehaviour
         }
     }
 
+    private void Start()
+    {
+        maxHp = playerStats.MaxHp;
+        hpSlider.maxValue = maxHp;
+        hpSlider.value = maxHp;
+    }
+
     private void Update()
     {
         if (isGamePaused)
@@ -43,6 +52,7 @@ public class UIManager : MonoBehaviour
         {
             Time.timeScale = 1.0f;
         }
+        //UpdateHPUI();
     }
 
     public void PauseTime()
@@ -91,14 +101,25 @@ public class UIManager : MonoBehaviour
     }
 
     // todo Player info UI 연결작업
+    public void UpdateHPUI(float currentHP)
+    {
+        hpSlider.value = GetHPPercentage(currentHP);
+    }
+
+    public float GetHPPercentage(float currentHP)
+    {
+        //Debug.Log("HPPERCENTAGE" + (float)Hp / MaxHp);
+        return (currentHP / maxHp) * 1000f;
+    }
+
     //public void UpdateHP(int value)
     //{
     //    hpSlider.value = + value
     //}
     //public void UpdateXP(int value)
     //{
-        //xpSlider.value = +value
-        // max value 가 되면 level 이 오르게끔
+    //xpSlider.value = +value
+    // max value 가 되면 level 이 오르게끔
 
     //}
 

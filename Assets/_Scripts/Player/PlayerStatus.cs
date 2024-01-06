@@ -72,7 +72,11 @@ public class PlayerStatus : MonoBehaviour
         Hp -= damage;
         Hp = Mathf.Clamp(Hp, 0, MaxHp); // HP가 범위 내에 있도록 보장
         Debug.Log(Hp);
+        UIManager.instance.UpdateHPUI(Hp);
+
     }
+
+
     // 경험치 추가 및 레벨업 처리
     public void GainExperience(int xp)
     {
