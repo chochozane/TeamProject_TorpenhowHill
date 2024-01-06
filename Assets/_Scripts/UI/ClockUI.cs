@@ -1,19 +1,15 @@
 using UnityEngine;
-
-public class ClockUI : MonoBehaviour
+using UnityEngine.EventSystems;
+public class ClockUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
 {
-    private const float RealSecondsPerIngameDay = 60f; // °ÔÀÓ ¼Ó¿¡¼­ 60ÃÊ°¡ ÇÏ·ç ¶ó°í °¡Á¤.
-    
-    private Transform clockHandTransform;
+    [SerializeField] private GameObject dayText;
 
-    private float day;
-
-    private void Awake()
+    public void OnPointerEnter(PointerEventData eventData)
     {
-        clockHandTransform = transform.Find("ClockHand");
+        // ï¿½ï¿½ï¿½ì½ºï¿½ï¿½ UI ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ È£ï¿½ï¿½Ç´ï¿½ ï¿½Ô¼ï¿½
+        dayText.SetActive(true);
     }
-
-    private void Update()
+    public void OnPointerExit(PointerEventData eventData)
     {
         //if (UIManager.instance.isPaused)
         //{
@@ -31,6 +27,26 @@ public class ClockUI : MonoBehaviour
         float dayNormalized = day % 1f;
         float rotationDegreesPerDay = 360f;
 
-        clockHandTransform.eulerAngles = new Vector3(0, 0, -dayNormalized * rotationDegreesPerDay); // ½Ã°è¹æÇâÀ¸·Î ÇÏ·Á¸é zÃà È¸ÀüÀÌ - ·Î µ¹¾Æ¾ßÇÑ´Ù.
+        clockHandTransform.eulerAngles = new Vector3(0, 0, -dayNormalized * rotationDegreesPerDay); // ï¿½Ã°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï·ï¿½ï¿½ï¿½ zï¿½ï¿½ È¸ï¿½ï¿½ï¿½ï¿½ - ï¿½ï¿½ ï¿½ï¿½ï¿½Æ¾ï¿½ï¿½Ñ´ï¿½.
+        // ï¿½ï¿½ï¿½ì½ºï¿½ï¿½ UI ï¿½ï¿½Ò¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ È£ï¿½ï¿½Ç´ï¿½ ï¿½Ô¼ï¿½
+        dayText.SetActive(false);
     }
 }
+
+//public class ClockUI : MonoBehaviour
+//{
+//    [SerializeField] private GameObject dayText;
+
+
+
+//    private void OnMouseEnter()
+//    {
+//        dayText.SetActive(true);
+//    }
+
+//    private void OnMouseExit()
+//    {
+//        dayText.SetActive(false);
+
+//    }
+//}

@@ -52,7 +52,7 @@ public class PlayerStatus : MonoBehaviour
     }
     private void UpdateTotalStats()
     {
-        MaxHp = BaseMaxHp + AddMaxHp; 
+        MaxHp = BaseMaxHp + AddMaxHp;
         Hp = BaseHp + AddHp; 
         Damage = BaseDamage + AddDamage;
         AttackSpeed = BaseAttackSpeed;
@@ -71,6 +71,7 @@ public class PlayerStatus : MonoBehaviour
     {
         Hp -= damage;
         Hp = Mathf.Clamp(Hp, 0, MaxHp); // HP가 범위 내에 있도록 보장
+        Debug.Log(Hp);
     }
     // 경험치 추가 및 레벨업 처리
     public void GainExperience(int xp)
@@ -104,8 +105,9 @@ public class PlayerStatus : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy")) //collision.gameObject.GetComponent<Monster>().level == 1
         {
+            Debug.Log("플레이어가 공격 받았다.");
             HitDamage(collision.gameObject.GetComponent<MeleeEnemy1>().Attack());
-            StartCoroutine(NoneHit());
+            //StartCoroutine(NoneHit());
         }        
     }
 }
