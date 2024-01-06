@@ -13,7 +13,7 @@ public class PlayerWeapon : MonoBehaviour
 
         if (playerStatus != null)
         {
-            weaponDamage = playerStatus.Damage;
+            weaponDamage = playerStatus.Damage; // 플레이어 공격력 = 무기 공격력
         }
     }
 }
