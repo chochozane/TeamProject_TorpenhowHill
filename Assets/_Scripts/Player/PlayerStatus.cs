@@ -8,7 +8,7 @@ public class PlayerStatus : MonoBehaviour
     public static PlayerStatus Instance;
     // 캐릭터의 경험치와 레벨
     public int Level { get; private set; } = 1;
-    private int maxExperience = 1000; // 레벨업에 필요한 경험치
+    public int maxExperience {get; private set;} = 1000;// 레벨업에 필요한 경험치
     private float statsMultiplier = 1.8f; // 레벨업 시 스탯 증가 비율
     private float HitCooldown = 1f; //플레이어 맞을 시 무적 시간
 
@@ -81,6 +81,8 @@ public class PlayerStatus : MonoBehaviour
     public void GainExperience(int xp)
     {
         Xp += xp;
+        Debug.Log("xp얻음 :" + Xp);
+        UIManager.instance.UpdateXPUI(Xp);
         while (Xp >= maxExperience && Level < 4)
         {
             LevelUp();

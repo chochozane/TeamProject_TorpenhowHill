@@ -1,3 +1,4 @@
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -15,6 +16,7 @@ public class UIManager : MonoBehaviour
     [SerializeField] private Slider xpSlider;
 
     private float maxHp;
+    private float maxXp;
 
     //public bool isPaused { get; private set; } // 읽기전용, 
     public static bool isGamePaused { get; private set; } // 다른 스크립트에서 쉽게 접근이 가능하도록 메모리에 할당 - static, 읽기전용
@@ -40,6 +42,11 @@ public class UIManager : MonoBehaviour
         maxHp = playerStats.MaxHp;
         hpSlider.maxValue = maxHp;
         hpSlider.value = maxHp;
+
+        Debug.Log("maxXP:" + maxXp);
+        maxXp = playerStats.maxExperience;
+        xpSlider.maxValue = maxXp;
+        xpSlider.value = 0;
     }
 
     private void Update()
@@ -52,7 +59,6 @@ public class UIManager : MonoBehaviour
         {
             Time.timeScale = 1.0f;
         }
-        //UpdateHPUI();
     }
 
     public void PauseTime()
@@ -106,10 +112,20 @@ public class UIManager : MonoBehaviour
         hpSlider.value = GetHPPercentage(currentHP);
     }
 
-    public float GetHPPercentage(float currentHP)
+    private float GetHPPercentage(float currentHP)
     {
-        //Debug.Log("HPPERCENTAGE" + (float)Hp / MaxHp);
+        Debug.Log("HPPERCENTAGE" + (currentHP / maxHp) * 1000f);
         return (currentHP / maxHp) * 1000f;
+    }
+
+    public void UpdateXPUI(float currentXP)
+    {
+        xpSlider.value = GetXPPercentage(currentXP);
+    }
+
+    private float GetXPPercentage(float currentXP)
+    {
+        return (currentXP / maxXp) * 1000f; 
     }
 
     //public void UpdateHP(int value)
