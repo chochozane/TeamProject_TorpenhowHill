@@ -4,8 +4,16 @@ using UnityEngine;
 
 public class PlayerWeapon : MonoBehaviour
 {
-    public float weaponDamage;
     public PlayerStatus player;
-    public float WeaponDamage { get; set; }
+    public float WeaponDamage { get; private set; }
     public void SetDamage() => WeaponDamage = player.Damage;
+
+    
+    public void dd()
+    {
+        Debug.Log(WeaponDamage + "무기데미지");
+        Debug.Log(player.Damage + "플레이어뎀지");
+        
+    }
+
 }

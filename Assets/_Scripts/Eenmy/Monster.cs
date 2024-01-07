@@ -92,7 +92,8 @@ public class Monster : MonoBehaviour
     public virtual void TakeDamage(int damage)
     {
         enemyStats.currentHP -= (int)damage;
-
+        Debug.Log(damage + "적 받은 데미지");
+        Debug.Log(enemyStats.currentHP + "적 현재 체력");
         if (enemyStats.currentHP <= 0)
         {
             Die();
@@ -132,13 +133,13 @@ public class Monster : MonoBehaviour
 
         Destroy(gameObject);
     }
-
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
-
         if (collision.gameObject.CompareTag("PlayerWeapon"))
         {
-            //TakeDamage((int)collision.gameObject.GetComponent<PlayerWeapon>().WeaponDamage);
+            collision.gameObject.GetComponent<PlayerWeapon>().SetDamage();
+            TakeDamage((int)collision.gameObject.GetComponent<PlayerWeapon>().WeaponDamage);
+            Debug.Log((int)collision.gameObject.GetComponentInChildren<PlayerWeapon>().WeaponDamage);
         }
     }
 
