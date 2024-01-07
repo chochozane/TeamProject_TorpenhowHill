@@ -17,21 +17,23 @@ public class Inventory : MonoBehaviour
 {
     public static Inventory Instance;
 
-    public ItemSlotUI[] uiSlots;
-    public ItemSlot[] slots;
+    [SerializeField] private ItemSlotUI[] uiSlots;
+    [SerializeField] private ItemSlot[] slots;
 
-    public GameObject inventoryWindow;
-    public Transform dropPosition;
+    [SerializeField] private GameObject inventoryWindow;
+    [SerializeField] private Transform dropPosition;
+
+    private PlayerStatus playerStatus;
 
     [Header("Selected Item")]
     private ItemSlot selectedItem;
     private int selectedItemIndex;
-    public bool activateInventory = false; //test
-    public TextMeshProUGUI selectedItemName;
-    public TextMeshProUGUI selectedItemDescription;
 
-    public GameObject useButton;
-    public GameObject dropButton;
+    [SerializeField] private TextMeshProUGUI selectedItemName;
+    [SerializeField] private TextMeshProUGUI selectedItemDescription;
+
+    [SerializeField] private GameObject useButton;
+    [SerializeField] private GameObject dropButton;
 
     private void Awake()
     {
@@ -43,11 +45,12 @@ public class Inventory : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+        playerStatus = GetComponent<PlayerStatus>();
     }
 
     private void Start()
     {
-        InitInstanceUI();
         inventoryWindow.SetActive(false);
         slots = new ItemSlot[uiSlots.Length];
 
@@ -64,34 +67,11 @@ public class Inventory : MonoBehaviour
         OnInventoryButton();
     }
 
-    private void InitInstanceUI()
-    {
-
-        //for (int i = 0; i < slots.Length; i++)
-        //{
-        //    Debug.Log(uiSlots[i]);
-        //    uiSlots[i] = Resources.Load<ItemSlotUI>("Slots/Slot");
-        //}
-
-        //inventoryWindow = Resources.Load<GameObject>("Prefabs/InventoryWindow");
-        //Debug.Log("InventoryWindow/Inventory/Inventory_BackGround/Bottom/Decraction_Group");
-        //selectedItemName = Resources.Load<TextMeshProUGUI>("Decraction/Text/Item_Name");
-        //selectedItemDescription = Resources.Load<TextMeshProUGUI>("Decraction/Text/Item_Decraction");
-
-        //useButton = Resources.Load<GameObject>("Decraction/Button/UseButton");
-        //dropButton = Resources.Load<GameObject>("Decraction/Button/DropButton");
-
-        //안됨 ㅠ
-        //useButton.GetComponent<Button>().onClick.AddListener(UseButton);
-        //dropButton.GetComponent<Button>().onClick.AddListener(DropButton);
-    }
-
     public void OnInventoryButton()
     {
         if (Input.GetKeyDown(KeyCode.E))
         {
             Toggle();
-            ActivateInventory();
         }
     }
 
@@ -109,20 +89,6 @@ public class Inventory : MonoBehaviour
         }
     }
 
-    //Inventory 활성화 판단하는 메서드
-    public bool ActivateInventory()
-    {
-        if (inventoryWindow.activeInHierarchy)
-        {
-            activateInventory = true; //test
-            return true;
-        }
-        else
-        {
-            activateInventory = false; //test
-            return false;
-        }
-    }
 
     private void UpdateInventoryUI()
     {
@@ -137,12 +103,6 @@ public class Inventory : MonoBehaviour
                 uiSlots[i].Clear();
             }
         }
-    }
-
-    public void SaveInventory()
-    {
-        //DataManager.Instance.nowPlayer.
-
     }
 
 
@@ -234,13 +194,13 @@ public class Inventory : MonoBehaviour
         {
             for(int i = 0; i < selectedItem.item.consumables.Length; i++)
             {
-                Debug.Log("Use Item");
                 switch (selectedItem.item.consumables[i].type)
                 {
-                    //플레이어와 연결...
                     case ConsumableType.Health:
-                        Debug.Log("Player Hp++");
-                        //PlayerStatus.ModifyHp(selectedItem.item.consumables[i].value);
+                        Debug.Log($"playerStatus.Hp : {playerStatus.Hp}");
+                        Debug.Log($"selectedItem.item.consumables[i].value : {selectedItem.item.consumables[i].value}");
+                        playerStatus.ModifyHp(selectedItem.item.consumables[i].value);
+                        Debug.Log($"playerStatus. + selectedItem.item.consumables[i].value : {playerStatus.Hp}");
                         break;
                     case ConsumableType.Hunger:
                         break;
@@ -267,14 +227,14 @@ public class Inventory : MonoBehaviour
 
     public void DropButton()
     {
-        Debug.Log("Drop Item");
         ThrowItem(selectedItem.item);
         RemoveSelectedItem();
         UpdateInventoryUI();
     }
 
-    /////////////////////////////////////////////////
     
+
+
     public bool IsOpen()
     {
         return inventoryWindow.activeInHierarchy;
