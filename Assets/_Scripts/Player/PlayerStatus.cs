@@ -8,7 +8,7 @@ public class PlayerStatus : MonoBehaviour
     public static PlayerStatus Instance;
     // 캐릭터의 경험치와 레벨
     public int Level { get; private set; } = 1;
-    private int maxExperience = 1000; // 레벨업에 필요한 경험치
+    public int maxExperience {get; private set;} = 1000;// 레벨업에 필요한 경험치
     private float statsMultiplier = 1.8f; // 레벨업 시 스탯 증가 비율
     private float HitCooldown = 1f; //플레이어 맞을 시 무적 시간
 
@@ -65,6 +65,8 @@ public class PlayerStatus : MonoBehaviour
     {
         Hp += amount;
         Hp = Mathf.Clamp(Hp, 0, MaxHp); // HP가 범위 내에 있도록 보장
+        UIManager.instance.UpdateHPUI(Hp);
+
     }
 
     public void HitDamage (int damage)
@@ -81,6 +83,8 @@ public class PlayerStatus : MonoBehaviour
     public void GainExperience(int xp)
     {
         Xp += xp;
+        Debug.Log("xp얻음 :" + Xp);
+        UIManager.instance.UpdateXPUI(Xp);
         while (Xp >= maxExperience && Level < 4)
         {
             LevelUp();
@@ -91,12 +95,16 @@ public class PlayerStatus : MonoBehaviour
     {
         Level++;
         Xp -= maxExperience;
+        Debug.Log("현재 Level" + Level);
 
         // 레벨업에 따른 기본 스탯 증가
         AddMaxHp = Mathf.RoundToInt(BaseMaxHp * statsMultiplier);
         AddHp += AddHp;
         AddDamage = Mathf.RoundToInt(BaseDamage * statsMultiplier);
         UpdateTotalStats(); // 총 능력치 업데이트
+        UIManager.instance.UpdateXPUI(Xp);
+        UIManager.instance.UpdateLevelText(Level);
+        UIManager.instance.UpdateHPUI(Hp);
     }
     IEnumerator NoneHit()
     {
