@@ -24,11 +24,15 @@ public class QuestData : ScriptableObject
     [Header("Info")]
     public string questTitle;
     public string questDescription;
+    public bool onGoing;
     public bool isCompleted;
 
     public RequiredResource[] requiredResource;
 
     [Header("Dialouge")]
     public string[] Dialouge;
+    public string[] OnGoing;
+    public string[] Complete;
+    public string[] Completed;
 
 }

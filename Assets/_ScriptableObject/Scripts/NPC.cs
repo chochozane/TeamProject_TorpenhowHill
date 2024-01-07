@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class NPC : MonoBehaviour
 {
@@ -10,7 +11,6 @@ public class NPC : MonoBehaviour
     public GameObject player;
     public QuestData quest;
 
-    public GameObject NPCUI;
     public GameObject UI;
     public GameObject Dialogue;
     public TextMeshProUGUI DialogueText;
@@ -19,7 +19,14 @@ public class NPC : MonoBehaviour
     public TextMeshProUGUI description;
     public TextMeshProUGUI required;
 
+    public Button button;
+
     private int currentDialogueIndex = 0;
+    private int currentOnGoingIndex = 0;
+    private int currentCompleteIndex = 0;
+    private int currentCompletedIndex = 0;
+
+    private bool IsDialouge;
 
 
     private bool playerInRange = false;
@@ -52,21 +59,7 @@ public class NPC : MonoBehaviour
         }
 
         InteractNPC();
-        OutRange();
-
-        if (currentDialogueIndex < quest.Dialouge.Length)
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                currentDialogueIndex++;
-                ShowCurrentDialogue();
-
-                if (currentDialogueIndex >= quest.Dialouge.Length)
-                {
-                    EndDialogue();
-                }
-            }
-        }
+        NPCDialogue();
     }
 
     #region dialogue
@@ -77,18 +70,80 @@ public class NPC : MonoBehaviour
 
     private void EndDialogue()
     {
-        Dialogue.SetActive(false);
-        SetQuest();
-        UI.SetActive(true);
+        DialougeSetFlase();
     }
+
+    private void NPCDialogue()
+    {
+        if (playerInRange)
+        {
+            if (IsDialouge)
+            {
+                if (!quest.onGoing)
+                {
+                    if (currentDialogueIndex < quest.Dialouge.Length)
+                    {
+                        if (Input.GetKeyDown(KeyCode.Space))
+                        {
+                            currentDialogueIndex++;
+                            ShowCurrentDialogue();
+
+                            if (currentDialogueIndex >= quest.Dialouge.Length)
+                            {
+                                currentDialogueIndex = 0;
+                                EndDialogue();
+                                SetQuest();
+                                QuestOngoing();
+                                UI.SetActive(true);
+                            }
+                        }
+                    }
+                }
+                else if (quest.onGoing)
+                {
+                    if (currentOnGoingIndex < quest.Dialouge.Length)
+                    {
+                        if (Input.GetKeyDown(KeyCode.Space))
+                        {
+                            currentOnGoingIndex++;
+                            ShowCurrentDialogue();
+
+                            if (currentOnGoingIndex >= quest.OnGoing.Length)
+                            {
+                                currentOnGoingIndex = 0;
+                                EndDialogue();
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+   
 
     private void ShowCurrentDialogue()
     {
-        Dialogue.SetActive(true);
-        if (currentDialogueIndex < quest.Dialouge.Length)
+        DialogueSetTrue();
+        if (!quest.onGoing)
         {
-            DialogueText.text = quest.Dialouge[currentDialogueIndex];
+            if (currentDialogueIndex < quest.Dialouge.Length)
+            {
+                DialogueText.text = quest.Dialouge[currentDialogueIndex];
+            }
         }
+        else if (quest.onGoing)
+        {
+            if (currentOnGoingIndex < quest.OnGoing.Length)
+            {
+                DialogueText.text = quest.OnGoing[currentOnGoingIndex];
+            }
+        }
+
+        else if (quest.isCompleted)
+        {
+            //완료 후 대화
+        }
+        
     }
 
     #endregion
@@ -111,11 +166,13 @@ public class NPC : MonoBehaviour
     }
     #endregion
 
+
+
+
     private void InteractNPC()
     {
         if (playerInRange)
         {
-            NPCUI.SetActive(true);
             if (Input.GetKeyDown(KeyCode.F))
             {
                 Debug.Log("상호작용");
@@ -124,13 +181,27 @@ public class NPC : MonoBehaviour
         }
     }
 
-    private void OutRange()
+    private void QuestOngoing()
     {
-        if (!playerInRange)
-        {
-            UI.SetActive(false);
-            NPCUI.SetActive(false);
-            Dialogue.SetActive(false);
-        }
+        quest.onGoing = true;
     }
+
+    private void QuestComplete()
+    {
+        quest.isCompleted = true;
+    }
+
+    #region Dialogue
+    private void DialogueSetTrue()
+    {
+        IsDialouge = true;
+        Dialogue.SetActive(true);
+    }
+
+    private void DialougeSetFlase()
+    {
+        IsDialouge = false;
+        Dialogue.SetActive(false);
+    }
+    #endregion
 }

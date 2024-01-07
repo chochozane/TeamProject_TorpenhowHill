@@ -12,13 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e72db90bca40bc4e9469c6335d19996, type: 3}
   m_Name: Quest2
   m_EditorClassIdentifier: 
-  questTitle: 123
-  questDescription: 123123
+  questTitle: 456
+  questDescription: 789789
+  onGoing: 0
   isCompleted: 0
   requiredResource:
   - resourceType: 1
     requiredAmount: 123
-  - resourceType: 2
+  - resourceType: 0
     requiredAmount: 123
   Dialouge:
   - "\uC548\uB155\uD558\uC138\uC694"
