@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questTitle: 123
   questDescription: 123123
-  onGoing: 1
-  isCompleted: 1
+  onGoing: 0
+  isCompleted: 0
   requiredResource:
   - item: {fileID: 11400000, guid: 31878683628eb8d40b8ad97aaea437cd, type: 2}
     resourceType: 1
