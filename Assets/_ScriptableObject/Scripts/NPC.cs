@@ -1,28 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class NPC : MonoBehaviour
 {
-    public float detectionRange = 5f;
+    public float detectionRange = 2f;
     public GameObject player;
     public QuestData quest;
-
-    public QuestUI questUI;
 
     public GameObject NPCUI;
     public GameObject UI;
     public GameObject Dialogue;
     public TextMeshProUGUI DialogueText;
 
+    public TextMeshProUGUI title;
+    public TextMeshProUGUI description;
+    public TextMeshProUGUI required;
+
+    private int currentDialogueIndex = 0;
+
+
     private bool playerInRange = false;
 
     private void Start()
     {
-        NPCUI.SetActive(false);
-        UI.SetActive(false);
-
         player = GameObject.FindWithTag("Player");
         if (player == null)
         {
@@ -38,7 +41,6 @@ public class NPC : MonoBehaviour
             if (!playerInRange)
             {
                 playerInRange = true;
-                NPCUI.SetActive(true);
             }
         }
         else
@@ -46,26 +48,89 @@ public class NPC : MonoBehaviour
             if (playerInRange)
             {
                 playerInRange = false;
-                NPCUI.SetActive(false);
+            }
+        }
+
+        InteractNPC();
+        OutRange();
+
+        if (currentDialogueIndex < quest.Dialouge.Length)
+        {
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                currentDialogueIndex++;
+                ShowCurrentDialogue();
+
+                if (currentDialogueIndex >= quest.Dialouge.Length)
+                {
+                    EndDialogue();
+                }
             }
         }
     }
 
+    #region dialogue
     private void StartDialogue()
     {
+        ShowCurrentDialogue();
+    }
+
+    private void EndDialogue()
+    {
+        Dialogue.SetActive(false);
+        SetQuest();
+        UI.SetActive(true);
+    }
+
+    private void ShowCurrentDialogue()
+    {
         Dialogue.SetActive(true);
-        DialogueText.text = ($"{quest.Dialouge[1]}");
-        DialogueText.text = ($"{quest.Dialouge[2]}");
-        DialogueText.text = ($"{quest.Dialouge[3]}");
-        if (Input.GetKeyDown(KeyCode.E))
+        if (currentDialogueIndex < quest.Dialouge.Length)
         {
-            questUI.SetQuest();
-            UI.SetActive(true);
+            DialogueText.text = quest.Dialouge[currentDialogueIndex];
         }
     }
 
-    private void EndDialouge()
+    #endregion
+
+    #region quest
+    public void SetQuest()
     {
-        Dialogue.SetActive(false);
+        title.text = quest.questTitle;
+        description.text = quest.questDescription;
+
+
+        string concatenatedText = "";
+
+        foreach (RequiredResource resource in quest.requiredResource)
+        {
+            concatenatedText += $"{resource.resourceType}: {resource.requiredAmount}\n";
+        }
+
+        required.text = concatenatedText;
+    }
+    #endregion
+
+    private void InteractNPC()
+    {
+        if (playerInRange)
+        {
+            NPCUI.SetActive(true);
+            if (Input.GetKeyDown(KeyCode.F))
+            {
+                Debug.Log("상호작용");
+                StartDialogue();
+            }
+        }
+    }
+
+    private void OutRange()
+    {
+        if (!playerInRange)
+        {
+            UI.SetActive(false);
+            NPCUI.SetActive(false);
+            Dialogue.SetActive(false);
+        }
     }
 }
