@@ -21,12 +21,16 @@ public class NPC : MonoBehaviour
 
     public Button button;
 
+    public ItemSlot item;
+
     private int currentDialogueIndex = 0;
     private int currentOnGoingIndex = 0;
     private int currentCompleteIndex = 0;
     private int currentCompletedIndex = 0;
 
     private bool IsDialouge;
+
+    Inventory inventory;
 
 
     private bool playerInRange = false;
@@ -204,4 +208,14 @@ public class NPC : MonoBehaviour
         Dialogue.SetActive(false);
     }
     #endregion
+
+
+
+    private void QuestInventory()
+    {
+        foreach (RequiredResource resource in quest.requiredResource)
+        {
+            inventory.HasItems(, resource.requiredAmount);
+        }
+    }
 }

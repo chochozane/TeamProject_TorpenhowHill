@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   questTitle: 123
   questDescription: 123123
-  onGoing: 0
+  onGoing: 1
   isCompleted: 0
   requiredResource:
   - resourceType: 1
