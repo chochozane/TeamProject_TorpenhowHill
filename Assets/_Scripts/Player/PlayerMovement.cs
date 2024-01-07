@@ -46,7 +46,7 @@ public class PlayerMovement : MonoBehaviour
                 EnableMovement();
             }
             AttackButton();
-            InteractWithNPC();
+            //InteractWithNPC();
         }
     }
 
@@ -97,28 +97,28 @@ public class PlayerMovement : MonoBehaviour
     {
         canMove = true;
     }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("NPC"))
-        {
-            isCollidingWithNPC = true;
-        }
-    }
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.CompareTag("NPC"))
-        {
-            isCollidingWithNPC = false;
-        }
-    }
-    private void InteractWithNPC()
-    {
-        if (isCollidingWithNPC)
-        {
-            if (Input.GetKeyDown(KeyCode.F))
-            {
-                Debug.Log("상호작용");
-            }
-        }
-    }
+    //private void OnCollisionEnter2D(Collision2D collision)
+    //{
+    //    if (collision.gameObject.CompareTag("NPC"))
+    //    {
+    //        isCollidingWithNPC = true;
+    //    }
+    //}
+    //private void OnCollisionExit2D(Collision2D collision)
+    //{
+    //    if (collision.gameObject.CompareTag("NPC"))
+    //    {
+    //        isCollidingWithNPC = false;
+    //    }
+    //}
+    //private void InteractWithNPC()
+    //{
+    //    if (isCollidingWithNPC)
+    //    {
+    //        if (Input.GetKeyDown(KeyCode.F))
+    //        {
+    //            Debug.Log("상호작용");
+    //        }
+    //    }
+    //}
 }
