@@ -18,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
+        PlayerWeapon Weapon = new PlayerWeapon();
         animator = GetComponentInChildren<Animator>();
         //inventory 땡겨!
         inventory = GetComponent<Inventory>();
@@ -26,7 +27,6 @@ public class PlayerMovement : MonoBehaviour
     {
         if (Input.GetMouseButton(0) && canMove)
         {
-            
             CalTargetPos();
             if (!isRunning)
             {
@@ -34,25 +34,20 @@ public class PlayerMovement : MonoBehaviour
                 animator.SetBool("Run", true);
             }
         }
-        //if (!inventory.inventoryWindow.activeInHierarchy) 
-        //{
-        //    FlipSprite(); // 스프라이트 뒤집기
-        //    MoveToTarget(); // 타겟 위치로 이동        
-        //    AttackButton();
-        //    InteractWithNPC();
-        //}
-        if (canMove) // Check if player can move
+        if (UIManager.isGamePaused == false)
         {
-            FlipSprite(); // 스프라이트 뒤집기
-            MoveToTarget(); // 타겟 위치로 이동        
+            if (canMove) // Check if player can move
+            {
+                FlipSprite(); // 스프라이트 뒤집기
+                MoveToTarget(); // 타겟 위치로 이동        
+            }
+            if (!canMove && !animator.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
+            {
+                EnableMovement();
+            }
+            AttackButton();
+            InteractWithNPC();
         }
-        if (!canMove && !animator.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
-        {
-            EnableMovement();
-        }
-
-        AttackButton();
-        InteractWithNPC();
     }
 
     private void CalTargetPos()
@@ -73,7 +68,6 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
-
     private void FlipSprite()
     {
         // 수평 이동이 중요한지 확인
@@ -83,27 +77,26 @@ public class PlayerMovement : MonoBehaviour
             transform.localScale = new Vector3(-Mathf.Sign(targetPos.x - transform.position.x), 1f, 1f);
         }
     }
-
     private void AttackButton()
     {
         if (Input.GetKeyDown(KeyCode.A))
         {
             canMove = false;
             animator.SetTrigger("Attack");
-            StartCoroutine(EnableMovementAfterDelay(playerStatus.AttackSpeed));
+            //StartCoroutine(EnableMovementAfterDelay(playerStatus.AttackSpeed));
+            
         }
     }
-
-    private IEnumerator EnableMovementAfterDelay(float delay)
-    {
-        yield return new WaitForSeconds(delay);
-        EnableMovement();
-    }
+    //private IEnumerator EnableMovementAfterDelay(float delay)
+    //{
+    //    Debug.Log(delay + "공격 딜레이 코루틴");
+    //    yield return new WaitForSeconds(delay);
+    //    EnableMovement();
+    //}
     public void EnableMovement()
     {
         canMove = true;
     }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("NPC"))
@@ -111,7 +104,6 @@ public class PlayerMovement : MonoBehaviour
             isCollidingWithNPC = true;
         }
     }
-
     private void OnCollisionExit2D(Collision2D collision)
     {
         if (collision.gameObject.CompareTag("NPC"))
@@ -119,7 +111,6 @@ public class PlayerMovement : MonoBehaviour
             isCollidingWithNPC = false;
         }
     }
-
     private void InteractWithNPC()
     {
         if (isCollidingWithNPC)
@@ -130,6 +121,4 @@ public class PlayerMovement : MonoBehaviour
             }
         }
     }
-
-
 }

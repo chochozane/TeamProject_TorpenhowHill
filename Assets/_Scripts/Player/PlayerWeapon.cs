@@ -4,16 +4,8 @@ using UnityEngine;
 
 public class PlayerWeapon : MonoBehaviour
 {
-    private PlayerStatus playerStatus;
-    private float weaponDamage;
-
-    private void Start()
-    {
-        playerStatus = GetComponent<PlayerStatus>();
-
-        if (playerStatus != null)
-        {
-            weaponDamage = playerStatus.Damage;
-        }
-    }
+    public float weaponDamage;
+    public PlayerStatus player;
+    public float WeaponDamage { get; set; }
+    public void SetDamage() => WeaponDamage = player.Damage;
 }

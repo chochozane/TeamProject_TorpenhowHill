@@ -35,7 +35,7 @@ public class PlayerStatus : MonoBehaviour
     {
         Collider = GetComponent<CapsuleCollider2D>();
     }
-    void Start()
+    private void Start()
     {
         // 기본 능력치 초기화
         InitializeBaseStats();
@@ -43,18 +43,19 @@ public class PlayerStatus : MonoBehaviour
         UpdateTotalStats();
     }
 
-    void InitializeBaseStats()
+    private void InitializeBaseStats()
     {
         BaseMaxHp = 1000; // 예시 값
         BaseHp = 1000; // 예시 값
         BaseDamage = 100; // 예시 값
         BaseAttackSpeed = 1; // 예시 값
     }
-    void UpdateTotalStats()
+    private void UpdateTotalStats()
     {
-        MaxHp = BaseMaxHp + AddMaxHp; 
+        MaxHp = BaseMaxHp + AddMaxHp;
         Hp = BaseHp + AddHp; 
         Damage = BaseDamage + AddDamage;
+        AttackSpeed = BaseAttackSpeed;
     }
 
     // HP 수정 메소드 예시
@@ -70,7 +71,12 @@ public class PlayerStatus : MonoBehaviour
     {
         Hp -= damage;
         Hp = Mathf.Clamp(Hp, 0, MaxHp); // HP가 범위 내에 있도록 보장
+        Debug.Log(Hp);
+        UIManager.instance.UpdateHPUI(Hp);
+
     }
+
+
     // 경험치 추가 및 레벨업 처리
     public void GainExperience(int xp)
     {
@@ -103,8 +109,9 @@ public class PlayerStatus : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Enemy")) //collision.gameObject.GetComponent<Monster>().level == 1
         {
+            Debug.Log("플레이어가 공격 받았다.");
             HitDamage(collision.gameObject.GetComponent<MeleeEnemy1>().Attack());
-            StartCoroutine(NoneHit());
+            //StartCoroutine(NoneHit());
         }        
     }
 }
