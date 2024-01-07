@@ -12,7 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9e72db90bca40bc4e9469c6335d19996, type: 3}
   m_Name: Quest1
   m_EditorClassIdentifier: 
-  questTitle: 
-  questDescription: 
+  questTitle: 123
+  questDescription: 123123
   isCompleted: 0
-  requiredResource: []
+  requiredResource:
+  - resourceType: 1
+    requiredAmount: 123
+  - resourceType: 2
+    requiredAmount: 123
+  Dialouge:
+  - "\uC548\uB155\uD558\uC138\uC694"
+  - "\uB9C8\uC744\uC5D0 \uC815\uCC29\uD558\uACE0 \uC2F6\uC740"
+  - "\uAD11\uBD80\uC785\uB2C8\uB2E4."
+  - "\uAD11\uC0B0\uC744 \uC9C0\uC5B4\uC8FC\uC138\uC694!"

@@ -17,6 +17,7 @@ public class RequiredResource
     public int requiredAmount;
 }
 
+
 [CreateAssetMenu(fileName = "NewQuest", menuName = "Quest System/Quest")]
 public class QuestData : ScriptableObject
 {
@@ -26,4 +27,8 @@ public class QuestData : ScriptableObject
     public bool isCompleted;
 
     public RequiredResource[] requiredResource;
+
+    [Header("Dialouge")]
+    public string[] Dialouge;
+
 }
