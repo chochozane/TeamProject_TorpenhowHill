@@ -65,6 +65,8 @@ public class PlayerStatus : MonoBehaviour
     {
         Hp += amount;
         Hp = Mathf.Clamp(Hp, 0, MaxHp); // HP가 범위 내에 있도록 보장
+        UIManager.instance.UpdateHPUI(Hp);
+
     }
 
     public void HitDamage (int damage)

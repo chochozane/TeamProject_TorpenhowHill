@@ -2597,7 +2597,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d70b3cac057cdf478d4bc670a18db84, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  player: {fileID: 4709769651982266629}
+  player: {fileID: 7154169165463856771}
 --- !u!212 &115479253233202362
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -3331,7 +3331,7 @@ GameObject:
   - component: {fileID: 5844288071006617226}
   - component: {fileID: 1087914761657205499}
   - component: {fileID: 3076006616563224014}
-  - component: {fileID: 4709769651982266629}
+  - component: {fileID: 7154169165463856771}
   m_Layer: 0
   m_Name: BURLY-MAN_1_swordsman
   m_TagString: Player
@@ -3479,7 +3479,7 @@ MonoBehaviour:
   selectedItemDescription: {fileID: 0}
   useButton: {fileID: 0}
   dropButton: {fileID: 0}
---- !u!114 &4709769651982266629
+--- !u!114 &7154169165463856771
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
