@@ -93,6 +93,10 @@ public class PlayerStatus : MonoBehaviour
     {
         Level++;
         Xp -= maxExperience;
+        Debug.Log("현재 Level" + Level);
+        UIManager.instance.UpdateXPUI(Xp);
+        UIManager.instance.UpdateLevelText(Level);
+
 
         // 레벨업에 따른 기본 스탯 증가
         AddMaxHp = Mathf.RoundToInt(BaseMaxHp * statsMultiplier);

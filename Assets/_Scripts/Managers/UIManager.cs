@@ -1,3 +1,4 @@
+using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
@@ -14,9 +15,12 @@ public class UIManager : MonoBehaviour
     // Sliders
     [SerializeField] private Slider hpSlider;
     [SerializeField] private Slider xpSlider;
+    // Text
+    [SerializeField] private TMP_Text levelText;
 
     private float maxHp;
     private float maxXp;
+
 
     //public bool isPaused { get; private set; } // 읽기전용, 
     public static bool isGamePaused { get; private set; } // 다른 스크립트에서 쉽게 접근이 가능하도록 메모리에 할당 - static, 읽기전용
@@ -126,6 +130,16 @@ public class UIManager : MonoBehaviour
     private float GetXPPercentage(float currentXP)
     {
         return (currentXP / maxXp) * 1000f; 
+    }
+
+    public void UpdateLevelText(int level)
+    {
+        levelText.text = "Lv." + GetLevelText(level).ToString();
+    }
+
+    private int GetLevelText(int level)
+    {
+        return level;
     }
 
     //public void UpdateHP(int value)
