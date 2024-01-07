@@ -4,6 +4,7 @@ using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
+using static UnityEditor.Progress;
 
 public class NPC : MonoBehaviour
 {
@@ -19,10 +20,6 @@ public class NPC : MonoBehaviour
     public TextMeshProUGUI description;
     public TextMeshProUGUI required;
 
-    public Button button;
-
-    public ItemSlot item;
-
     private int currentDialogueIndex = 0;
     private int currentOnGoingIndex = 0;
     private int currentCompleteIndex = 0;
@@ -30,8 +27,7 @@ public class NPC : MonoBehaviour
 
     private bool IsDialouge;
 
-    Inventory inventory;
-
+    private Inventory inventory;
 
     private bool playerInRange = false;
 
@@ -42,6 +38,7 @@ public class NPC : MonoBehaviour
         {
             Debug.LogError("플레이어를 찾을 수 없습니다.");
         }
+        inventory = FindObjectOfType<Inventory>();
     }
     private void Update()
     {
@@ -103,18 +100,56 @@ public class NPC : MonoBehaviour
                         }
                     }
                 }
-                else if (quest.onGoing)
+                else if (!quest.isCompleted)
                 {
-                    if (currentOnGoingIndex < quest.Dialouge.Length)
+                    if (!HasRequiredItems())
+                    {
+                        if (currentOnGoingIndex < quest.OnGoing.Length)
+                        {
+                            if (Input.GetKeyDown(KeyCode.Space))
+                            {
+                                currentOnGoingIndex++;
+                                ShowCurrentDialogue();
+
+                                if (currentOnGoingIndex >= quest.OnGoing.Length)
+                                {
+                                    currentOnGoingIndex = 0;
+                                    EndDialogue();
+                                }
+                            }
+                        }
+                    }
+                    else if (HasRequiredItems())
+                    {
+                        if (currentCompleteIndex < quest.Complete.Length)
+                        {
+                            if (Input.GetKeyDown(KeyCode.Space))
+                            {
+                                currentCompleteIndex++;
+                                ShowCurrentDialogue();
+
+                                if (currentCompleteIndex >= quest.Complete.Length)
+                                {
+                                    currentCompleteIndex = 0;
+                                    EndDialogue();
+                                    QuestComplete();
+                                }
+                            }
+                        }
+                    }
+                }
+                else if (quest.isCompleted)
+                {
+                    if (currentCompletedIndex < quest.Completed.Length)
                     {
                         if (Input.GetKeyDown(KeyCode.Space))
                         {
-                            currentOnGoingIndex++;
+                            currentCompletedIndex++;
                             ShowCurrentDialogue();
 
-                            if (currentOnGoingIndex >= quest.OnGoing.Length)
+                            if (currentCompletedIndex >= quest.Completed.Length)
                             {
-                                currentOnGoingIndex = 0;
+                                currentCompletedIndex = 0;
                                 EndDialogue();
                             }
                         }
@@ -123,7 +158,7 @@ public class NPC : MonoBehaviour
             }
         }
     }
-   
+
 
     private void ShowCurrentDialogue()
     {
@@ -135,19 +170,33 @@ public class NPC : MonoBehaviour
                 DialogueText.text = quest.Dialouge[currentDialogueIndex];
             }
         }
-        else if (quest.onGoing)
+        else if (!quest.isCompleted)
         {
-            if (currentOnGoingIndex < quest.OnGoing.Length)
+            if (!HasRequiredItems())
             {
-                DialogueText.text = quest.OnGoing[currentOnGoingIndex];
+                if (currentOnGoingIndex < quest.OnGoing.Length)
+                {
+                    DialogueText.text = quest.OnGoing[currentOnGoingIndex];
+                }
             }
+            else if (HasRequiredItems())
+            {
+                if (currentCompleteIndex < quest.Complete.Length)
+                {
+                    DialogueText.text = quest.Complete[currentCompleteIndex];
+                }
+            }
+
         }
 
         else if (quest.isCompleted)
         {
-            //완료 후 대화
+            if (currentCompletedIndex < quest.Completed.Length)
+            {
+                DialogueText.text = quest.Completed[currentCompletedIndex];
+            }
         }
-        
+
     }
 
     #endregion
@@ -170,9 +219,6 @@ public class NPC : MonoBehaviour
     }
     #endregion
 
-
-
-
     private void InteractNPC()
     {
         if (playerInRange)
@@ -192,6 +238,24 @@ public class NPC : MonoBehaviour
 
     private void QuestComplete()
     {
+        foreach (RequiredResource requiredResource in quest.requiredResource)
+        {
+            ItemData item = requiredResource.item;
+            ResourceType resourceType = requiredResource.resourceType;
+            int requiredAmount = requiredResource.requiredAmount;
+
+            inventory.RemoveItem(item, requiredAmount);
+
+            switch (resourceType)
+            {
+                case ResourceType.Wood:
+                    break;
+                case ResourceType.Stone:
+                    break;
+                case ResourceType.Grass:
+                    break;
+            }
+        }
         quest.isCompleted = true;
     }
 
@@ -209,13 +273,33 @@ public class NPC : MonoBehaviour
     }
     #endregion
 
-
-
-    private void QuestInventory()
+    private bool HasRequiredItems()
     {
-        foreach (RequiredResource resource in quest.requiredResource)
+        foreach (RequiredResource requiredResource in quest.requiredResource)
         {
-            inventory.HasItems(, resource.requiredAmount);
+            ItemData item = requiredResource.item;
+            int requiredAmount = requiredResource.requiredAmount;
+            ResourceType resourceType = requiredResource.resourceType;
+
+            bool hasItem = inventory.CheckQuestCompletion(item, requiredAmount);
+            if (!hasItem)
+            {
+                return false;
+            }
+
+            switch (resourceType)
+            {
+                case ResourceType.Wood:
+                    break;
+                case ResourceType.Stone:
+                    break;
+                case ResourceType.Grass:
+                    break;
+            }
         }
+
+
+        return true;
+
     }
 }

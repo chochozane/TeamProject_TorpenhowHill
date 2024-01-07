@@ -15,12 +15,14 @@ MonoBehaviour:
   questTitle: 123
   questDescription: 123123
   onGoing: 1
-  isCompleted: 0
+  isCompleted: 1
   requiredResource:
-  - resourceType: 1
-    requiredAmount: 123
-  - resourceType: 2
-    requiredAmount: 123
+  - item: {fileID: 11400000, guid: 31878683628eb8d40b8ad97aaea437cd, type: 2}
+    resourceType: 1
+    requiredAmount: 5
+  - item: {fileID: 11400000, guid: a00828a024d770d429bdcf79a9cf02a3, type: 2}
+    resourceType: 0
+    requiredAmount: 5
   Dialouge:
   - "\uC548\uB155\uD558\uC138\uC694"
   - "\uB9C8\uC744\uC5D0 \uC815\uCC29\uD558\uACE0 \uC2F6\uC740"
@@ -28,6 +30,7 @@ MonoBehaviour:
   - "\uB300\uC7A5\uAC04\uC744 \uC9C0\uC5B4\uC8FC\uC138\uC694!"
   OnGoing:
   - "\uBC8C\uC368 \uB2E4 \uBAA8\uC558\uB098?"
+  - "\uAC2F\uC218\uAC00 \uBD80\uC871\uD574\uBCF4\uC774\uB124"
   Complete:
   - "\uACE0\uB9D9\uB124"
   Completed:

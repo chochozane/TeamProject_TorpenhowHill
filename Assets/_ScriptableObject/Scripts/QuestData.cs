@@ -13,6 +13,7 @@ public enum ResourceType
 [Serializable]
 public class RequiredResource
 {
+    public ItemData item;
     public ResourceType resourceType;
     public int requiredAmount;
 }

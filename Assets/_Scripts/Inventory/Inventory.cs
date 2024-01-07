@@ -302,4 +302,18 @@ public class Inventory : MonoBehaviour
     {
         return false;
     }
+
+    public bool CheckQuestCompletion(ItemData item, int requiredQuantity)
+    {
+        int itemCount = CheckItemCount(item);
+
+        if (itemCount >= requiredQuantity)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
 }
