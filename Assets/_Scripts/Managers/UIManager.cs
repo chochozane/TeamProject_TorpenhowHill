@@ -48,7 +48,7 @@ public class UIManager : MonoBehaviour
         hpSlider.value = maxHp;
 
         Debug.Log("maxXP:" + maxXp);
-        maxXp = playerStats.maxExperience;
+        maxXp = playerStats.MaxXp;
         xpSlider.maxValue = maxXp;
         xpSlider.value = 0;
     }
@@ -111,26 +111,26 @@ public class UIManager : MonoBehaviour
     }
 
     // todo Player info UI 연결작업
+    public void UpdateMaxHPUI(float currentMaxHP)
+    {
+        hpSlider.maxValue = currentMaxHP;
+        hpSlider.value = hpSlider.maxValue;
+    }
     public void UpdateHPUI(float currentHP)
     {
-        hpSlider.value = GetHPPercentage(currentHP);
+        hpSlider.value = currentHP;
     }
 
-    private float GetHPPercentage(float currentHP)
+    public void UpdateMaxXPUI(float currentMaxXP)
     {
-        Debug.Log("HPPERCENTAGE" + (currentHP / maxHp) * 1000f);
-        return (currentHP / maxHp) * 1000f;
+        xpSlider.maxValue = currentMaxXP;
     }
 
     public void UpdateXPUI(float currentXP)
     {
-        xpSlider.value = GetXPPercentage(currentXP);
+        xpSlider.value = currentXP;
     }
 
-    private float GetXPPercentage(float currentXP)
-    {
-        return (currentXP / maxXp) * 1000f; 
-    }
 
     public void UpdateLevelText(int level)
     {
@@ -141,16 +141,5 @@ public class UIManager : MonoBehaviour
     {
         return level;
     }
-
-    //public void UpdateHP(int value)
-    //{
-    //    hpSlider.value = + value
-    //}
-    //public void UpdateXP(int value)
-    //{
-    //xpSlider.value = +value
-    // max value 가 되면 level 이 오르게끔
-
-    //}
 
 }
