@@ -15,7 +15,8 @@ public class MeleeEnemy1 : Monster
             currentHP = 300,
             Xp = 100,
             moveSpeed = 1.5f,
-            damageAmount = 50
+            damageAmount = 50,
+            
 
         };
     }

@@ -14,8 +14,8 @@ public class MeleeEnemy3 : Monster
             currentHP = 900,
             Xp = 250000,
             moveSpeed = 1.5f,
-            damageAmount = 3200
-
+            damageAmount = 3200,
+            
         };
     }
 }

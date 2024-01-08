@@ -43,14 +43,15 @@ public class UIManager : MonoBehaviour
 
     private void Start()
     {
-        maxHp = playerStats.MaxHp;
-        hpSlider.maxValue = maxHp;
-        hpSlider.value = maxHp;
+        //maxHp = playerStats.MaxHp;
+        //hpSlider.maxValue = maxHp;
+        //hpSlider.value = maxHp;
+        //Debug.Log("UIManager¿¡¼­ maxHP " + maxHp);
 
-        Debug.Log("maxXP:" + maxXp);
-        maxXp = playerStats.MaxXp;
-        xpSlider.maxValue = maxXp;
-        xpSlider.value = 0;
+        //Debug.Log("maxXP:" + maxXp);
+        //maxXp = playerStats.MaxXp;
+        //xpSlider.maxValue = maxXp;
+        //xpSlider.value = 0;
     }
 
     private void Update()
@@ -79,6 +80,7 @@ public class UIManager : MonoBehaviour
 
     public void OnPressedSettingBtn()
     {
+        SoundManager.instance.uiSound.ToggleAudio();
         PauseTime();
         inGameCanvas.SetActive(false);
         settingCanvas.SetActive(true);
@@ -86,7 +88,7 @@ public class UIManager : MonoBehaviour
     
     public void OnPressedCloseBtn()
     {
-        
+        SoundManager.instance.uiSound.ClickAudio();
         ResumeTime();
         inGameCanvas.SetActive(true);
         settingCanvas.SetActive(false);

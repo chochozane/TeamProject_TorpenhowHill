@@ -52,6 +52,15 @@ public class PlayerStatus : MonoBehaviour
         BaseHp = 1000; // 예시 값
         BaseDamage = 100; // 예시 값
         BaseAttackSpeed = 1; // 예시 값
+
+        //UIManager.instance.UpdateHPUI(BaseHp);
+        UIManager.instance.UpdateMaxHPUI(BaseMaxHp);
+        Debug.Log("BaseHp : " + BaseHp);
+        Debug.Log("BaseMaxHp : " + BaseMaxHp);
+
+        UIManager.instance.UpdateXPUI(Xp);
+        UIManager.instance.UpdateMaxXPUI(MaxXp);
+
     }
     private void UpdateTotalStats()
     {
@@ -76,8 +85,12 @@ public class PlayerStatus : MonoBehaviour
     {
         Hp -= damage;
         Hp = Mathf.Clamp(Hp, 0, MaxHp); // HP가 범위 내에 있도록 보장
+        if(Hp <= 0)
+        {
+            PlayerDie();
+        }
+
         Debug.Log(Hp + ": 현재 플레이어 체력");
-        
         UIManager.instance.UpdateHPUI(Hp);
     }
 
@@ -121,6 +134,12 @@ public class PlayerStatus : MonoBehaviour
         Collider.enabled = false; //콜라이더 끄기
         yield return new WaitForSeconds(HitCooldown); // HitCooldown 만큼 무적시간이 됨
         Collider.enabled = true; //콜라이더 켜기
+    }
+
+    private void PlayerDie()
+    {
+        //GameOver 씬으로 ㄱㄱ
+        GameManager.Instance.GameOver();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

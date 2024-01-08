@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Monster : MonoBehaviour
 {
 
@@ -14,6 +15,7 @@ public class Monster : MonoBehaviour
         public float moveSpeed;
         public int damageAmount;
         public int currentHP;
+       
     }
 
 
@@ -24,16 +26,18 @@ public class Monster : MonoBehaviour
     private bool canAttack = true;
     Animator anim;
     public GameObject itemPrefab;
-
-
+    public GameObject itemPrefabSpecial;
+    public float specialItemDropChance = 40;
+    private bool isRespawning = false;
 
 
     public Transform player;
 
-    public int detectionRange = 15; // 플레이어를 인식하는 범위
-    public int attackRange = 3; // 공격 범위
+    public int detectionRange = 3; // 플레이어를 인식하는 범위
+
     public int attackCooldown = 2; // 공격 쿨다운
 
+    public int attackRange = 5;    // 공격 범위
 
     protected virtual void Start()
     {
@@ -52,7 +56,7 @@ public class Monster : MonoBehaviour
 
     protected virtual void SetMonsterStats()
     {
-        // 안쓰게 된거라면 지워주세요.
+
     }
 
 
@@ -99,6 +103,7 @@ public class Monster : MonoBehaviour
         }
         else
         {
+
             anim.SetTrigger("Hit");
         }
     }
@@ -108,17 +113,21 @@ public class Monster : MonoBehaviour
 
     }
 
+
+
     private IEnumerator AttackCooldown()
     {
+
         canAttack = false;
         yield return new WaitForSeconds(attackCooldown);
         canAttack = true;
+
     }
 
     private void Die()
     {
-
         DropItem();
+
         // 다음과 같이 플레이어에게 경험치를 주는 작업을 할 수 있습니다.
         if (player != null)
         {
@@ -129,8 +138,12 @@ public class Monster : MonoBehaviour
             }
         }
 
-        Destroy(gameObject);
+            gameObject.SetActive(false);
     }
+
+
+
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("PlayerWeapon"))
@@ -156,5 +169,15 @@ public class Monster : MonoBehaviour
             Rigidbody2D itemRb = droppedItem.GetComponent<Rigidbody2D>();
 
         }
+
+        if (itemPrefabSpecial != null && UnityEngine.Random.Range(0, 100) < specialItemDropChance)
+        {
+            GameObject specialItem = Instantiate(itemPrefabSpecial, transform.position, Quaternion.identity);
+            // 특정 아이템에 대한 추가 설정이 필요하다면 여기에서 설정
+            Rigidbody2D specialItemRb = specialItem.GetComponent<Rigidbody2D>();
+        }
     }
+
 }
+
+

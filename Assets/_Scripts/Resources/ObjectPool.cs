@@ -51,5 +51,17 @@ public class ObjectPool : MonoBehaviour
     public void ReturnObjectToPool(GameObject obj)
     {
         obj.SetActive(false);
+
+        // 여기에서 풀에 반환된 몬스터를 재사용하도록 설정
+        for (int i = 0; i < objectPools.Count; i++)
+        {
+            if (objectPools[i].Contains(obj))
+            {
+                // 몬스터를 풀에 다시 추가
+                objectPools[i].Remove(obj);
+                objectPools[i].Add(obj);
+                break;
+            }
+        }
     }
 }
