@@ -7,40 +7,60 @@ public class ResourceScript : MonoBehaviour
 {
     public GameObject itemprefab;
 
-    public float ResourceHP = 3.0f;
+    private bool isHit = false;
 
-    private void Update()
+    private Color originalColor;
+    public Color hitColor = Color.red;
+
+
+    public float ResourceHP = 2.0f;
+
+    private void Start()
     {
-        //Debug.Log(ResourceHP);
+        originalColor = GetComponent<Renderer>().material.color;
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if ((Input.GetKeyDown(KeyCode.A)))
+        if (collision.gameObject.CompareTag("PlayerWeapon") && !isHit)
         {
-            if (collision.gameObject.CompareTag("PlayerWeapon"))
-            {
 
-                Debug.Log("¶§·È´Ù.");
-                if (ResourceHP > 0)
-                {
-                    ResourceHP--;
-                }
-                else
-                {
-                    Die();
-                }
+            Debug.Log("¶§·È´Ù.");
+            if (ResourceHP > 0)
+            { 
+                isHit = true;
+                ResourceHP--;
+                GetComponent<Renderer>().material.color = hitColor;
+                Debug.Log(ResourceHP);
+
+                StartCoroutine(ResetColorAfterDelay(0.2f));
+            }
+            else
+            {
+                Die();
             }
         }
+
     }
 
     private void Die()
     {
-        if (ResourceHP < 0)
-        {
-            Destroy(gameObject);
-            DropItem();
-        }
+        gameObject.SetActive(false);
+        DropItem();
     }
+
+    private IEnumerator ResetColorAfterDelay(float delay)
+    {
+        yield return new WaitForSeconds(delay);
+        isHit = false;
+        ResetResource();
+    }
+
+    public void ResetResource()
+    {
+        GetComponent<Renderer>().material.color = originalColor;
+    }
+
     private void DropItem()
     {
         Instantiate(itemprefab, transform.position, Quaternion.identity);

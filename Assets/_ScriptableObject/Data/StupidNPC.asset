@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e72db90bca40bc4e9469c6335d19996, type: 3}
+  m_Name: StupidNPC
+  m_EditorClassIdentifier: 
+  questTitle: 456
+  questDescription: 789789
+  onGoing: 0
+  isCompleted: 0
+  requiredResource:
+  - item: {fileID: 0}
+    resourceType: 1
+    requiredAmount: 123
+  - item: {fileID: 0}
+    resourceType: 0
+    requiredAmount: 123
+  Dialouge:
+  - "\uC6B0\uD5E4\uD5E4\uD5E4\uD5E4"
+  - "\uAE38\uBC14\uB2E5\uC5D0\uC11C \uC790\uB294 \uAC83\uB3C4 \uC88B\uC740\uB370"
+  - "\uADF8\uB798\uB3C4 \uC9D1\uC774 \uC788\uC73C\uBA74 \uC88B\uACA0\uC5B4 !! \uD788\uD788"
+  - "\uC7AC\uB8CC \uC880 \uAD6C\uD574\uB2E4 \uC8FC\uBA74 \uB0B4\uAC00 \uCF54\uB531\uC9C0
+    \uC904\uAED8~!! (^\u3160^)"
+  OnGoing:
+  - "\uD558\uB098,\uC14B,\uB458...\uC640!! \uB108 \uC815\uB9D0 \uCEA1\uC211 \uC9F1\uC774\uB2E4!!\uD788\uD788"
+  - "\uC22B\uC790\uB97C \uB098\uBCF4\uB2E4 \uC140 \uC904 \uBAA8\uB974\uB294\uAD6C\uB098?
+    \uD478\uD558\uD558"
+  Complete:
+  - "\uACE0\uB9C8\uC6CC !! \uC5EC\uAE30 \uCF54\uB531\uC9C0 \uD30C\uC904\uAED8 \uAE30\uB2E4\uB824\uBC14~
+    \uC774\uD788\uD788"
+  Completed:
+  - "\uC870..\uAE08\uB9CC \uAE30\uB2E4\uB824\uC904\uB798?? \uB354 \uC904\uAED8 \uC788\uC5B4
+    (\u3147\u3160\u3147)~@"
