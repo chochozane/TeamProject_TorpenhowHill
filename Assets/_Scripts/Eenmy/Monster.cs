@@ -30,7 +30,7 @@ public class Monster : MonoBehaviour
 
     public Transform player;
 
-    public int detectionRange = 15; // 플레이어를 인식하는 범위
+    public int detectionRange = 3; // 플레이어를 인식하는 범위
     public int attackRange = 3; // 공격 범위
     public int attackCooldown = 2; // 공격 쿨다운
 
@@ -112,9 +112,11 @@ public class Monster : MonoBehaviour
 
     private IEnumerator AttackCooldown()
     {
+
         canAttack = false;
         yield return new WaitForSeconds(attackCooldown);
         canAttack = true;
+
     }
 
     private void Die()
@@ -132,6 +134,7 @@ public class Monster : MonoBehaviour
         }
 
         Destroy(gameObject);
+
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -157,5 +160,7 @@ public class Monster : MonoBehaviour
             Rigidbody2D itemRb = droppedItem.GetComponent<Rigidbody2D>();
 
         }
+
     }
+
 }
