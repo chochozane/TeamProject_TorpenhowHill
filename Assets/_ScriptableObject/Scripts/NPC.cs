@@ -12,10 +12,12 @@ public class NPC : MonoBehaviour
     public GameObject player;
     public QuestData quest;
 
+
     public GameObject UI;
     public GameObject Dialogue;
-    public TextMeshProUGUI DialogueText;
+    public GameObject building;
 
+    public TextMeshProUGUI DialogueText;
     public TextMeshProUGUI title;
     public TextMeshProUGUI description;
     public TextMeshProUGUI required;
@@ -257,6 +259,7 @@ public class NPC : MonoBehaviour
             }
         }
         quest.isCompleted = true;
+        building.SetActive(true);
     }
 
     #region Dialogue
