@@ -26,8 +26,8 @@ public class Monster : MonoBehaviour
     Animator anim;
     public GameObject itemPrefab;
     public GameObject itemPrefabSpecial;
-    public float specialItemDropChance = 40; 
-
+    public float specialItemDropChance = 40;
+    private bool isRespawning = false;
 
 
     public Transform player;
@@ -103,6 +103,7 @@ public class Monster : MonoBehaviour
         }
         else
         {
+
             anim.SetTrigger("Hit");
         }
     }
@@ -111,6 +112,8 @@ public class Monster : MonoBehaviour
         return enemyStats.damageAmount;
 
     }
+
+
 
     private IEnumerator AttackCooldown()
     {
@@ -123,10 +126,7 @@ public class Monster : MonoBehaviour
 
     private void Die()
     {
-        // 기본 아이템 드랍
         DropItem();
-
-
 
         // 다음과 같이 플레이어에게 경험치를 주는 작업을 할 수 있습니다.
         if (player != null)
@@ -138,8 +138,11 @@ public class Monster : MonoBehaviour
             }
         }
 
-        gameObject.SetActive(false);
+            GameObject.Destroy(gameObject);
     }
+
+
+
 
     private void OnTriggerEnter2D(Collider2D collision)
     {

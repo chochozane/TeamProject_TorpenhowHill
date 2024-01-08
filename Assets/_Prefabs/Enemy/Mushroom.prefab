@@ -216,7 +216,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemPrefab: {fileID: 3413365699998340280, guid: 3a839fcbdb2ce93458e94fbea1eb0b3a, type: 3}
+  itemPrefabSpecial: {fileID: 0}
+  specialItemDropChance: 40
   player: {fileID: 7521052996029061369, guid: 36b89bc2d51626e45bb12ecd1fa9969c, type: 3}
-  detectionRange: 15
-  attackRange: 3
+  detectionRange: 5
+  attackRange: 5
   attackCooldown: 2
