@@ -25,7 +25,7 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        DontDestroyOnLoad(gameObject);
+        //DontDestroyOnLoad(gameObject);
 
         uiManager = GetComponentInChildren<UIManager>();
         soundManager = GetComponentInChildren<SoundManager>();
