@@ -15,6 +15,7 @@ public class Monster : MonoBehaviour
         public float moveSpeed;
         public int damageAmount;
         public int currentHP;
+       
     }
 
 
@@ -33,9 +34,10 @@ public class Monster : MonoBehaviour
     public Transform player;
 
     public int detectionRange = 3; // 플레이어를 인식하는 범위
-    public int attackRange = 3; // 공격 범위
+
     public int attackCooldown = 2; // 공격 쿨다운
 
+    public int attackRange = 5;    // 공격 범위
 
     protected virtual void Start()
     {

@@ -14,8 +14,8 @@ public class MeleeEnemy_Boss : Monster
             currentHP = 2000,
             Xp = 500000,
             moveSpeed = 2f,
-            damageAmount = 50
-
+            damageAmount = 50,
+            
         };
     }
 }

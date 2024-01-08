@@ -217,7 +217,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemPrefab: {fileID: 3413365699998340280, guid: 3a839fcbdb2ce93458e94fbea1eb0b3a, type: 3}
-  itemPrefabSpecial: {fileID: 0}
+  itemPrefabSpecial: {fileID: 8932314434273197424, guid: 0bae05e072d6bb64a9388868f397cac4, type: 3}
   specialItemDropChance: 40
   player: {fileID: 7521052996029061369, guid: 36b89bc2d51626e45bb12ecd1fa9969c, type: 3}
   detectionRange: 5
