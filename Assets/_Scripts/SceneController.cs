@@ -7,6 +7,7 @@ public class SceneController : MonoBehaviour
 {
     public void StartToMainScene()
     {
+        SoundManager.instance.uiSound.ClickAudio();
         SceneManager.LoadScene("MainScene");
     }
 }

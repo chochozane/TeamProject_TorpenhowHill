@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class UISound : MonoBehaviour
 {
-    public static UISound Instance;
-
     private AudioSource audioSource;
     [Header("# Inventory Sound")]
     [SerializeField] private AudioClip clickAudio; // 음악 파일 그 자체
@@ -13,7 +11,6 @@ public class UISound : MonoBehaviour
 
     private void Awake()
     {
-        Instance = this;
         audioSource = GetComponent<AudioSource>();
     }
     public void ClickAudio()

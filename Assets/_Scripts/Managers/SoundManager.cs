@@ -7,10 +7,7 @@ public class SoundManager : MonoBehaviour
     private AudioSource audioSource; // 음악 플레이할 친구
     [SerializeField] private AudioClip bgm; // 음악 파일 그 자체
 
-    [Header("# Inventory Sound")]
-    [SerializeField] private AudioClip clickAudio; // 음악 파일 그 자체
-    [SerializeField] private AudioClip toggleAudio; // 음악 파일 그 자체
-
+    public UISound uiSound;
 
     private void Awake()
     {
@@ -25,7 +22,7 @@ public class SoundManager : MonoBehaviour
         }
 
         audioSource = GetComponent<AudioSource>();
-        
+        uiSound = GetComponentInChildren<UISound>();
     }
 
     // Start is called before the first frame update
