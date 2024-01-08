@@ -47,10 +47,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 357ce83c0b366284184c2c836bacecae, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemPrefab: {fileID: 0}
-  itemPrefabSpecial: {fileID: 0}
+  itemPrefab: {fileID: 4523950203273708054, guid: cfae58c0eb55e754f8decd41fccea5ee, type: 3}
+  itemPrefabSpecial: {fileID: 4523950203273708054, guid: cfae58c0eb55e754f8decd41fccea5ee, type: 3}
   specialItemDropChance: 40
-  player: {fileID: 0}
+  player: {fileID: 7521052996029061369, guid: 36b89bc2d51626e45bb12ecd1fa9969c, type: 3}
   detectionRange: 5
   attackRange: 5
   attackCooldown: 2
