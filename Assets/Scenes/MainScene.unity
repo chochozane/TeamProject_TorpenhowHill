@@ -226,6 +226,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Village
       objectReference: {fileID: 0}
+    - target: {fileID: 5918666935552544175, guid: 83bc902a0b7e840469342fc596441a9d, type: 3}
+      propertyPath: quest
+      value: 
+      objectReference: {fileID: 11400000, guid: 955170c206445b649b80a2563d697c1e, type: 2}
     - target: {fileID: 8091710297351704482, guid: 83bc902a0b7e840469342fc596441a9d, type: 3}
       propertyPath: UI
       value: 
@@ -1571,7 +1575,7 @@ PrefabInstance:
     - target: {fileID: 7342319458259864621, guid: 36b89bc2d51626e45bb12ecd1fa9969c, type: 3}
       propertyPath: player
       value: 
-      objectReference: {fileID: 2052510584}
+      objectReference: {fileID: 2052510588}
     - target: {fileID: 7521052996029061369, guid: 36b89bc2d51626e45bb12ecd1fa9969c, type: 3}
       propertyPath: m_RootOrder
       value: 8
@@ -1623,7 +1627,7 @@ PrefabInstance:
     m_AddedComponents:
     - targetCorrespondingSourceObject: {fileID: 7271240919210585110, guid: 36b89bc2d51626e45bb12ecd1fa9969c, type: 3}
       insertIndex: -1
-      addedObject: {fileID: 2052510584}
+      addedObject: {fileID: 2052510588}
   m_SourcePrefab: {fileID: 100100000, guid: 36b89bc2d51626e45bb12ecd1fa9969c, type: 3}
 --- !u!4 &864386702 stripped
 Transform:
@@ -3609,7 +3613,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ec0964f3ae4834287378a33474d2f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStats: {fileID: 2052510584}
+  playerStats: {fileID: 2052510588}
   inGameCanvas: {fileID: 776543882}
   settingCanvas: {fileID: 1392578488}
   hpSlider: {fileID: 1630964615}
@@ -4510,7 +4514,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d14346a9b835ba9499d586cd1f944fda, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &2052510584
+--- !u!114 &2052510588
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
