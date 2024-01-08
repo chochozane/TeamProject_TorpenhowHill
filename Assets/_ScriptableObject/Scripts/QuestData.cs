@@ -9,9 +9,10 @@ public enum ResourceType
     Wood,
     Grass,
     Apple,
-    Skul,
+    Skull,
     Envolop,
-    Diamond
+    Diamond,
+    Beer
 }
 
 [Serializable]

@@ -24,7 +24,6 @@ public class Ending : MonoBehaviour
     private void Update()
     {
         CheckClear();
-        Debug.Log(IsClear);
     }
 }
 

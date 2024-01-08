@@ -245,7 +245,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6360677914250570634, guid: a38dd3ad5ca43d1429fa1f3931d426c4, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 100
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 6360677914250570634, guid: a38dd3ad5ca43d1429fa1f3931d426c4, type: 3}
       propertyPath: m_LocalPosition.x
@@ -295,9 +295,25 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6717649475218553852, guid: a38dd3ad5ca43d1429fa1f3931d426c4, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8165843168905532372, guid: a38dd3ad5ca43d1429fa1f3931d426c4, type: 3}
       propertyPath: m_Name
       value: Dialogue
+      objectReference: {fileID: 0}
+    - target: {fileID: 8165843168905532372, guid: a38dd3ad5ca43d1429fa1f3931d426c4, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8308109269911044450, guid: a38dd3ad5ca43d1429fa1f3931d426c4, type: 3}
+      propertyPath: m_fontSize
+      value: 36
+      objectReference: {fileID: 0}
+    - target: {fileID: 8308109269911044450, guid: a38dd3ad5ca43d1429fa1f3931d426c4, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
@@ -3694,6 +3710,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 2070668360}
     - target: {fileID: 1557649551400679750, guid: d2b85df37a269e541b37ac9bc33dbf94, type: 3}
+      propertyPath: quest
+      value: 
+      objectReference: {fileID: 11400000, guid: 258e5239369b9a747b52e26c084369fc, type: 2}
+    - target: {fileID: 1557649551400679750, guid: d2b85df37a269e541b37ac9bc33dbf94, type: 3}
       propertyPath: title
       value: 
       objectReference: {fileID: 2070668359}
@@ -4468,6 +4488,22 @@ PrefabInstance:
     - target: {fileID: 2374940659994162822, guid: 5e9acfceebc435a42a89f7fb8b81b558, type: 3}
       propertyPath: m_Name
       value: OngoingQuest
+      objectReference: {fileID: 0}
+    - target: {fileID: 2694685909541681933, guid: 5e9acfceebc435a42a89f7fb8b81b558, type: 3}
+      propertyPath: m_fontColor.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2694685909541681933, guid: 5e9acfceebc435a42a89f7fb8b81b558, type: 3}
+      propertyPath: m_fontColor.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2694685909541681933, guid: 5e9acfceebc435a42a89f7fb8b81b558, type: 3}
+      propertyPath: m_fontColor.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2694685909541681933, guid: 5e9acfceebc435a42a89f7fb8b81b558, type: 3}
+      propertyPath: m_fontColor32.rgba
+      value: 4294967295
       objectReference: {fileID: 0}
     - target: {fileID: 8251708685211382672, guid: 5e9acfceebc435a42a89f7fb8b81b558, type: 3}
       propertyPath: m_Pivot.x

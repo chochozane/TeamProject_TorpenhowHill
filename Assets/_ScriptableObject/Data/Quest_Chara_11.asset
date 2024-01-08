@@ -20,7 +20,10 @@ MonoBehaviour:
   requiredResource:
   - item: {fileID: 11400000, guid: 31878683628eb8d40b8ad97aaea437cd, type: 2}
     resourceType: 1
-    requiredAmount: 1
+    requiredAmount: 10
+  - item: {fileID: 11400000, guid: a8039b1045ab829478dbe06c94e2b637, type: 2}
+    resourceType: 7
+    requiredAmount: 10
   Dialouge:
   - "\uC548\uB155\uD558\uC138\uC694"
   - "\uC5EC\uAE30\uC5D0 \uC218\uB9E5\uC774 \uD750\uB974\uACE0 \uC788\uB294 \uAC83
