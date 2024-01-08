@@ -54,7 +54,7 @@ public class GameManager : MonoBehaviour
 
     public void ContinueButton()
     {
-        ending.IsClear = false;
+        ending._continue = true;
         SoundManager.instance.uiSound.ClickAudio();
         VictoryImage.SetActive(false);
         UIManager.instance.ResumeTime();

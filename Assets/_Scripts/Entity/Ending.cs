@@ -8,6 +8,8 @@ public class Ending : MonoBehaviour
     public QuestData[] questDatas;
     public bool IsClear;
 
+    public bool _continue = false;
+
     private void CheckClear()
     {
         IsClear = true;
@@ -22,14 +24,18 @@ public class Ending : MonoBehaviour
         }
     }
 
+
     private void Update()
     {
         CheckClear();
-        if (IsClear)
+        if (_continue)
         {
-            GameManager.Instance.Victory();
+            IsClear = false;
+            if (IsClear)
+            {
+                GameManager.Instance.Victory();
+            }
         }
-        
     }
 }
 
