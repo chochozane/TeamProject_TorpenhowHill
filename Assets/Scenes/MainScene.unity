@@ -3859,6 +3859,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1196533158 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3961349633615749479, guid: d2b85df37a269e541b37ac9bc33dbf94, type: 3}
+  m_PrefabInstance: {fileID: 1535423659}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1261715669
 GameObject:
   m_ObjectHideFlags: 0
@@ -6131,7 +6136,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   lights:
   - {fileID: 769404741}
-  - {fileID: 0}
+  - {fileID: 1196533158}
   clockHandTransform: {fileID: 489783493}
   dayText: {fileID: 1982892582}
 --- !u!114 &2078963903
