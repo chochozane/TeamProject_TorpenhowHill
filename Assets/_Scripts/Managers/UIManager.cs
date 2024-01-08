@@ -33,7 +33,7 @@ public class UIManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(instance);
+            //DontDestroyOnLoad(instance);
         }
         else if (instance != this)
         {
