@@ -68,20 +68,19 @@ public class UIManager : MonoBehaviour
 
     public void PauseTime()
     {
-        SoundManager.instance.uiSound.ToggleAudio();
         isGamePaused = true;
         //Time.timeScale = 0.0f;
     }
 
     public void ResumeTime()
     {
-        SoundManager.instance.uiSound.ClickAudio();
         isGamePaused = false;
         //Time.timeScale = 1.0f;
     }
 
     public void OnPressedSettingBtn()
     {
+        SoundManager.instance.uiSound.ToggleAudio();
         PauseTime();
         inGameCanvas.SetActive(false);
         settingCanvas.SetActive(true);
@@ -89,7 +88,7 @@ public class UIManager : MonoBehaviour
     
     public void OnPressedCloseBtn()
     {
-        
+        SoundManager.instance.uiSound.ClickAudio();
         ResumeTime();
         inGameCanvas.SetActive(true);
         settingCanvas.SetActive(false);

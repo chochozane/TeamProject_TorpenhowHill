@@ -139,6 +139,7 @@ public class PlayerStatus : MonoBehaviour
     private void PlayerDie()
     {
         //GameOver æ¿¿∏∑Œ §°§°
+        GameManager.Instance.GameOver();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

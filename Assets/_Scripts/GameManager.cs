@@ -45,18 +45,16 @@ public class GameManager : MonoBehaviour
 
     public void StartSceneButton()
     {
+        SoundManager.instance.uiSound.ClickAudio();
         SceneManager.LoadScene("StartScene");
         UIManager.instance.ResumeTime();
     }
 
     public void ContinueButton()
     {
+        SoundManager.instance.uiSound.ClickAudio();
         VictoryImage.SetActive(false);
         UIManager.instance.ResumeTime();
     }
-
-
-
-
 
 }
