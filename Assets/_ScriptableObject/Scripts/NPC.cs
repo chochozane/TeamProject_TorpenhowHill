@@ -16,6 +16,8 @@ public class NPC : MonoBehaviour
     public GameObject UI;
     public GameObject Dialogue;
     public GameObject building;
+    public GameObject building_;
+    public GameObject nextNPC;
 
     public TextMeshProUGUI DialogueText;
     public TextMeshProUGUI title;
@@ -82,7 +84,7 @@ public class NPC : MonoBehaviour
         {
             if (IsDialouge)
             {
-                if (!quest.onGoing)
+                if (!quest.onGoing && !quest.isCompleted)
                 {
                     if (currentDialogueIndex < quest.Dialouge.Length)
                     {
@@ -229,6 +231,10 @@ public class NPC : MonoBehaviour
             {
                 Debug.Log("상호작용");
                 StartDialogue();
+                currentDialogueIndex = 0;
+                currentOnGoingIndex = 0;
+                currentCompleteIndex = 0;
+                currentCompletedIndex = 0;
             }
         }
     }
@@ -243,23 +249,23 @@ public class NPC : MonoBehaviour
         foreach (RequiredResource requiredResource in quest.requiredResource)
         {
             ItemData item = requiredResource.item;
-            ResourceType resourceType = requiredResource.resourceType;
             int requiredAmount = requiredResource.requiredAmount;
 
             inventory.RemoveItem(item, requiredAmount);
-
-            switch (resourceType)
-            {
-                case ResourceType.Wood:
-                    break;
-                case ResourceType.Stone:
-                    break;
-                case ResourceType.Grass:
-                    break;
-            }
         }
         quest.isCompleted = true;
-        building.SetActive(true);
+        if (building != null)
+        {
+            building.SetActive(true);
+        }
+        if (building_ != null)
+        {
+            building_.SetActive(true);
+        }
+        if (nextNPC != null)
+        {
+            nextNPC.SetActive(true);
+        }
     }
 
     #region Dialogue
@@ -282,22 +288,11 @@ public class NPC : MonoBehaviour
         {
             ItemData item = requiredResource.item;
             int requiredAmount = requiredResource.requiredAmount;
-            ResourceType resourceType = requiredResource.resourceType;
 
             bool hasItem = inventory.CheckQuestCompletion(item, requiredAmount);
             if (!hasItem)
             {
                 return false;
-            }
-
-            switch (resourceType)
-            {
-                case ResourceType.Wood:
-                    break;
-                case ResourceType.Stone:
-                    break;
-                case ResourceType.Grass:
-                    break;
             }
         }
 
