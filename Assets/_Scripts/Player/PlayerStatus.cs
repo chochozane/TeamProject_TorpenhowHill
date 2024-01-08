@@ -87,7 +87,6 @@ public class PlayerStatus : MonoBehaviour
     {
         Xp += xp;
         Debug.Log("xp얻음 :" + Xp);
-        UIManager.instance.UpdateXPUI(Xp);
         while (Xp >= MaxXp && Level < 4)
         {
             LevelUp();
@@ -111,7 +110,6 @@ public class PlayerStatus : MonoBehaviour
         UIManager.instance.UpdateMaxXPUI(MaxXp);
         UIManager.instance.UpdateLevelText(Level);
         UIManager.instance.UpdateMaxHPUI(MaxHp);
-        //UIManager.instance.UpDateHp(MaxHp);
         Debug.Log(MaxHp);
 
         Debug.Log("현재 Level" + Level);

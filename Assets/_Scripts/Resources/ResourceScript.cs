@@ -45,7 +45,7 @@ public class ResourceScript : MonoBehaviour
 
     private void Die()
     {
-        Destroy(gameObject);
+        gameObject.SetActive(false);
         DropItem();
     }
 
