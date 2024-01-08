@@ -56,7 +56,7 @@ public class Monster : MonoBehaviour
 
     protected virtual void SetMonsterStats()
     {
-        // 안쓰게 된거라면 지워주세요.
+
     }
 
 
@@ -138,7 +138,7 @@ public class Monster : MonoBehaviour
             }
         }
 
-            GameObject.Destroy(gameObject);
+            gameObject.SetActive(false);
     }
 
 
