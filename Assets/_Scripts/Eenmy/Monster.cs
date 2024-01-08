@@ -20,7 +20,7 @@ public class Monster : MonoBehaviour
 
 
     protected EnemyStats enemyStats;
-
+    private AudioSource audioSource;
     private SpriteRenderer characterRenderer;
     private bool canAttack = true;
     Animator anim;
@@ -39,7 +39,7 @@ public class Monster : MonoBehaviour
 
     protected virtual void Start()
     {
-        
+        audioSource = GetComponent<AudioSource>();
         characterRenderer = GetComponent<SpriteRenderer>();
         anim = GetComponentInChildren<Animator>();
         SetMonsterStats();
@@ -47,16 +47,14 @@ public class Monster : MonoBehaviour
 
         if (players.Length > 0)
         {
-
              player = players[0].transform;
-
             // 여기에 플레이어 설정 코드 추가
         }
     }
 
     protected virtual void SetMonsterStats()
     {
-
+        // 안쓰게 된거라면 지워주세요.
     }
 
 
@@ -150,6 +148,7 @@ public class Monster : MonoBehaviour
         {
             collision.gameObject.GetComponent<PlayerWeapon>().SetDamage();
             TakeDamage((int)collision.gameObject.GetComponent<PlayerWeapon>().WeaponDamage);
+            audioSource.Play();
             Debug.Log((int)collision.gameObject.GetComponentInChildren<PlayerWeapon>().WeaponDamage);
         }
     }
