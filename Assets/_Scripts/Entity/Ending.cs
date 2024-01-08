@@ -28,9 +28,8 @@ public class Ending : MonoBehaviour
     private void Update()
     {
         CheckClear();
-        if (_continue)
+        if (!_continue)
         {
-            IsClear = false;
             if (IsClear)
             {
                 GameManager.Instance.Victory();
