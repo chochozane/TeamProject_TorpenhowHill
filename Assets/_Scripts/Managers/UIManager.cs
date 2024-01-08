@@ -100,10 +100,11 @@ public class UIManager : MonoBehaviour
 
     }
 
-    public void OnPressedSaveBtn()
-    {
-        Debug.Log("세이브버튼 누름 !");
-    }
+    //public void OnPressedSaveBtn()
+    //{
+    //    Debug.Log("세이브버튼 누름 !");
+    //}
+
     public void OnPressedQuitBtn()
     {
         Debug.Log("종료버튼 누름 !");
