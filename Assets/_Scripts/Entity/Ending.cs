@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class Ending : MonoBehaviour
@@ -24,7 +25,11 @@ public class Ending : MonoBehaviour
     private void Update()
     {
         CheckClear();
-        Debug.Log(IsClear);
+        if (IsClear)
+        {
+            GameManager.Instance.Victory();
+        }
+        
     }
 }
 

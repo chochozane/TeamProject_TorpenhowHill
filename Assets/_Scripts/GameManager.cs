@@ -7,6 +7,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance; //ΩÃ±€≈Ê
 
+    private Ending ending;
+
     [Header("#Manager")]
     public UIManager uiManager;
     public SoundManager soundManager;
@@ -52,6 +54,7 @@ public class GameManager : MonoBehaviour
 
     public void ContinueButton()
     {
+        ending.IsClear = false;
         SoundManager.instance.uiSound.ClickAudio();
         VictoryImage.SetActive(false);
         UIManager.instance.ResumeTime();
