@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
@@ -9,6 +10,10 @@ public class GameManager : MonoBehaviour
     [Header("#Manager")]
     public UIManager uiManager;
     public SoundManager soundManager;
+
+    [Header("#Game")]
+    [SerializeField] private GameObject GmaeOverImage;
+    [SerializeField] private GameObject VictoryImage;
 
     private void Awake()
     {
@@ -26,9 +31,29 @@ public class GameManager : MonoBehaviour
         soundManager = GetComponentInChildren<SoundManager>();
     }
     
+    public void GameOver()
+    {
+        GmaeOverImage.SetActive(true);
+        UIManager.instance.PauseTime();
+    }
 
+    public void Victory()
+    {
+        VictoryImage.SetActive(true);
+        UIManager.instance.PauseTime();
+    }
 
+    public void StartSceneButton()
+    {
+        SceneManager.LoadScene("StartScene");
+        UIManager.instance.ResumeTime();
+    }
 
+    public void ContinueButton()
+    {
+        VictoryImage.SetActive(false);
+        UIManager.instance.ResumeTime();
+    }
 
 
 
