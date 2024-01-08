@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Monster : MonoBehaviour
 {
 
@@ -24,7 +25,8 @@ public class Monster : MonoBehaviour
     private bool canAttack = true;
     Animator anim;
     public GameObject itemPrefab;
-
+    public GameObject itemPrefabSpecial;
+    public float specialItemDropChance = 40; 
 
 
 
@@ -121,7 +123,10 @@ public class Monster : MonoBehaviour
 
     private void Die()
     {
+        // 기본 아이템 드랍
         DropItem();
+
+
 
         // 다음과 같이 플레이어에게 경험치를 주는 작업을 할 수 있습니다.
         if (player != null)
@@ -135,6 +140,7 @@ public class Monster : MonoBehaviour
 
         gameObject.SetActive(false);
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("PlayerWeapon"))
@@ -160,6 +166,14 @@ public class Monster : MonoBehaviour
 
         }
 
+        if (itemPrefabSpecial != null && UnityEngine.Random.Range(0, 100) < specialItemDropChance)
+        {
+            GameObject specialItem = Instantiate(itemPrefabSpecial, transform.position, Quaternion.identity);
+            // 특정 아이템에 대한 추가 설정이 필요하다면 여기에서 설정
+            Rigidbody2D specialItemRb = specialItem.GetComponent<Rigidbody2D>();
+        }
     }
 
 }
+
+

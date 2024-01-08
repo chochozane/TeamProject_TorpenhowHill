@@ -19,4 +19,5 @@ public class MeleeEnemy2 : Monster
 
         };
     }
+
 }
