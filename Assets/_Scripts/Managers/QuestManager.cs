@@ -3,18 +3,14 @@ using UnityEngine;
 
 public class QuestManager : MonoBehaviour
 {
-    public QuestData quest;
+    public QuestData[] quest;
 
-
-    private void QuestOngoing()
+    private void ClearCheck()
     {
-        quest.onGoing = true;
+        quest[0].isCompleted = true;
     }
 
-    private void QuestComplete()
-    {
-        quest.isCompleted = true;
-    }
+
 
 }
 

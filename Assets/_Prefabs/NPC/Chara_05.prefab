@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 5816331874301870925}
   - component: {fileID: 8560522788486250160}
   - component: {fileID: 5302140698713068545}
-  - component: {fileID: -7791941011401677934}
   m_Layer: 0
   m_Name: Chara_05
   m_TagString: NPC
@@ -48,7 +47,7 @@ Transform:
   - {fileID: 5811914361209287663}
   - {fileID: 5811921725184850219}
   m_Father: {fileID: 0}
-  m_RootOrder: -1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &8560522788486250160
 MonoBehaviour:
@@ -117,28 +116,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.1585588}
   m_EdgeRadius: 0
---- !u!114 &-7791941011401677934
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5817324119658495587}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78fb23ecc2586b04d86e55a512a6a2de, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  detectionRange: 2
-  player: {fileID: 0}
-  quest: {fileID: 0}
-  UI: {fileID: 0}
-  Dialogue: {fileID: 0}
-  building: {fileID: 0}
-  DialogueText: {fileID: 0}
-  title: {fileID: 0}
-  description: {fileID: 0}
-  required: {fileID: 0}
 --- !u!1 &5817335051924234743
 GameObject:
   m_ObjectHideFlags: 0

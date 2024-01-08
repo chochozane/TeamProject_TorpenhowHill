@@ -16,6 +16,8 @@ public class NPC : MonoBehaviour
     public GameObject UI;
     public GameObject Dialogue;
     public GameObject building;
+    public GameObject building_;
+    public GameObject nextNPC;
 
     public TextMeshProUGUI DialogueText;
     public TextMeshProUGUI title;
@@ -82,7 +84,7 @@ public class NPC : MonoBehaviour
         {
             if (IsDialouge)
             {
-                if (!quest.onGoing)
+                if (!quest.onGoing && !quest.isCompleted)
                 {
                     if (currentDialogueIndex < quest.Dialouge.Length)
                     {
@@ -228,6 +230,10 @@ public class NPC : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.F))
             {
                 Debug.Log("상호작용");
+                currentDialogueIndex = 0;
+                currentOnGoingIndex = 0;
+                currentCompleteIndex = 0;
+                currentCompletedIndex = 0;
                 StartDialogue();
             }
         }
@@ -259,7 +265,18 @@ public class NPC : MonoBehaviour
             }
         }
         quest.isCompleted = true;
-        building.SetActive(true);
+        if (building != null)
+        {
+            building.SetActive(true);
+        }
+        if (building_ != null)
+        {
+            building_.SetActive(true);
+        }
+        if (nextNPC != null)
+        {
+            nextNPC.SetActive(true);
+        }
     }
 
     #region Dialogue
