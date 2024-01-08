@@ -15,7 +15,7 @@ MonoBehaviour:
   questTitle: "\uC0C8 \uC9D1 \uB9C8\uB828"
   questDescription: "\uD150\uD2B8 \uC0DD\uD65C\uC740 \uC9C8\uB838\uB2E4. \uC81C\uB300\uB85C\uB41C
     \uC9D1 \uD558\uB098 \uB9CC\uB4E4\uC5B4\uBCF4\uC790!"
-  onGoing: 1
+  onGoing: 0
   isCompleted: 0
   requiredResource:
   - item: {fileID: 11400000, guid: 31878683628eb8d40b8ad97aaea437cd, type: 2}
