@@ -53,7 +53,7 @@ public class PlayerStatus : MonoBehaviour
         BaseDamage = 100; // 예시 값
         BaseAttackSpeed = 1; // 예시 값
 
-        UIManager.instance.UpdateHPUI(BaseHp);
+        //UIManager.instance.UpdateHPUI(BaseHp);
         UIManager.instance.UpdateMaxHPUI(BaseMaxHp);
         Debug.Log("BaseHp : " + BaseHp);
         Debug.Log("BaseMaxHp : " + BaseMaxHp);
