@@ -356,6 +356,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyAngryPig: {fileID: 4537559090194347716, guid: d9775abaf09473340a8d08473bc9f079, type: 3}
+  uiManager: {fileID: 0}
+  soundManager: {fileID: 0}
 --- !u!4 &32379064
 Transform:
   m_ObjectHideFlags: 0
@@ -1722,54 +1724,6 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 6769012109357641981, guid: d158dc1c6832be548885d3089489675f, type: 3}
   m_PrefabInstance: {fileID: 1419051321}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1653571328
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1653571329}
-  - component: {fileID: 1653571330}
-  m_Layer: 0
-  m_Name: EnemyManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1653571329
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1653571328}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1653571330
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1653571328}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8509cd8553469e546a5e237177eb89c6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  monsterPrefab1: {fileID: 4537559090194347716, guid: d9775abaf09473340a8d08473bc9f079, type: 3}
-  monsterPrefab2: {fileID: 8637832252768944807, guid: 36b815b5139d4e148b8be324a416a484, type: 3}
-  monsterPrefab3: {fileID: 6100808212712535808, guid: fc5329e04bac62a4aab59f0a03e15c78, type: 3}
-  numberOfMonsters: 5
 --- !u!1 &1833097596
 GameObject:
   m_ObjectHideFlags: 0
@@ -3265,10 +3219,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3ec0964f3ae4834287378a33474d2f9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerStats: {fileID: 0}
   inGameCanvas: {fileID: 1419051322}
   settingCanvas: {fileID: 772017047}
   hpSlider: {fileID: 727904290}
   xpSlider: {fileID: 727904289}
+  levelText: {fileID: 0}
 --- !u!4 &2127602087
 Transform:
   m_ObjectHideFlags: 0
