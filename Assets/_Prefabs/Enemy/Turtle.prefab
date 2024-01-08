@@ -51,9 +51,9 @@ MonoBehaviour:
   itemPrefabSpecial: {fileID: 4523950203273708054, guid: cfae58c0eb55e754f8decd41fccea5ee, type: 3}
   specialItemDropChance: 40
   player: {fileID: 7521052996029061369, guid: 36b89bc2d51626e45bb12ecd1fa9969c, type: 3}
-  detectionRange: 5
-  attackRange: 5
+  detectionRange: 10
   attackCooldown: 2
+  attackRange: 5
 --- !u!70 &3762491447986177315
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

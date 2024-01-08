@@ -33,12 +33,21 @@ public class ObjectPool : MonoBehaviour
         }
     }
 
+
     public GameObject GetObjectFromPool(int index)
     {
         if (bossPrefab != null && !bossSpawned)
         {
             bossSpawned = true;
             bossInstance = Instantiate(bossPrefab); // 보스 인스턴스를 생성하고 변수에 할당
+
+            // 보스가 풀에서 나갈 때 초기화
+            Monster bossMonster = bossInstance.GetComponent<Monster>();
+            if (bossMonster != null)
+            {
+                bossMonster.InitializeMonster();
+            }
+
             return bossInstance;
         }
 
@@ -49,6 +58,14 @@ public class ObjectPool : MonoBehaviour
             {
                 continue;
             }
+
+            // 몬스터가 풀에서 나갈 때 초기화
+            Monster monster = obj.GetComponent<Monster>();
+            if (monster != null)
+            {
+                monster.InitializeMonster();
+            }
+
             obj.SetActive(true);
             return obj;
         }

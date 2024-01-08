@@ -154,6 +154,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabs:
   - {fileID: 8637832252768944807, guid: 36b815b5139d4e148b8be324a416a484, type: 3}
+  bossPrefab: {fileID: 0}
   poolSize: 10
 --- !u!4 &14378908
 Transform:
@@ -238,6 +239,7 @@ MonoBehaviour:
   - {fileID: 4285815786489123104, guid: 0ffa0b8a23a118d4d8d1b5e73ffb4ea1, type: 3}
   - {fileID: 4912889715218697798, guid: 27eebef1c245ae24c99509fbe4e99de9, type: 3}
   - {fileID: 4102061538867641802, guid: 5fbb29e7a2125ac499bcf7b21eef776a, type: 3}
+  bossPrefab: {fileID: 0}
   poolSize: 1
 --- !u!4 &31641826
 Transform:
@@ -369,6 +371,7 @@ MonoBehaviour:
   - {fileID: 4285815786489123104, guid: 0ffa0b8a23a118d4d8d1b5e73ffb4ea1, type: 3}
   - {fileID: 4912889715218697798, guid: 27eebef1c245ae24c99509fbe4e99de9, type: 3}
   - {fileID: 4102061538867641802, guid: 5fbb29e7a2125ac499bcf7b21eef776a, type: 3}
+  bossPrefab: {fileID: 0}
   poolSize: 1
 --- !u!4 &139530623
 Transform:
@@ -478,6 +481,7 @@ MonoBehaviour:
   - {fileID: 4285815786489123104, guid: 0ffa0b8a23a118d4d8d1b5e73ffb4ea1, type: 3}
   - {fileID: 4912889715218697798, guid: 27eebef1c245ae24c99509fbe4e99de9, type: 3}
   - {fileID: 4102061538867641802, guid: 5fbb29e7a2125ac499bcf7b21eef776a, type: 3}
+  bossPrefab: {fileID: 0}
   poolSize: 1
 --- !u!4 &174843750
 Transform:
@@ -1220,6 +1224,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabs:
   - {fileID: 4537559090194347716, guid: d9775abaf09473340a8d08473bc9f079, type: 3}
+  bossPrefab: {fileID: 0}
   poolSize: 10
 --- !u!4 &591435671
 Transform:
@@ -1267,6 +1272,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabs:
   - {fileID: 8500175248767465736, guid: 4252a0fc042cae54a8521677c3e0d943, type: 3}
+  bossPrefab: {fileID: 8500175248767465736, guid: 4252a0fc042cae54a8521677c3e0d943, type: 3}
   poolSize: 1
 --- !u!4 &593716394
 Transform:
@@ -1476,6 +1482,7 @@ MonoBehaviour:
   - {fileID: 2432138329494474542, guid: 53328047114c1c040ace4f2f37570149, type: 3}
   - {fileID: 5609579840891418142, guid: 365bab4daabb1d24aa619f9f73bf0059, type: 3}
   - {fileID: 5184136355797409864, guid: 4cc5bfd0223d49e42bfbaea05513335f, type: 3}
+  bossPrefab: {fileID: 0}
   poolSize: 1
 --- !u!4 &688877858
 Transform:
@@ -1523,6 +1530,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabs:
   - {fileID: 6100808212712535808, guid: fc5329e04bac62a4aab59f0a03e15c78, type: 3}
+  bossPrefab: {fileID: 6100808212712535808, guid: fc5329e04bac62a4aab59f0a03e15c78, type: 3}
   poolSize: 10
 --- !u!4 &692923759
 Transform:
@@ -2154,6 +2162,7 @@ MonoBehaviour:
   - {fileID: 2432138329494474542, guid: 53328047114c1c040ace4f2f37570149, type: 3}
   - {fileID: 5609579840891418142, guid: 365bab4daabb1d24aa619f9f73bf0059, type: 3}
   - {fileID: 5184136355797409864, guid: 4cc5bfd0223d49e42bfbaea05513335f, type: 3}
+  bossPrefab: {fileID: 0}
   poolSize: 1
 --- !u!4 &895168179
 Transform:
@@ -2205,6 +2214,7 @@ MonoBehaviour:
   - {fileID: 2432138329494474542, guid: 53328047114c1c040ace4f2f37570149, type: 3}
   - {fileID: 5609579840891418142, guid: 365bab4daabb1d24aa619f9f73bf0059, type: 3}
   - {fileID: 5184136355797409864, guid: 4cc5bfd0223d49e42bfbaea05513335f, type: 3}
+  bossPrefab: {fileID: 0}
   poolSize: 1
 --- !u!4 &909336150
 Transform:
@@ -3927,6 +3937,7 @@ MonoBehaviour:
   - {fileID: 4285815786489123104, guid: 0ffa0b8a23a118d4d8d1b5e73ffb4ea1, type: 3}
   - {fileID: 4912889715218697798, guid: 27eebef1c245ae24c99509fbe4e99de9, type: 3}
   - {fileID: 4102061538867641802, guid: 5fbb29e7a2125ac499bcf7b21eef776a, type: 3}
+  bossPrefab: {fileID: 0}
   poolSize: 1
 --- !u!4 &1265794621
 Transform:
@@ -4061,6 +4072,7 @@ MonoBehaviour:
   - {fileID: 4285815786489123104, guid: 0ffa0b8a23a118d4d8d1b5e73ffb4ea1, type: 3}
   - {fileID: 4912889715218697798, guid: 27eebef1c245ae24c99509fbe4e99de9, type: 3}
   - {fileID: 4102061538867641802, guid: 5fbb29e7a2125ac499bcf7b21eef776a, type: 3}
+  bossPrefab: {fileID: 0}
   poolSize: 1
 --- !u!4 &1306512641
 Transform:
@@ -4629,6 +4641,7 @@ MonoBehaviour:
   - {fileID: 2432138329494474542, guid: 53328047114c1c040ace4f2f37570149, type: 3}
   - {fileID: 5609579840891418142, guid: 365bab4daabb1d24aa619f9f73bf0059, type: 3}
   - {fileID: 5184136355797409864, guid: 4cc5bfd0223d49e42bfbaea05513335f, type: 3}
+  bossPrefab: {fileID: 0}
   poolSize: 1
 --- !u!4 &1400696507
 Transform:
@@ -5199,6 +5212,7 @@ MonoBehaviour:
   - {fileID: 2432138329494474542, guid: 53328047114c1c040ace4f2f37570149, type: 3}
   - {fileID: 5609579840891418142, guid: 365bab4daabb1d24aa619f9f73bf0059, type: 3}
   - {fileID: 5184136355797409864, guid: 4cc5bfd0223d49e42bfbaea05513335f, type: 3}
+  bossPrefab: {fileID: 0}
   poolSize: 1
 --- !u!4 &1674412248
 Transform:

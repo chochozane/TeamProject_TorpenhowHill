@@ -18,7 +18,7 @@ public class Monster : MonoBehaviour
        
     }
 
-
+  
 
     protected EnemyStats enemyStats;
     private AudioSource audioSource;
@@ -39,6 +39,8 @@ public class Monster : MonoBehaviour
 
     public int attackRange = 5;    // 공격 범위
 
+
+
     protected virtual void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -57,8 +59,14 @@ public class Monster : MonoBehaviour
     protected virtual void SetMonsterStats()
     {
 
-    }
 
+    
+    }
+    public void InitializeMonster()
+    {
+        // 몬스터의 초기 상태를 설정합니다.
+        enemyStats.currentHP = enemyStats.maxHP;
+    }
 
     private void Update()
     {
