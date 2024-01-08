@@ -33,8 +33,14 @@ public class Ending : MonoBehaviour
             if (IsClear)
             {
                 GameManager.Instance.Victory();
+
+                foreach (QuestData questData in questDatas)
+                {
+                    questData.isCompleted = false;
+                }
             }
         }
+        
     }
 }
 

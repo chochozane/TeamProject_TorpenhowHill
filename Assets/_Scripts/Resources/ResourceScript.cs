@@ -46,6 +46,7 @@ public class ResourceScript : MonoBehaviour
     private void Die()
     {
         gameObject.SetActive(false);
+        ResourceHP = 2.0f;
         DropItem();
     }
 
