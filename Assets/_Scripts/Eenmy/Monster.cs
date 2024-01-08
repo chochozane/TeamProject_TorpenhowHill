@@ -121,8 +121,8 @@ public class Monster : MonoBehaviour
 
     private void Die()
     {
-
         DropItem();
+
         // 다음과 같이 플레이어에게 경험치를 주는 작업을 할 수 있습니다.
         if (player != null)
         {
@@ -133,8 +133,7 @@ public class Monster : MonoBehaviour
             }
         }
 
-        Destroy(gameObject);
-
+        gameObject.SetActive(false);
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
