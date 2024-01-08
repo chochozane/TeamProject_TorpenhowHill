@@ -216,10 +216,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70b193fa0fb79bc468874eaaf8bd447e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemPrefab: {fileID: 8756091738866029442, guid: 5e86487e0429c084aa9ed201cd0861a1, type: 3}
+  itemPrefab: {fileID: 3413365699998340280, guid: 3a839fcbdb2ce93458e94fbea1eb0b3a, type: 3}
+  itemPrefabSpecial: {fileID: 8932314434273197424, guid: 0bae05e072d6bb64a9388868f397cac4, type: 3}
+  specialItemDropChance: 40
   player: {fileID: 7521052996029061369, guid: 36b89bc2d51626e45bb12ecd1fa9969c, type: 3}
-  detectionRange: 15
-  attackRange: 3
+  detectionRange: 5
+  attackRange: 5
   attackCooldown: 2
 --- !u!82 &2041498066873149944
 AudioSource:
