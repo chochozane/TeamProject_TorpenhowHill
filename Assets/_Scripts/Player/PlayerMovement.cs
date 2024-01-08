@@ -11,6 +11,8 @@ public class PlayerMovement : MonoBehaviour
     private Animator animator;
     private PlayerStatus playerStatus;
     private Inventory inventory;
+    private AudioSource audioSource;
+
     private bool NPCTalkOn = false;
     private bool isRunning = false;
     private bool isCollidingWithNPC = false;
@@ -18,10 +20,13 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
+        
         PlayerWeapon Weapon = new PlayerWeapon();
         animator = GetComponentInChildren<Animator>();
-        //inventory 땡겨!
-        inventory = GetComponent<Inventory>();
+        inventory = GetComponent<Inventory>(); //inventory 땡겨!
+        audioSource = GetComponent<AudioSource>();
+        transPos = transform.position;
+        targetPos = transform.position;
     }
     private void Update()
     {
@@ -58,13 +63,13 @@ public class PlayerMovement : MonoBehaviour
     }
     private void MoveToTarget()
     {
-        transform.position = Vector3.MoveTowards(transform.position, targetPos, Time.deltaTime * speed); // Move to target location
-        if (Vector3.Distance(transform.position, targetPos) < 0.1f) // Check if close to target
+        transform.position = Vector3.MoveTowards(transform.position, targetPos, Time.deltaTime * speed);
+        if (Vector3.Distance(transform.position, targetPos) < 0.1f)
         {
             if (isRunning)
             {
                 isRunning = false;
-                animator.SetBool("Run", false); // Stop running
+                animator.SetBool("Run", false); // 플레이어 달리기 멈춤
             }
         }
     }
@@ -82,43 +87,12 @@ public class PlayerMovement : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.A))
         {
             canMove = false;
-            animator.SetTrigger("Attack");
-            //StartCoroutine(EnableMovementAfterDelay(playerStatus.AttackSpeed));
-            
+            animator.SetTrigger("Attack");          
+            audioSource.Play();
         }
     }
-    //private IEnumerator EnableMovementAfterDelay(float delay)
-    //{
-    //    Debug.Log(delay + "공격 딜레이 코루틴");
-    //    yield return new WaitForSeconds(delay);
-    //    EnableMovement();
-    //}
     public void EnableMovement()
     {
         canMove = true;
     }
-    //private void OnCollisionEnter2D(Collision2D collision)
-    //{
-    //    if (collision.gameObject.CompareTag("NPC"))
-    //    {
-    //        isCollidingWithNPC = true;
-    //    }
-    //}
-    //private void OnCollisionExit2D(Collision2D collision)
-    //{
-    //    if (collision.gameObject.CompareTag("NPC"))
-    //    {
-    //        isCollidingWithNPC = false;
-    //    }
-    //}
-    //private void InteractWithNPC()
-    //{
-    //    if (isCollidingWithNPC)
-    //    {
-    //        if (Input.GetKeyDown(KeyCode.F))
-    //        {
-    //            Debug.Log("상호작용");
-    //        }
-    //    }
-    //}
 }
