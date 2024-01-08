@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e72db90bca40bc4e9469c6335d19996, type: 3}
+  m_Name: Quest_Tent
+  m_EditorClassIdentifier: 
+  questTitle: "\uC0C8 \uC9D1 \uB9C8\uB828"
+  questDescription: "\uD150\uD2B8 \uC0DD\uD65C\uC740 \uC9C8\uB838\uB2E4. \uC81C\uB300\uB85C\uB41C
+    \uC9D1 \uD558\uB098 \uB9CC\uB4E4\uC5B4\uBCF4\uC790!"
+  onGoing: 0
+  isCompleted: 0
+  requiredResource:
+  - item: {fileID: 11400000, guid: 31878683628eb8d40b8ad97aaea437cd, type: 2}
+    resourceType: 1
+    requiredAmount: 10
+  - item: {fileID: 11400000, guid: a00828a024d770d429bdcf79a9cf02a3, type: 2}
+    resourceType: 0
+    requiredAmount: 5
+  Dialouge:
+  - "\uC548\uB77D\uD55C \uB098\uC758 \uD150\uD2B8\uB2E4."
+  - "\uD558\uC9C0\uB9CC \uC774\uC81C\uB294 \uC81C\uB300\uB85C \uB41C \uC9D1\uC774
+    \uD544\uC694\uD558\uB2E4"
+  - "\uC9D1\uC744 \uC9C0\uC5B4\uBCF4\uC790"
+  OnGoing:
+  - "\uC544\uC9C1 \uB098\uBB34 \uAC2F\uC218\uAC00 \uBD80\uC871\uD574 \uBCF4\uC778\uB2E4."
+  Complete:
+  - "\uC644\uC131\uD588\uB2E4!"
+  Completed: []
