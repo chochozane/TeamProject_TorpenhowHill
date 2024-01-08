@@ -623,6 +623,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bgm: {fileID: 8300000, guid: 25c3f9a5487829a46aacb7e7bf49da3a, type: 3}
+  clickAudio: {fileID: 8300000, guid: 0994c12e202f342459a4212e7287f7e8, type: 3}
+  toggleAudio: {fileID: 8300000, guid: 6e8772b49f34d402a90016ed445d8a2f, type: 3}
 --- !u!4 &1066976323
 Transform:
   m_ObjectHideFlags: 0

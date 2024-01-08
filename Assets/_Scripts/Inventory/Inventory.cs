@@ -72,6 +72,7 @@ public class Inventory : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.E))
         {
             Toggle();
+            UISound.Instance.ToggleAudio();
         }
     }
 
@@ -201,6 +202,7 @@ public class Inventory : MonoBehaviour
                         Debug.Log($"selectedItem.item.consumables[i].value : {selectedItem.item.consumables[i].value}");
                         playerStatus.ModifyHp(selectedItem.item.consumables[i].value);
                         Debug.Log($"playerStatus. + selectedItem.item.consumables[i].value : {playerStatus.Hp}");
+                        UISound.Instance.ClickAudio();
                         break;
                     case ConsumableType.Hunger:
                         break;
