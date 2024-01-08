@@ -8,6 +8,9 @@ public enum ResourceType
     Stone,
     Wood,
     Grass,
+    Apple,
+    Skul,
+
 }
 
 [Serializable]

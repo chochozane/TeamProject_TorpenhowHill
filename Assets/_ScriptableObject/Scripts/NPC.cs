@@ -249,20 +249,9 @@ public class NPC : MonoBehaviour
         foreach (RequiredResource requiredResource in quest.requiredResource)
         {
             ItemData item = requiredResource.item;
-            ResourceType resourceType = requiredResource.resourceType;
             int requiredAmount = requiredResource.requiredAmount;
 
             inventory.RemoveItem(item, requiredAmount);
-
-            switch (resourceType)
-            {
-                case ResourceType.Wood:
-                    break;
-                case ResourceType.Stone:
-                    break;
-                case ResourceType.Grass:
-                    break;
-            }
         }
         quest.isCompleted = true;
         if (building != null)
@@ -299,22 +288,11 @@ public class NPC : MonoBehaviour
         {
             ItemData item = requiredResource.item;
             int requiredAmount = requiredResource.requiredAmount;
-            ResourceType resourceType = requiredResource.resourceType;
 
             bool hasItem = inventory.CheckQuestCompletion(item, requiredAmount);
             if (!hasItem)
             {
                 return false;
-            }
-
-            switch (resourceType)
-            {
-                case ResourceType.Wood:
-                    break;
-                case ResourceType.Stone:
-                    break;
-                case ResourceType.Grass:
-                    break;
             }
         }
 
