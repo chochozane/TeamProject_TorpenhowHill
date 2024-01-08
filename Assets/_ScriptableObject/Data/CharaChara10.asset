@@ -21,12 +21,9 @@ MonoBehaviour:
   onGoing: 0
   isCompleted: 0
   requiredResource:
-  - item: {fileID: 0}
-    resourceType: 1
-    requiredAmount: 123
-  - item: {fileID: 0}
-    resourceType: 0
-    requiredAmount: 123
+  - item: {fileID: 11400000, guid: b7e2d09506f6e464ba7dac8e2310dc75, type: 2}
+    resourceType: 4
+    requiredAmount: 10
   Dialouge:
   - "\uC548\uB155\uD558\uC2ED\uB2C8\uAE4C."
   - "\uB098\uB294 \uC11C\uCABD\uC5D0\uC11C \uC628 \uB4F1\uBD88\uC758 \uC5EC\uC2E0\uB2D8\uC758 

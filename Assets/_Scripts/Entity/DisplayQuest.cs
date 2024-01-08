@@ -16,13 +16,13 @@ public class DisplayQuest : MonoBehaviour
 
     private void UpdateUI()
     {
-        string ongoingQuests = "진행중인 퀘스트 :\n";
+        string ongoingQuests= "";
 
         foreach (QuestData questData in questDatas)
         {
             if (questData.onGoing)
             {
-                ongoingQuests += "- " + questData.questTitle + "\n";
+                ongoingQuests = "진행중인 퀘스트 :\n" + "- " + questData.questTitle;
             }
         }
 

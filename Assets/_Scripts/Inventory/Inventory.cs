@@ -229,6 +229,7 @@ public class Inventory : MonoBehaviour
 
     public void DropButton()
     {
+        SoundManager.instance.uiSound.ClickAudio();
         ThrowItem(selectedItem.item);
         RemoveSelectedItem();
         UpdateInventoryUI();

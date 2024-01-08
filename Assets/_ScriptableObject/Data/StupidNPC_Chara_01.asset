@@ -22,6 +22,12 @@ MonoBehaviour:
   requiredResource:
   - item: {fileID: 11400000, guid: 31878683628eb8d40b8ad97aaea437cd, type: 2}
     resourceType: 1
+    requiredAmount: 20
+  - item: {fileID: 11400000, guid: a00828a024d770d429bdcf79a9cf02a3, type: 2}
+    resourceType: 1
+    requiredAmount: 5
+  - item: {fileID: 11400000, guid: 377e40b814617654a9b2a6b67b949140, type: 2}
+    resourceType: 6
     requiredAmount: 1
   Dialouge:
   - "\uC6B0\uD5E4\uD5E4\uD5E4\uD5E4"

@@ -5,12 +5,14 @@ using UnityEngine;
 
 public enum ResourceType
 {
-    Stone,
+    Rock,
     Wood,
     Grass,
     Apple,
-    Skul,
-
+    Skull,
+    Envolop,
+    Diamond,
+    Beer
 }
 
 [Serializable]
