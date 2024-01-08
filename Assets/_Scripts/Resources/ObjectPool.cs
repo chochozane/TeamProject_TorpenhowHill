@@ -34,6 +34,11 @@ public class ObjectPool : MonoBehaviour
         List<GameObject> pool = objectPools[index];
         foreach (GameObject obj in pool)
         {
+            if (obj == null)
+            {
+                // 파괴된 객체를 처리 (예: 재생성하거나 풀에서 제거)
+                continue; // 현재는 건너뛰기로 함
+            }
             if (!obj.activeInHierarchy)
             {
                 obj.SetActive(true);
