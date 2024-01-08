@@ -68,12 +68,14 @@ public class UIManager : MonoBehaviour
 
     public void PauseTime()
     {
+        SoundManager.instance.uiSound.ToggleAudio();
         isGamePaused = true;
         //Time.timeScale = 0.0f;
     }
 
     public void ResumeTime()
     {
+        SoundManager.instance.uiSound.ClickAudio();
         isGamePaused = false;
         //Time.timeScale = 1.0f;
     }
