@@ -17,17 +17,17 @@ MonoBehaviour:
     \uC218\uC81C\uC790\uB77C\uACE0 \uD55C\uB2E4. \uACFC\uC5F0 \uBBFF\uC744\uB9CC\uD55C
     \uC2E4\uB825\uC744 \uAC00\uC84C\uC744\uAE4C"
   onGoing: 1
-  isCompleted: 1
+  isCompleted: 0
   requiredResource:
   - item: {fileID: 11400000, guid: 31878683628eb8d40b8ad97aaea437cd, type: 2}
     resourceType: 1
     requiredAmount: 10
-  - item: {fileID: 11400000, guid: a8039b1045ab829478dbe06c94e2b637, type: 2}
-    resourceType: 7
-    requiredAmount: 5
   - item: {fileID: 11400000, guid: a00828a024d770d429bdcf79a9cf02a3, type: 2}
     resourceType: 0
     requiredAmount: 10
+  - item: {fileID: 11400000, guid: a8039b1045ab829478dbe06c94e2b637, type: 2}
+    resourceType: 7
+    requiredAmount: 1
   Dialouge:
   - "\uC548\uB155\uD558\uC138\uC694."
   - "\uC606 \uB9C8\uC744 \uC720\uBA85\uD55C \uB300\uC7A5\uC7A5\uC774\uC758 \uC218\uC81C\uC790\uC785\uB2C8\uB2E4."
