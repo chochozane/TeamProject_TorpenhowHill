@@ -98,7 +98,7 @@ GameObject:
   - component: {fileID: 7773727879097102085}
   m_Layer: 0
   m_Name: Item_Diamond
-  m_TagString: Enemy
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -193,4 +193,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 969b7b528765dfb449a9285f6f220caa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: {fileID: 11400000, guid: a00828a024d770d429bdcf79a9cf02a3, type: 2}
+  item: {fileID: 11400000, guid: 377e40b814617654a9b2a6b67b949140, type: 2}
