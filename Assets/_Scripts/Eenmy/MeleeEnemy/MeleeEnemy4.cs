@@ -15,7 +15,7 @@ public class MeleeEnemy4 : Monster
             Xp = 100000,
             moveSpeed = 2f,
             damageAmount = 100000,
-            attackRange = 30
+            attackRange = 8
 
         };
     }

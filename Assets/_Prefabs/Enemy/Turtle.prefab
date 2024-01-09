@@ -131,7 +131,7 @@ MonoBehaviour:
   itemPrefabSpecial: {fileID: 8932314434273197424, guid: 0bae05e072d6bb64a9388868f397cac4, type: 3}
   specialItemDropChance: 20
   player: {fileID: 7521052996029061369, guid: 36b89bc2d51626e45bb12ecd1fa9969c, type: 3}
-  detectionRange: 50
+  detectionRange: 8
   attackCooldown: 2
 --- !u!1 &9157362925566838097
 GameObject:
