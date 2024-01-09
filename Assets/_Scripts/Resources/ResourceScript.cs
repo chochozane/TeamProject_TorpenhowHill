@@ -6,6 +6,7 @@ using UnityEngine.UIElements.Experimental;
 public class ResourceScript : MonoBehaviour
 {
     public GameObject itemprefab;
+    public GameObject randomItemprefab;
 
     private bool isHit = false;
 
@@ -48,6 +49,7 @@ public class ResourceScript : MonoBehaviour
         gameObject.SetActive(false);
         ResourceHP = 2.0f;
         DropItem();
+        RandomDropItem();
     }
 
     private IEnumerator ResetColorAfterDelay(float delay)
@@ -65,5 +67,14 @@ public class ResourceScript : MonoBehaviour
     private void DropItem()
     {
         Instantiate(itemprefab, transform.position, Quaternion.identity);
+    }
+
+    private void RandomDropItem()
+    {
+        int RandomDrop = Random.Range(0, 3);
+        if (RandomDrop == 0)
+        {
+            Instantiate(randomItemprefab, transform.position, Quaternion.identity);
+        }
     }
 }
