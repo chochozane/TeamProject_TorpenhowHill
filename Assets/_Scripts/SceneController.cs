@@ -10,6 +10,7 @@ public class SceneController : MonoBehaviour
     {
         SoundManager.instance.uiSound.ClickAudio();
         SceneManager.LoadScene("MainScene");
+        ResetQuest();
     }
 
      private void ResetQuest()
