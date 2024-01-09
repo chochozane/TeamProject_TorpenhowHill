@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7644572815354379542}
-  - component: {fileID: 3957896880875402827}
-  - component: {fileID: 3762491447986177315}
+  - component: {fileID: 7784140726743806288}
   - component: {fileID: 6220691916253477310}
-  m_Layer: 0
+  - component: {fileID: 3767872287848379212}
+  m_Layer: 8
   m_Name: Turtle
   m_TagString: Enemy
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8500175248767465736}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 25, y: 0, z: 0}
+  m_LocalPosition: {x: 3, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -35,27 +35,8 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &3957896880875402827
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8500175248767465736}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 357ce83c0b366284184c2c836bacecae, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemPrefab: {fileID: 4523950203273708054, guid: cfae58c0eb55e754f8decd41fccea5ee, type: 3}
-  itemPrefabSpecial: {fileID: 4523950203273708054, guid: cfae58c0eb55e754f8decd41fccea5ee, type: 3}
-  specialItemDropChance: 40
-  player: {fileID: 7521052996029061369, guid: 36b89bc2d51626e45bb12ecd1fa9969c, type: 3}
-  detectionRange: 10
-  attackCooldown: 2
-  attackRange: 5
---- !u!70 &3762491447986177315
-CapsuleCollider2D:
+--- !u!60 &7784140726743806288
+PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -86,9 +67,27 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.7}
-  m_Size: {x: 4.4, y: 3.6}
-  m_Direction: 1
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: -0.12, y: 1.24}
+      - {x: -1.3, y: 0.73}
+      - {x: -1.98, y: -0.12}
+      - {x: -2.3, y: -0.66}
+      - {x: -2.19, y: -1.92}
+      - {x: 2.38, y: -1.95}
+      - {x: 2.3, y: -0.24}
+      - {x: 1.36, y: 0.73}
+  m_UseDelaunayMesh: 0
 --- !u!50 &6220691916253477310
 Rigidbody2D:
   serializedVersion: 4
@@ -116,6 +115,24 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &3767872287848379212
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8500175248767465736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 78858d2a0aa893d4988283608f91783d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemPrefab: {fileID: 4523950203273708054, guid: cfae58c0eb55e754f8decd41fccea5ee, type: 3}
+  itemPrefabSpecial: {fileID: 8932314434273197424, guid: 0bae05e072d6bb64a9388868f397cac4, type: 3}
+  specialItemDropChance: 20
+  player: {fileID: 7521052996029061369, guid: 36b89bc2d51626e45bb12ecd1fa9969c, type: 3}
+  detectionRange: 50
+  attackCooldown: 2
 --- !u!1 &9157362925566838097
 GameObject:
   m_ObjectHideFlags: 0
@@ -127,8 +144,8 @@ GameObject:
   - component: {fileID: 4818939317690836891}
   - component: {fileID: 5442170906225766509}
   - component: {fileID: 6951002978968957837}
-  m_Layer: 0
-  m_Name: Idle
+  m_Layer: 8
+  m_Name: Turtle
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -143,7 +160,7 @@ Transform:
   m_GameObject: {fileID: 9157362925566838097}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 15, y: 18.576, z: 1}
+  m_LocalScale: {x: 15, y: 15, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 7644572815354379542}
