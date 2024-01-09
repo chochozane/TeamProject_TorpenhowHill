@@ -5783,6 +5783,10 @@ PrefabInstance:
       value: OngoingQuest
       objectReference: {fileID: 0}
     - target: {fileID: 2694685909541681933, guid: 5e9acfceebc435a42a89f7fb8b81b558, type: 3}
+      propertyPath: m_fontSize
+      value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 2694685909541681933, guid: 5e9acfceebc435a42a89f7fb8b81b558, type: 3}
       propertyPath: m_fontColor.b
       value: 1
       objectReference: {fileID: 0}
@@ -5795,9 +5799,57 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2694685909541681933, guid: 5e9acfceebc435a42a89f7fb8b81b558, type: 3}
+      propertyPath: m_fontSizeBase
+      value: 32
+      objectReference: {fileID: 0}
+    - target: {fileID: 2694685909541681933, guid: 5e9acfceebc435a42a89f7fb8b81b558, type: 3}
       propertyPath: m_fontColor32.rgba
       value: 4294967295
       objectReference: {fileID: 0}
+    - target: {fileID: 7549106723640621126, guid: 5e9acfceebc435a42a89f7fb8b81b558, type: 3}
+      propertyPath: questDatas.Array.size
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7549106723640621126, guid: 5e9acfceebc435a42a89f7fb8b81b558, type: 3}
+      propertyPath: questDatas.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 782528db9ce15854eba3581a535aa94d, type: 2}
+    - target: {fileID: 7549106723640621126, guid: 5e9acfceebc435a42a89f7fb8b81b558, type: 3}
+      propertyPath: questDatas.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: b6af767333ce0044480da1e4e28a4882, type: 2}
+    - target: {fileID: 7549106723640621126, guid: 5e9acfceebc435a42a89f7fb8b81b558, type: 3}
+      propertyPath: questDatas.Array.data[2]
+      value: 
+      objectReference: {fileID: 11400000, guid: 258e5239369b9a747b52e26c084369fc, type: 2}
+    - target: {fileID: 7549106723640621126, guid: 5e9acfceebc435a42a89f7fb8b81b558, type: 3}
+      propertyPath: questDatas.Array.data[3]
+      value: 
+      objectReference: {fileID: 11400000, guid: 512546d496873684caf7f0526855db20, type: 2}
+    - target: {fileID: 7549106723640621126, guid: 5e9acfceebc435a42a89f7fb8b81b558, type: 3}
+      propertyPath: questDatas.Array.data[4]
+      value: 
+      objectReference: {fileID: 11400000, guid: 3c1e4969eff86ee48b1d40592628d478, type: 2}
+    - target: {fileID: 7549106723640621126, guid: 5e9acfceebc435a42a89f7fb8b81b558, type: 3}
+      propertyPath: questDatas.Array.data[5]
+      value: 
+      objectReference: {fileID: 11400000, guid: 558b8926543bd8e489b62aa1c6a5147f, type: 2}
+    - target: {fileID: 7549106723640621126, guid: 5e9acfceebc435a42a89f7fb8b81b558, type: 3}
+      propertyPath: questDatas.Array.data[6]
+      value: 
+      objectReference: {fileID: 11400000, guid: 54179d9becde44c40bfa4001658ec680, type: 2}
+    - target: {fileID: 7549106723640621126, guid: 5e9acfceebc435a42a89f7fb8b81b558, type: 3}
+      propertyPath: questDatas.Array.data[7]
+      value: 
+      objectReference: {fileID: 11400000, guid: 3c9eee02d55b02545b788bdebbbfb961, type: 2}
+    - target: {fileID: 7549106723640621126, guid: 5e9acfceebc435a42a89f7fb8b81b558, type: 3}
+      propertyPath: questDatas.Array.data[8]
+      value: 
+      objectReference: {fileID: 11400000, guid: 38ce494f906167a439bb13caf26ff9b8, type: 2}
+    - target: {fileID: 7549106723640621126, guid: 5e9acfceebc435a42a89f7fb8b81b558, type: 3}
+      propertyPath: questDatas.Array.data[9]
+      value: 
+      objectReference: {fileID: 11400000, guid: 955170c206445b649b80a2563d697c1e, type: 2}
     - target: {fileID: 8251708685211382672, guid: 5e9acfceebc435a42a89f7fb8b81b558, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5
@@ -5828,11 +5880,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8251708685211382672, guid: 5e9acfceebc435a42a89f7fb8b81b558, type: 3}
       propertyPath: m_SizeDelta.x
-      value: 300
+      value: 350
       objectReference: {fileID: 0}
     - target: {fileID: 8251708685211382672, guid: 5e9acfceebc435a42a89f7fb8b81b558, type: 3}
       propertyPath: m_SizeDelta.y
-      value: 200
+      value: 250
       objectReference: {fileID: 0}
     - target: {fileID: 8251708685211382672, guid: 5e9acfceebc435a42a89f7fb8b81b558, type: 3}
       propertyPath: m_LocalPosition.x
@@ -5864,11 +5916,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8251708685211382672, guid: 5e9acfceebc435a42a89f7fb8b81b558, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 170
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 8251708685211382672, guid: 5e9acfceebc435a42a89f7fb8b81b558, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -120
+      value: -150
       objectReference: {fileID: 0}
     - target: {fileID: 8251708685211382672, guid: 5e9acfceebc435a42a89f7fb8b81b558, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
