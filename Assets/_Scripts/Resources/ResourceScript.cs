@@ -6,7 +6,6 @@ using UnityEngine.UIElements.Experimental;
 public class ResourceScript : MonoBehaviour
 {
     public GameObject itemprefab;
-
     private bool isHit = false;
 
     private Color originalColor;
@@ -14,12 +13,18 @@ public class ResourceScript : MonoBehaviour
 
 
     public float ResourceHP = 2.0f;
-
+    private void OnEnable()
+    {
+        if (ResourceHP <= 0)
+        {
+            ResourceHP = 2.0f;
+        }
+    }
     private void Start()
     {
         originalColor = GetComponent<Renderer>().material.color;
     }
-
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("PlayerWeapon") && !isHit)
