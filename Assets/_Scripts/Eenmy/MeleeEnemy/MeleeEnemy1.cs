@@ -22,7 +22,7 @@ public class MeleeEnemy1 : Monster
             Xp = 100,
             moveSpeed = 1.5f,
             damageAmount = 50,
-            
+            attackRange =5
 
         };
     }

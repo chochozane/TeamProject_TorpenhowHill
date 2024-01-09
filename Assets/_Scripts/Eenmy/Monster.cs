@@ -15,10 +15,10 @@ public class Monster : MonoBehaviour
         public float moveSpeed;
         public int damageAmount;
         public int currentHP;
-       
+        public int attackRange ;
     }
 
-
+  
 
     protected EnemyStats enemyStats;
     private AudioSource audioSource;
@@ -37,7 +37,9 @@ public class Monster : MonoBehaviour
 
     public int attackCooldown = 2; // 공격 쿨다운
 
-    public int attackRange = 5;    // 공격 범위
+   // 공격 범위
+
+
 
     protected virtual void Start()
     {
@@ -57,8 +59,14 @@ public class Monster : MonoBehaviour
     protected virtual void SetMonsterStats()
     {
 
-    }
+        
 
+    }
+    public void InitializeMonster()
+    {
+        // 몬스터의 초기 상태를 설정합니다.
+        enemyStats.currentHP = enemyStats.maxHP;
+    }
 
     private void Update()
     {
@@ -82,7 +90,7 @@ public class Monster : MonoBehaviour
                     transform.localScale = new Vector3(1, 1, 1);
                 }
 
-                if (distanceToPlayer <= attackRange && canAttack)
+                if (distanceToPlayer <= enemyStats.attackRange && canAttack)
                 {
                     Attack();
                     StartCoroutine(AttackCooldown());

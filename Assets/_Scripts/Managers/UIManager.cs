@@ -18,11 +18,7 @@ public class UIManager : MonoBehaviour
     // Text
     [SerializeField] private TMP_Text levelText;
 
-    private float maxHp;
-    private float maxXp;
 
-
-    //public bool isPaused { get; private set; } // 읽기전용, 
     public static bool isGamePaused { get; private set; } // 다른 스크립트에서 쉽게 접근이 가능하도록 메모리에 할당 - static, 읽기전용
 
     // 싱글톤
@@ -39,19 +35,6 @@ public class UIManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-    }
-
-    private void Start()
-    {
-        //maxHp = playerStats.MaxHp;
-        //hpSlider.maxValue = maxHp;
-        //hpSlider.value = maxHp;
-        //Debug.Log("UIManager에서 maxHP " + maxHp);
-
-        //Debug.Log("maxXP:" + maxXp);
-        //maxXp = playerStats.MaxXp;
-        //xpSlider.maxValue = maxXp;
-        //xpSlider.value = 0;
     }
 
     private void Update()
@@ -96,6 +79,7 @@ public class UIManager : MonoBehaviour
 
     public void OnPressedResumeBtn()
     {
+        SoundManager.instance.uiSound.ClickAudio();
         ResumeTime();
         inGameCanvas.SetActive(true);
         settingCanvas.SetActive(false);
@@ -109,11 +93,11 @@ public class UIManager : MonoBehaviour
 
     public void OnPressedQuitBtn()
     {
+        SoundManager.instance.uiSound.ClickAudio();
         Debug.Log("종료버튼 누름 !");
         Application.Quit();
     }
 
-    // todo Player info UI 연결작업
     public void UpdateMaxHPUI(float currentMaxHP)
     {
         hpSlider.maxValue = currentMaxHP;

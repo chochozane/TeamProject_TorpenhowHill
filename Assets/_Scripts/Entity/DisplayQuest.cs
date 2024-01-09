@@ -9,6 +9,8 @@ public class DisplayQuest : MonoBehaviour
 
     public TextMeshProUGUI OngoingQuest;
 
+    public RequiredResource requiredResource;
+
     private void Update()
     {
         UpdateUI();
@@ -16,16 +18,40 @@ public class DisplayQuest : MonoBehaviour
 
     private void UpdateUI()
     {
-        string ongoingQuests= "";
-
-        foreach (QuestData questData in questDatas)
+        string text = "진행중인 퀘스트 :\n";
+        string ongoingQuests = "";
+        string requireQuest = "";
+        for (int i = 0; i < questDatas.Length; i++)
         {
-            if (questData.onGoing)
+            if (questDatas[i] != null)
             {
-                ongoingQuests = "진행중인 퀘스트 :\n" + "- " + questData.questTitle;
-            }
-        }
+                if (questDatas[i].onGoing == true && questDatas[i].isCompleted == false)
+                {
+                    ongoingQuests = questDatas[i].questTitle;
+                    foreach (RequiredResource resource in questDatas[i].requiredResource)
+                    {
+                        requireQuest += ($"{resource.resourceType}: {resource.requiredAmount}\n");
+                    }
 
-        OngoingQuest.text = ongoingQuests;
+                }
+                else if (questDatas[i].isCompleted == true)
+                {
+                    ongoingQuests = "";
+                    requireQuest = "";
+                }
+            }
+
+
+            
+        }
+        //foreach (QuestData questData in questDatas)
+        //{
+        //    if (questData.onGoing)
+        //    {
+                
+        //    }
+        //}
+
+        OngoingQuest.text = text + ongoingQuests+ "\n" + requireQuest;
     }
 }

@@ -4,9 +4,13 @@ using System.Collections.Generic;
 public class ObjectPool : MonoBehaviour
 {
     public List<GameObject> prefabs;
+    public GameObject bossPrefab; // 보스 프리팹에 대한 변수 추가
     [Range(1, 100)] public int poolSize;
 
     private List<List<GameObject>> objectPools = new List<List<GameObject>>();
+    private GameObject bossInstance; // 보스 인스턴스에 대한 변수 추가
+
+    private bool bossSpawned = false;
 
     void Start()
     {
@@ -29,21 +33,41 @@ public class ObjectPool : MonoBehaviour
         }
     }
 
+
     public GameObject GetObjectFromPool(int index)
     {
+        if (bossPrefab != null && !bossSpawned)
+        {
+            bossSpawned = true;
+            bossInstance = Instantiate(bossPrefab); // 보스 인스턴스를 생성하고 변수에 할당
+
+            // 보스가 풀에서 나갈 때 초기화
+            Monster bossMonster = bossInstance.GetComponent<Monster>();
+            if (bossMonster != null)
+            {
+                bossMonster.InitializeMonster();
+            }
+
+            return bossInstance;
+        }
+
         List<GameObject> pool = objectPools[index];
         foreach (GameObject obj in pool)
         {
-            if (obj == null)
+            if (obj == null || obj.activeInHierarchy)
             {
-                // 파괴된 객체를 처리 (예: 재생성하거나 풀에서 제거)
-                continue; // 현재는 건너뛰기로 함
+                continue;
             }
-            if (!obj.activeInHierarchy)
+
+            // 몬스터가 풀에서 나갈 때 초기화
+            Monster monster = obj.GetComponent<Monster>();
+            if (monster != null)
             {
-                obj.SetActive(true);
-                return obj;
+                monster.InitializeMonster();
             }
+
+            obj.SetActive(true);
+            return obj;
         }
         return null;
     }

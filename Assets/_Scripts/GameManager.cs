@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance; //ΩÃ±€≈Ê
 
-    private Ending ending;
+    public Ending ending;
 
     [Header("#Manager")]
     public UIManager uiManager;
@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
 
         uiManager = GetComponentInChildren<UIManager>();
         soundManager = GetComponentInChildren<SoundManager>();
+        ending = GetComponentInChildren<Ending>();
     }
     
     public void GameOver()

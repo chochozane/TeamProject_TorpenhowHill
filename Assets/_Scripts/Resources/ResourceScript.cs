@@ -6,6 +6,8 @@ using UnityEngine.UIElements.Experimental;
 public class ResourceScript : MonoBehaviour
 {
     public GameObject itemprefab;
+    public GameObject randomItemprefab;
+
     private bool isHit = false;
 
     private Color originalColor;
@@ -13,18 +15,12 @@ public class ResourceScript : MonoBehaviour
 
 
     public float ResourceHP = 2.0f;
-    private void OnEnable()
-    {
-        if (ResourceHP <= 0)
-        {
-            ResourceHP = 2.0f;
-        }
-    }
+
     private void Start()
     {
         originalColor = GetComponent<Renderer>().material.color;
     }
-    
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.CompareTag("PlayerWeapon") && !isHit)
@@ -51,7 +47,9 @@ public class ResourceScript : MonoBehaviour
     private void Die()
     {
         gameObject.SetActive(false);
+        ResourceHP = 2.0f;
         DropItem();
+        RandomDropItem();
     }
 
     private IEnumerator ResetColorAfterDelay(float delay)
@@ -69,5 +67,14 @@ public class ResourceScript : MonoBehaviour
     private void DropItem()
     {
         Instantiate(itemprefab, transform.position, Quaternion.identity);
+    }
+
+    private void RandomDropItem()
+    {
+        int RandomDrop = Random.Range(0, 3);
+        if (RandomDrop == 0)
+        {
+            Instantiate(randomItemprefab, transform.position, Quaternion.identity);
+        }
     }
 }
