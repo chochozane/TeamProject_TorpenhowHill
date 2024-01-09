@@ -159,7 +159,10 @@ public class PlayerStatus : MonoBehaviour
             {
                 HitDamage(collision.gameObject.GetComponent<MeleeEnemy3>().Attack());
             }
-
+            if (collision.gameObject.GetComponent <MeleeEnemy4>())
+            {
+                HitDamage(collision.gameObject.GetComponent < MeleeEnemy4>().Attack());
+            }
             //StartCoroutine(NoneHit());
         }        
     }

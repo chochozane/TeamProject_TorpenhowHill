@@ -174,9 +174,9 @@ CircleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: -0.05}
+  m_Offset: {x: 0, y: -0.2}
   serializedVersion: 2
-  m_Radius: 0.12
+  m_Radius: 0.5
 --- !u!50 &4213611473864630520
 Rigidbody2D:
   serializedVersion: 4
@@ -221,7 +221,6 @@ MonoBehaviour:
   specialItemDropChance: 40
   player: {fileID: 7521052996029061369, guid: 36b89bc2d51626e45bb12ecd1fa9969c, type: 3}
   detectionRange: 5
-  attackRange: 5
   attackCooldown: 2
 --- !u!82 &2041498066873149944
 AudioSource:
