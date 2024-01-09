@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9e72db90bca40bc4e9469c6335d19996, type: 3}
-  m_Name: Quest_Chara_21
+  m_Name: 6Quest_Chara_21
   m_EditorClassIdentifier: 
   questTitle: "\uD574\uC801\uD55C\uD14C\uC11C \uB3C4\uB9DD\uCE5C \uC120\uC6D0"
   questDescription: "\uD574\uC801\uD55C\uD14C\uC11C \uB3C4\uB9DD\uCE5C \uC120\uC6D0\uC774
@@ -26,7 +26,7 @@ MonoBehaviour:
     requiredAmount: 5
   - item: {fileID: 11400000, guid: a8039b1045ab829478dbe06c94e2b637, type: 2}
     resourceType: 7
-    requiredAmount: 5
+    requiredAmount: 1
   Dialouge:
   - "\uB3C4\uC640\uC8FC\uC138\uC694!"
   - "\uD574\uC801\uD55C\uD14C\uC11C \uB3C4\uB9DD\uCCD0\uC11C \uC5EC\uAE30\uAE4C\uC9C0

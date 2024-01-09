@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9e72db90bca40bc4e9469c6335d19996, type: 3}
-  m_Name: Quest_Chara_20
+  m_Name: 9Quest_Chara_20
   m_EditorClassIdentifier: 
   questTitle: "\uC804\uC9C1 \uD574\uC801\uC774\uB77C\uACE0?"
   questDescription: "\uC774\uC820 \uD574\uC801\uAE4C\uC9C0 \uCC3E\uC544\uC640\uC11C

@@ -4,7 +4,13 @@ using UnityEngine;
 
 public class MeleeEnemy1 : Monster
 {
-
+    private void OnEnable()
+    {
+        if (enemyStats.currentHP <= 0)
+        {
+            enemyStats.currentHP = 300;
+        }
+    }
     protected override void SetMonsterStats()
     {
         base.SetMonsterStats();

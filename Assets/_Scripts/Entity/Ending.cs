@@ -34,13 +34,15 @@ public class Ending : MonoBehaviour
             {
                 GameManager.Instance.Victory();
 
-                foreach (QuestData questData in questDatas)
+                for (int i = 0; i < questDatas.Length; i++)
                 {
-                    questData.isCompleted = false;
+                    questDatas[i].onGoing = false;
+                    questDatas[i].isCompleted = false;
                 }
             }
         }
         
     }
+
 }
 

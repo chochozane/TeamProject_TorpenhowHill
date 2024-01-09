@@ -3,7 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MeleeEnemy2 : Monster
-{   
+{
+    private void OnEnable()
+    {
+        if (enemyStats.currentHP <= 0)
+        {
+            enemyStats.currentHP = 600;
+        }
+    }
 
     protected override void SetMonsterStats()
     {
